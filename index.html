@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pomodoro Timer</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Pomodoro Timer</h1>
+
+        <div class="counter">
+            <h2 class="counter__text" id="motivation-text"></h2>
+            <p class="counter__time" id="time">25 : 00</p>
+            <p class="counter__line">&nbsp;</p>
+
+            <div class="control-btns">
+                <button class="btn"><ion-icon name="pause-circle-outline"></ion-icon></button>
+                <button class="btn"><ion-icon name="play-circle-outline"></ion-icon></button>
+                <button class="btn"><ion-icon name="refresh-circle-outline"></ion-icon></button>
+            </div>
+        </div>
+
+        <div class="session">
+            <p><span class="session__count">1</span>/4 sessions</p>
+        </div>
+
+        <div class="stats">
+            <div class="stats__total-time"></div>
+            <div class="stats__total-session"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
