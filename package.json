@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "sass": "^1.56.2"
+  },
+  "name": "pomodoro_timer",
+  "version": "1.0.0",
+  "description": "Pomodoro time manager",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmoseka/Pomodoro_Timer.git"
+  },
+  "author": "Jamila moseka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmoseka/Pomodoro_Timer/issues"
+  },
+  "homepage": "https://github.com/jmoseka/Pomodoro_Timer#readme"
+}
