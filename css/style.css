@@ -63,13 +63,17 @@ h1 {
   border: none;
   cursor: pointer; }
 
+.active-state {
+  color: #8EE7A7; }
+
 .control-icon {
-  font-size: 2.8rem;
-  color: #E5E9E7; }
+  font-size: 2.5rem;
+  color: #E5E9E7;
+  color: #a9adb0; }
   .control-icon:hover {
-    color: #3AEBD6; }
+    color: #8EE7A7; }
   .control-icon:active {
-    color: #3AEBD6; }
+    color: #8EE7A7; }
 
 .session {
   text-align: center;
@@ -92,4 +96,6 @@ h1 {
 .footer {
   text-align: center;
   margin-top: 2rem;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  color: #8EE7A7;
+  letter-spacing: 1px; }

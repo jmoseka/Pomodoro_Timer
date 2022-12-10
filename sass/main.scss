@@ -3,6 +3,7 @@
 $clr-primary-1: #29313A;
 $clr-secondary-1: #3AEBD6;
 $clr-secondary-light: #E5E9E7;
+$clr-tertiary: #8EE7A7;
 
 $large-width: 80rem;
 
@@ -50,7 +51,7 @@ h1 {
     text-transform: capitalize;
     margin-top: 3rem;
     color: $text-color;
-    color: #8EE7A7;
+    color: $clr-tertiary;
 }
 
 .counter {
@@ -91,18 +92,23 @@ h1 {
     outline: none;
     border: none;
     cursor: pointer;
+
+}
+
+.active-state {
+    color: $clr-tertiary;
 }
 
 .control-icon {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: $clr-secondary-light;
 
     &:hover {
-        color: $clr-secondary-1;
+        color: $clr-tertiary;
     }
 
     &:active {
-        color: $clr-secondary-1;
+        color: $clr-tertiary;
     }
 
 }
@@ -142,6 +148,8 @@ h1 {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.5rem;
+    color: $clr-tertiary;
+    letter-spacing: 1px;
 }
 
 
