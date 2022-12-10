@@ -41,7 +41,6 @@ h1 {
     justify-content: center;
     width: $large-width;
     margin: 0 auto;
- 
 }
 
 
@@ -51,6 +50,7 @@ h1 {
     text-transform: capitalize;
     margin-top: 3rem;
     color: $text-color;
+    color: #8EE7A7;
 }
 
 .counter {
@@ -75,6 +75,7 @@ h1 {
         padding: 2rem 0;
         font-size: 8rem;
         letter-spacing: 10px;
+        color: $text-color;
     }
 }
 
@@ -94,14 +95,14 @@ h1 {
 
 .control-icon {
     font-size: 2.8rem;
-    color: $clr-secondary-1;
+    color: $clr-secondary-light;
 
     &:hover {
-        color: rebeccapurple;
+        color: $clr-secondary-1;
     }
 
     &:active {
-        color: rebeccapurple;
+        color: $clr-secondary-1;
     }
 
 }

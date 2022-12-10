@@ -29,7 +29,8 @@ h1 {
   text-align: center;
   text-transform: capitalize;
   margin-top: 3rem;
-  color: #A7DBC2; }
+  color: #A7DBC2;
+  color: #8EE7A7; }
 
 .counter {
   margin: 3rem 0;
@@ -47,7 +48,8 @@ h1 {
   .counter__time {
     padding: 2rem 0;
     font-size: 8rem;
-    letter-spacing: 10px; }
+    letter-spacing: 10px;
+    color: #A7DBC2; }
 
 .control-btns {
   display: flex;
@@ -63,11 +65,11 @@ h1 {
 
 .control-icon {
   font-size: 2.8rem;
-  color: #3AEBD6; }
+  color: #E5E9E7; }
   .control-icon:hover {
-    color: rebeccapurple; }
+    color: #3AEBD6; }
   .control-icon:active {
-    color: rebeccapurple; }
+    color: #3AEBD6; }
 
 .session {
   text-align: center;
