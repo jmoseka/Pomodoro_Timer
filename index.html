@@ -16,24 +16,29 @@
         <h1 class="heading">Pomodoro Timer</h1>
 
         <div class="counter">
-            <h2 class="counter__text" id="motivation-text"></h2>
-            <p class="counter__time" id="time">0</p>
+            <h2 class="counter__text" id="motivation-text">Let's focus</h2>
+            <p class="counter__time" id="time">25:00</p>
             <p class="counter__line">&nbsp;</p>
 
             <div class="control-btns">
-                <button class="btn" id="pause"><ion-icon name="pause-circle-outline"></ion-icon></button>
-                <button class="btn" id="play"><ion-icon name="play-circle-outline"></ion-icon></button>
-                <button class="btn" id="refresh"><ion-icon name="refresh-circle-outline"></ion-icon></button>
+                <button class="btn" id="pause"><ion-icon class="control-icon" name="pause"></ion-icon></button>
+                <button class="btn" id="play"><ion-icon class="control-icon" name="play"></ion-icon></button>
+                <button class="btn" id="reset"><ion-icon class="control-icon" name="refresh"></ion-icon></button>
             </div>
         </div>
 
         <div class="session">
-            <p><span class="session__count">1</span>/4 sessions</p>
+            <p><span class="session__count" id="session-count">1</span>/4 sessions</p>
         </div>
 
         <div class="stats">
-            <div class="stats__total-time"></div>
-            <div class="stats__total-session"></div>
+            <div class="stats__total"><p>Total Focus time </p><span class="stats__total-time" id="total-time">0</span> </div>
+            <div class="stats__total"><p>Sessions Completed </p><span class="stats__total-session" id="total-session">0</span></div>
+        </div>
+
+
+        <div class="footer">
+            <p>Made with ♥ by Jamila Moseka</p>
         </div>
     </div>
 

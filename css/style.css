@@ -1,0 +1,128 @@
+/* dark shades of primary color */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  max-width: 100%;
+  background-color: #29313a;
+  color: #a7dbc2;
+}
+
+h1 {
+  font-size: 3.6rem;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80rem;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 3rem;
+  color: #a7dbc2;
+  color: #8ee7a7;
+}
+
+.counter {
+  margin: 3rem 0;
+  height: auto;
+  padding: 2rem 5rem;
+  border: 8px solid #3aebd6;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter__text {
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.counter__time {
+  padding: 2rem 0;
+  font-size: 8rem;
+  letter-spacing: 10px;
+  color: #a7dbc2;
+}
+
+.control-btns {
+  display: flex;
+  column-gap: 1.4rem;
+}
+
+.btn {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #e5e9e7;
+  color: #e5e9e762;
+}
+
+.active-state {
+  color: #8ee7a7;
+}
+
+.control-icon {
+  font-size: 2.5rem;
+}
+
+.control-icon:hover {
+  color: #8ee7a7;
+}
+
+.control-icon:active {
+  color: #8ee7a7;
+}
+
+.session {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.stats {
+  width: 100%;
+  margin-top: 6rem;
+}
+
+.stats__total {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  column-gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.stats__total p,
+.stats__total span {
+  background-color: rgba(217, 217, 217, 0.06);
+  padding: 1rem 0 1rem 1rem;
+  margin: auto 0;
+  font-size: 1.8rem;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #8ee7a7;
+  letter-spacing: 1px;
+}
