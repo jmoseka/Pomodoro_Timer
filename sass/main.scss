@@ -13,6 +13,8 @@ $text-color: #a7dbc2;
 
 $white: #fff;
 
+$transition-linear: all 0.3s linear;
+
 *,
 ::after,
 ::before {
@@ -43,9 +45,7 @@ h1 {
   height: 100vh;
   max-width: 100%;
   background-color: $clr-primary-1;
-  position: relative;
 }
-
 
 .show-sidebar {
   position: fixed;
@@ -65,10 +65,22 @@ h1 {
   width: 35rem;
   height: 100%;
   transform: translate(-100%);
+  transition: $transition-linear;
+
   color: $clr-primary-dark;
 }
+
 .show-sidebar {
-  transform: translate(0);
+  //transform: translate(0);
+}
+
+
+.btn-option {
+  padding: 1.4rem;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
+  transform: translate(0 -50%);
+
 }
 
 
@@ -84,7 +96,6 @@ h1 {
   text-align: center;
   // color: $clr-secondary-light;
   text-transform: capitalize;
-  margin-top: 3rem;
   color: $text-color;
   color: $clr-tertiary;
 }
