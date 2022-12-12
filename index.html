@@ -13,12 +13,30 @@
 </head>
 <body>
     <main>
-        <section class="hero-section">
 
+        <aside class="sidebar">
+            <button id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
+
+            <div class="stats-container">
+                <h2>You stats</h2>
+
+                <div class="stats">
+                    <div class="stats__total">
+                        <p>Total focus time</p>
+                        <span id="total-time"></span>
+                    </div>
+
+                    <div class="stats__total">
+                        <p>Total sessions completed</p>
+                        <span id="total-session"></span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="hero-section">
             <div class="content-container big-width">
                 <h1 class="heading">Pomodoro Timer</h1>
-                
-
                 <div class="timer">
                     <div class="timer__notice">
                         <p><span class="session__count" id="session-count">1</span>/4 sessions</p>
