@@ -15,22 +15,41 @@
     <main>
 
         <aside class="sidebar">
-            <button id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
+            <button class="close-sidebar" id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
 
-            <div class="stats-container">
-                <h2>You stats</h2>
+            <div class="stats-container sidebar-container hidden">
+                <h2 class="sidebar-title">Your stats</h2>
 
                 <div class="stats">
                     <div class="stats__total">
                         <p>Total focus time</p>
-                        <span id="total-time"></span>
+                        <span class="stats__total-time" id="total-">7h 1m</span>
                     </div>
 
                     <div class="stats__total">
                         <p>Total sessions completed</p>
-                        <span id="total-session"></span>
+                        <span id="total-session">5</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="bg-music-container sidebar-container">
+                <h2 class="sidebar-title">Background music</h2>
+
+                <div class="bg-music">
+                    <ul>
+                        <li>Classical</li>
+                        <li>Nature</li>
+                        <li>Lofi</li>
+                    </ul>
+
+                    <div class="bg-music__video">
+                        <iframe class="video" width="420" height="315"
+                        src="https://www.youtube.com/embed/lTTajzrSkCw">
+                    </iframe>
+                    </div>
+                </div>
+
             </div>
         </aside>
 

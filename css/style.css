@@ -17,8 +17,23 @@ h1 {
 .heading {
   margin-top: 5rem; }
 
+.sidebar-title {
+  font-size: 2.2rem; }
+
 .big-width {
   width: 95%; }
+
+.hidden {
+  display: none; }
+
+.active-state {
+  background: #8ee7a7; }
+
+.sidebar-container {
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: #252c34;
+  width: 90%; }
 
 .btn {
   padding: 1.2rem 4rem;
@@ -30,6 +45,59 @@ h1 {
 
 body {
   background-color: #29313a; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30rem;
+  height: 100vh;
+  background: #8ee7a7;
+  row-gap: 1rem;
+  box-shadow: var(--clr-red-dark);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column; }
+
+.close-sidebar {
+  margin: 3rem 3rem 0 0;
+  align-self: flex-end;
+  background-color: transparent;
+  font-size: 3rem;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer; }
+  .close-sidebar:hover {
+    color: #3e464e;
+    transform: scale(1.3); }
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-weight: 600; }
+  .stats__total {
+    font-size: 1.8rem;
+    font-weight: 500; }
+    .stats__total p {
+      padding: .8rem 0; }
+    .stats__total span {
+      color: #e5e9e7;
+      border-radius: 6px;
+      display: block;
+      width: 100%;
+      padding: 1rem 0 1rem 1rem;
+      background-color: #175e56; }
+
+.bg-music {
+  border: 4px solid purple; }
+  .bg-music__video {
+    margin-top: 8rem;
+    width: 2rem; }
+    .bg-music__video .video {
+      width: 26rem;
+      height: 16rem; }
 
 .hero-section {
   height: 93vh; }
@@ -69,7 +137,7 @@ body {
       background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.3s ease-in; }
+      transition: all 0.3s ease; }
       .timer__controls .controls-icon:hover {
         color: #29313a;
         background-color: #8ee7a7; }
@@ -84,7 +152,7 @@ body {
     font-size: 2rem;
     padding: 1rem 8rem;
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
     width: 100%;
     text-align: center; }
     .option-menu .option:hover {
