@@ -14,7 +14,7 @@ body {
   transition: $transition-linear;
   display: flex;
   flex-direction: column;
-  transform: translate(-100%);
+  // transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -79,11 +79,24 @@ body {
   }
 }
 
+.hero-container {
+  width: 100%;
+  display: flex;
+
+}
+
+.sidebar-window {
+  width: 30rem;
+}
+
 .hero-section {
+  width: 100%;
   height: 93vh;
+  background-color: yellow;
 }
 
 .content-container {
+  
   margin: 0 auto;
   height: 100%;
   display: flex;

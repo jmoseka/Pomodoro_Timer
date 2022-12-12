@@ -7,6 +7,7 @@ const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const closeSidebar = document.getElementById('close-sidebar');
 const musicOption = document.getElementById('music-option');
+const heroSection = document.querySelector('.hero-section');
 // const statOption = document.getElementById('stat-option');
 
 // const startMinutes = 25;
@@ -101,6 +102,12 @@ closeSidebar.addEventListener('click', () => {
   document.querySelector('.sidebar').classList.remove('show-sidebar');
 });
 
+const sidebar = document.querySelector('.sidebar');
+
 musicOption.addEventListener('click', () => {
   document.querySelector('.sidebar').classList.toggle('show-sidebar');
+  // const width = window.pageXOffset;
+  const sectionWidth = heroSection.getBoundingClientRect().width;
+  const sidebarWidth = sidebar.getBoundingClientRect().width;
+  console.log(sidebarWidth, sectionWidth);
 });

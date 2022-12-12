@@ -63,8 +63,7 @@ body {
   box-shadow: var(--clr-red-dark);
   transition: all 0.3s linear;
   display: flex;
-  flex-direction: column;
-  transform: translate(-100%); }
+  flex-direction: column; }
 
 .close-sidebar {
   margin: 3rem 3rem 0 0;
@@ -106,8 +105,17 @@ body {
       width: 26rem;
       height: 16rem; }
 
+.hero-container {
+  width: 100%;
+  display: flex; }
+
+.sidebar-window {
+  width: 30rem; }
+
 .hero-section {
-  height: 93vh; }
+  width: 100%;
+  height: 93vh;
+  background-color: yellow; }
 
 .content-container {
   margin: 0 auto;
