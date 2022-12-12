@@ -27,14 +27,11 @@ body {
   transition: $transition-ease;
   cursor: pointer;
 
-
   &:hover {
     color: $color-primary-dark;
     transform: scale(1.3);
   }
 }
-
-
 
 //   .stats-container {
 //     margin: 0 auto;
@@ -52,7 +49,6 @@ body {
   &__total {
     font-size: 1.8rem;
     font-weight: 500;
-
 
     p {
       padding: 0.8rem 0;
@@ -121,7 +117,6 @@ body {
     gap: 2rem;
     position: relative;
 
-
     .controls-icon {
       text-align: center;
       padding: 1rem;
@@ -131,7 +126,6 @@ body {
       border-radius: 50%;
       cursor: pointer;
       transition: $transition-ease;
-
 
       &:hover {
         color: $color-primary;
@@ -147,7 +141,6 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: $border-radius;
-
 
   .option {
     font-size: 2rem;
