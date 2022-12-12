@@ -11,10 +11,10 @@ body {
   background: $color-secondary;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
-  transition: var(--transition);
-  //transform: translate(-100%);
+  transition: $transition-linear;
   display: flex;
   flex-direction: column;
+  transform: translate(-100%);
 }
 
 .close-sidebar {

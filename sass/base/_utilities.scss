@@ -17,3 +17,11 @@
   color: #252c34;
   width: 90%;
 }
+
+.show-sidebar {
+  transform: translate(0) !important;
+}
+
+.hide-sidebar {
+  transform: translate(-100%);
+}

@@ -5,6 +5,9 @@ const btnPlay = document.getElementById('play');
 const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
+const closeSidebar = document.getElementById('close-sidebar');
+const musicOption = document.getElementById('music-option');
+// const statOption = document.getElementById('stat-option');
 
 // const startMinutes = 25;
 // const time = startMinutes * 60; /// total seconds in 25minutes
@@ -92,4 +95,12 @@ btnReset.addEventListener('click', () => {
 
   sec = originalTime;
   isPaused = false;
+});
+
+closeSidebar.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('show-sidebar');
+});
+
+musicOption.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.toggle('show-sidebar');
 });
