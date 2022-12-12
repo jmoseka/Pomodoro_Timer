@@ -12,35 +12,82 @@
     
 </head>
 <body>
-    <div class="container">
-        <h1 class="heading">Pomodoro Timer</h1>
+    <main>
 
-        <div class="counter">
-            <h2 class="counter__text" id="motivation-text">Let's focus</h2>
-            <p class="counter__time" id="time">25:00</p>
-            <p class="counter__line">&nbsp;</p>
+        <aside class="sidebar">
+            <button class="close-sidebar" id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
 
-            <div class="control-btns">
-                <button class="btn" id="pause"><ion-icon class="control-icon" name="pause"></ion-icon></button>
-                <button class="btn" id="play"><ion-icon class="control-icon" name="play"></ion-icon></button>
-                <button class="btn" id="reset"><ion-icon class="control-icon" name="refresh"></ion-icon></button>
+            <div class="stats-container sidebar-container hidden">
+                <h2 class="sidebar-title">Your stats</h2>
+
+                <div class="stats">
+                    <div class="stats__total">
+                        <p>Total focus time</p>
+                        <span class="stats__total-time" id="total-">7h 1m</span>
+                    </div>
+
+                    <div class="stats__total">
+                        <p>Total sessions completed</p>
+                        <span id="total-session">5</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="session">
-            <p><span class="session__count" id="session-count">1</span>/4 sessions</p>
-        </div>
+            <div class="bg-music-container sidebar-container">
+                <h2 class="sidebar-title">Background music</h2>
 
-        <div class="stats">
-            <div class="stats__total"><p>Total Focus time </p><span class="stats__total-time" id="total-time">0</span> </div>
-            <div class="stats__total"><p>Sessions Completed </p><span class="stats__total-session" id="total-session">0</span></div>
-        </div>
+                <div class="bg-music">
+                    <ul>
+                        <li>Classical</li>
+                        <li>Nature</li>
+                        <li>Lofi</li>
+                    </ul>
 
+                    <div class="bg-music__video">
+                        <iframe class="video" width="420" height="315"
+                        src="https://www.youtube.com/embed/lTTajzrSkCw">
+                    </iframe>
+                    </div>
+                </div>
 
-        <div class="footer">
-            <p>Made with ♥ by Jamila Moseka</p>
-        </div>
-    </div>
+            </div>
+        </aside>
+
+        <section class="hero-section">
+            <div class="content-container big-width">
+                <h1 class="heading">Pomodoro Timer</h1>
+                <div class="timer">
+                    <div class="timer__notice">
+                        <p><span class="session__count" id="session-count">1</span>/4 sessions</p>
+                    </div>
+                    <p class="timer__time" id="time">25:00</p>
+
+                    <div class="timer__controls">
+                        <ion-icon class="controls-icon" id="pause" name="pause"></ion-icon>
+                        <ion-icon class="controls-icon" id="play" name="play"></ion-icon>
+                        <ion-icon class="controls-icon" id="reset" name="refresh"></ion-icon>
+                        
+                    
+                    </div>
+                </div>
+
+                <div class="option-menu">
+                    <div class="option">
+                        <ion-icon class="option-icon" name="musical-notes-outline"></ion-icon>
+                    </div>
+                    <div class="option">
+                        <ion-icon class="option-icon" name="stats-chart-outline"></ion-icon>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer >
+            <p>Made with ♥ by Jamila Moseka</p> 
+    </footer>
 
     <script src="index.js"></script>
 </body>

@@ -9,25 +9,7 @@ const sessionCountEl = document.getElementById('session-count');
 // const startMinutes = 25;
 // const time = startMinutes * 60; /// total seconds in 25minutes
 
-btnPlay.addEventListener('click', () => {
-  btnPlay.classList.toggle('active-state');
-  btnPause.classList.remove('active-state');
-  btnReset.classList.remove('active-state');
-});
-
-btnPause.addEventListener('click', () => {
-  btnPause.classList.toggle('active-state');
-  btnPlay.classList.remove('active-state');
-  btnReset.classList.remove('active-state');
-});
-
-btnReset.addEventListener('click', () => {
-  btnReset.classList.toggle('active-state');
-  btnPlay.classList.remove('active-state');
-  btnPause.classList.remove('active-state');
-});
-
-const originalTime = 5;
+const originalTime = 25;
 let sec = originalTime;
 let secondsEl = 0;
 let minutesEl = 0;
@@ -37,19 +19,21 @@ let totalTime = 0;
 let totalHours = 0;
 let totalMinutes = 0;
 
+let isPaused = true;
+
 const updateSessionCount = () => {
   sessionCount++;
-  if (sessionCount > 4) {
+  if (sessionCount > 1) {
     // reset session count / 4
     sessionCount = 1;
 
     // update total focus time
     totalTime += originalTime;
-    if (totalTime > 60) {
+    if (totalTime === 60) {
       totalHours = parseInt(totalTime / 60, 10);
       totalMinutes = parseInt(totalTime % 60, 10);
 
-      document.getElementById('total-time').innerHTML = `${totalHours > 1 ? `${totalHours}Hrs` : totalHours} Hr ${totalMinutes} Min`;
+      document.getElementById('total-time').innerHTML = `${totalHours > 1 ? `${totalHours} hrs` : `${totalHours} hr`}  ${totalMinutes} min`;
     } else {
       document.getElementById('total-time').innerHTML = `${totalTime} Minutes`;
     }
@@ -65,20 +49,47 @@ const updateSessionCount = () => {
 
 // update count down function
 const updateCountDown = () => {
-  sec--;
-  secondsEl = sec % 60;
-  minutesEl = parseInt(sec / 60, 10);
+  if (!isPaused) {
+    secondsEl = sec % 60;
+    minutesEl = parseInt(sec / 60, 10);
 
-  // display time
-  secondsEl = secondsEl < 10 ? `0${secondsEl}` : secondsEl;
-  minutesEl = minutesEl < 10 ? `0${minutesEl}` : minutesEl;
-  timerEl.innerHTML = `${minutesEl}:${secondsEl}`;
+    // display time
+    secondsEl = secondsEl < 10 ? `0${secondsEl}` : secondsEl;
+    minutesEl = minutesEl < 10 ? `0${minutesEl}` : minutesEl;
+    timerEl.innerHTML = `${minutesEl}:${secondsEl}`;
 
-  // check if 25 minutes is over
-  if (minutesEl === '00' && secondsEl === '00') {
-    updateSessionCount();
-    sec = originalTime;
+    // check if 25 minutes is over
+    if (minutesEl === '00' && secondsEl === '00') {
+      updateSessionCount();
+      sec = originalTime;
+    }
+    sec--;
   }
 };
 
 setInterval(updateCountDown, 1000);
+
+btnPlay.addEventListener('click', () => {
+  btnPlay.classList.add('active-state');
+  btnPause.classList.remove('active-state');
+  btnReset.classList.remove('active-state');
+
+  isPaused = false;
+});
+
+btnPause.addEventListener('click', () => {
+  btnPause.classList.add('active-state');
+  btnPlay.classList.remove('active-state');
+  btnReset.classList.remove('active-state');
+
+  isPaused = true;
+});
+
+btnReset.addEventListener('click', () => {
+  btnReset.classList.add('active-state');
+  btnPlay.classList.remove('active-state');
+  btnPause.classList.remove('active-state');
+
+  sec = originalTime;
+  isPaused = false;
+});
