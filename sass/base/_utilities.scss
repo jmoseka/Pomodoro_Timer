@@ -17,6 +17,10 @@
   color: #252c34;
   width: 90%;
   transition: $transition-ease;
+
+  .sidebar-title {
+    margin-bottom: 1.8rem;
+  }
 }
 
 .show-sidebar {
