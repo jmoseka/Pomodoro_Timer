@@ -1,23 +1,11 @@
-const addExitTransition = () => {
-  document.querySelector('.hero-container').classList.remove('enter-transition-hero');
-  document.querySelector('.hero-container').classList.add('exit-transition-hero');
-};
-
-// const addTransitions = () => {
-//   const heroContainer = document.querySelector('.hero-container');
-
-//   if (heroContainer.classList.contains('enter-transition-hero')) {
-//     heroContainer.classList.toggle('exit-transition-hero');
-//     heroContainer.classList.remove('enter-transition-hero');
-//   } else {
-//     heroContainer.classList.toggle('enter-transition-hero');
-//     heroContainer.classList.remove('exit-transition-hero');
-//   }
-// };
-
 const sidebarWindow = document.querySelector('.sidebar-window');
 const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
+
+const addExitTransition = () => {
+  heroContainer.classList.remove('enter-transition-hero');
+  heroContainer.classList.add('exit-transition-hero');
+};
 
 const showSidebar = () => {
   sidebar.classList.add('show-sidebar');

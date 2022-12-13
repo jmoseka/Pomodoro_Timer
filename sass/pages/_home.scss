@@ -17,7 +17,6 @@ body {
   transform: translate(-100%);
 }
 
-
 .close-sidebar {
   margin: 3rem 3rem 0 0;
   align-self: flex-end;
@@ -80,17 +79,15 @@ body {
   }
 }
 
-
 .hero-container {
   display: flex;
   backface-visibility: hidden;
 }
 
-
 .sidebar-window {
   width: 30rem;
-  
 }
+
 .hero-section {
   width: 100%;
   height: 93vh;
@@ -120,7 +117,6 @@ body {
     padding: 0.8rem;
     background-color: $color-primary-dark-1;
   }
-
 
   &__time {
     font-size: 16rem;
