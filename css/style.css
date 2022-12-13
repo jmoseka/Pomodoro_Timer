@@ -34,7 +34,7 @@ h1 {
 }
 
 .active-state {
-  background: #8ee7a7;
+  background-color: #8ee7a7;
 }
 
 .sidebar-container {
@@ -42,6 +42,44 @@ h1 {
   margin-top: 3rem;
   color: #252c34;
   width: 90%;
+  transition: all 0.3s ease;
+}
+
+.show-sidebar {
+  transform: translate(0) !important;
+}
+
+.hide-sidebar {
+  transform: translate(-100%);
+}
+
+/***** Slide Right *****/
+@keyframes slide-right {
+  from {
+    margin-right: 10%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 10%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+.exit-transition-hero {
+  animation: 500ms slide-left;
+}
+
+.enter-transition-hero {
+  animation: 500ms slide-right;
 }
 
 .btn {
@@ -66,9 +104,10 @@ body {
   background: #8ee7a7;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
-  transition: var(--transition);
+  transition: all 0.3s linear 80ms;
   display: flex;
   flex-direction: column;
+  transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -126,7 +165,17 @@ body {
   height: 16rem;
 }
 
+.hero-container {
+  display: flex;
+  backface-visibility: hidden;
+}
+
+.sidebar-window {
+  width: 30rem;
+}
+
 .hero-section {
+  width: 100%;
   height: 93vh;
 }
 
@@ -158,6 +207,7 @@ body {
 
 .timer__time {
   font-size: 16rem;
+  letter-spacing: 1rem;
 }
 
 .timer__controls {
@@ -169,8 +219,8 @@ body {
 .timer__controls .controls-icon {
   text-align: center;
   padding: 1rem;
-  width: 2rem;
-  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
   background-color: rgba(212, 214, 216, 0.267);
   border-radius: 50%;
   cursor: pointer;
@@ -183,7 +233,6 @@ body {
 }
 
 .option-menu {
-  transform: scale(1.1);
   background-color: #d4d6d811;
   display: flex;
   justify-content: space-between;

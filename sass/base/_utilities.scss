@@ -8,7 +8,7 @@
 
 .active-state {
   //color: $color-secondary;
-  background: $color-secondary;
+  background-color: $color-secondary;
 }
 
 .sidebar-container {
@@ -16,4 +16,43 @@
   margin-top: 3rem;
   color: #252c34;
   width: 90%;
+  transition: $transition-ease;
+}
+
+.show-sidebar {
+  transform: translate(0) !important;
+}
+
+.hide-sidebar {
+  transform: translate(-100%);
+}
+
+/***** Slide Right *****/
+@keyframes slide-right {
+  from {
+    margin-right: 10%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 10%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+.exit-transition-hero {
+  animation: 500ms slide-left;
+}
+
+.enter-transition-hero {
+  // transition: all 9s linear;
+  animation: 500ms slide-right;
 }

@@ -1,10 +1,13 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-mixed-operators */
+import openCloseNav from './modules/open-close-nav.js';
+
 const timerEl = document.getElementById('time');
 const btnPlay = document.getElementById('play');
 const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
+// const statOption = document.getElementById('stat-option');
 
 // const startMinutes = 25;
 // const time = startMinutes * 60; /// total seconds in 25minutes
@@ -20,6 +23,8 @@ let totalHours = 0;
 let totalMinutes = 0;
 
 let isPaused = true;
+
+openCloseNav();
 
 const updateSessionCount = () => {
   sessionCount++;

@@ -11,10 +11,10 @@ body {
   background: $color-secondary;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
-  transition: var(--transition);
-  //transform: translate(-100%);
+  transition: $transition-linear 80ms;
   display: flex;
   flex-direction: column;
+  transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -79,7 +79,17 @@ body {
   }
 }
 
+.hero-container {
+  display: flex;
+  backface-visibility: hidden;
+}
+
+.sidebar-window {
+  width: 30rem;
+}
+
 .hero-section {
+  width: 100%;
   height: 93vh;
 }
 
@@ -110,6 +120,7 @@ body {
 
   &__time {
     font-size: 16rem;
+    letter-spacing: 1rem;
   }
 
   &__controls {
@@ -120,8 +131,8 @@ body {
     .controls-icon {
       text-align: center;
       padding: 1rem;
-      width: 2rem;
-      height: 2rem;
+      min-width: 2rem;
+      min-height: 2rem;
       background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
@@ -136,7 +147,6 @@ body {
 }
 
 .option-menu {
-  transform: scale(1.1);
   background-color: #d4d6d811;
   display: flex;
   justify-content: space-between;
