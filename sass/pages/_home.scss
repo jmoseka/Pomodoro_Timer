@@ -41,15 +41,16 @@ body {
   font-weight: 600;
 
   &__total {
-    font-size: 1.8rem;
     font-weight: 500;
 
     p {
+      font-size: 1.78rem;
       padding: 0.8rem 0;
       font-weight: 600;
     }
 
     span {
+      font-size: 1.6rem;
       color: $color-secondary-light;
       border-radius: $border-radius;
       display: block;

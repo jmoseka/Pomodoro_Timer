@@ -106,12 +106,13 @@ body {
   gap: 2rem;
   font-weight: 600; }
   .stats__total {
-    font-size: 1.8rem;
     font-weight: 500; }
     .stats__total p {
+      font-size: 1.78rem;
       padding: 0.8rem 0;
       font-weight: 600; }
     .stats__total span {
+      font-size: 1.6rem;
       color: #e5e9e7;
       border-radius: 6px;
       display: block;
