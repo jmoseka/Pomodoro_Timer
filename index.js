@@ -1,14 +1,12 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-mixed-operators */
+import openCloseNav from './modules/open-close-nav.js';
+
 const timerEl = document.getElementById('time');
 const btnPlay = document.getElementById('play');
 const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
-const closeSidebar = document.getElementById('close-sidebar');
-const musicOption = document.getElementById('music-option');
-const sidebar = document.querySelector('.sidebar');
-const sidebarWindow = document.querySelector('.sidebar-window');
 // const statOption = document.getElementById('stat-option');
 
 // const startMinutes = 25;
@@ -25,6 +23,8 @@ let totalHours = 0;
 let totalMinutes = 0;
 
 let isPaused = true;
+
+openCloseNav();
 
 const updateSessionCount = () => {
   sessionCount++;
@@ -97,18 +97,4 @@ btnReset.addEventListener('click', () => {
 
   sec = originalTime;
   isPaused = false;
-});
-
-closeSidebar.addEventListener('click', () => {
-  document.querySelector('.sidebar').classList.toggle('show-sidebar');
-  sidebarWindow.classList.toggle('hidden');
-  document.querySelector('.hero-container').classList.remove('enter-transition-hero');
-  document.querySelector('.hero-container').classList.add('exit-transition-hero');
-});
-
-musicOption.addEventListener('click', () => {
-  sidebarWindow.classList.toggle('hidden');
-  sidebar.classList.toggle('show-sidebar');
-  document.querySelector('.hero-container').classList.remove('exit-transition-hero');
-  document.querySelector('.hero-container').classList.toggle('enter-transition-hero');
 });

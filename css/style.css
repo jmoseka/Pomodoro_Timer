@@ -27,13 +27,14 @@ h1 {
   display: none; }
 
 .active-state {
-  background: #8ee7a7; }
+  background-color: #8ee7a7; }
 
 .sidebar-container {
   margin: 0 auto;
   margin-top: 3rem;
   color: #252c34;
-  width: 90%; }
+  width: 90%;
+  transition: all 0.3s ease; }
 
 .show-sidebar {
   transform: translate(0) !important; }
@@ -44,21 +45,21 @@ h1 {
 /***** Slide Right *****/
 @keyframes slide-right {
   from {
-    margin-right: -2%; }
+    margin-right: 10%; }
   to {
     margin-left: 0%; } }
 
 @keyframes slide-left {
   from {
-    margin-left: -5%; }
+    margin-left: 10%; }
   to {
     margin-right: 0%; } }
 
 .exit-transition-hero {
-  animation: 800ms slide-left; }
+  animation: 500ms slide-left; }
 
 .enter-transition-hero {
-  animation: 400ms slide-right; }
+  animation: 500ms slide-right; }
 
 .btn {
   padding: 1.2rem 4rem;
@@ -80,7 +81,7 @@ body {
   background: #8ee7a7;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
-  transition: all 0.3s linear;
+  transition: all 0.3s linear 80ms;
   display: flex;
   flex-direction: column;
   transform: translate(-100%); }
@@ -126,7 +127,8 @@ body {
       height: 16rem; }
 
 .hero-container {
-  display: flex; }
+  display: flex;
+  backface-visibility: hidden; }
 
 .sidebar-window {
   width: 30rem; }
@@ -157,7 +159,8 @@ body {
     padding: 0.8rem;
     background-color: #1d2229; }
   .timer__time {
-    font-size: 16rem; }
+    font-size: 16rem;
+    letter-spacing: 1rem; }
   .timer__controls {
     display: flex;
     gap: 2rem;
@@ -165,8 +168,8 @@ body {
     .timer__controls .controls-icon {
       text-align: center;
       padding: 1rem;
-      width: 2rem;
-      height: 2rem;
+      min-width: 2rem;
+      min-height: 2rem;
       background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
@@ -176,7 +179,6 @@ body {
         background-color: #8ee7a7; }
 
 .option-menu {
-  transform: scale(1.1);
   background-color: #d4d6d811;
   display: flex;
   justify-content: space-between;
