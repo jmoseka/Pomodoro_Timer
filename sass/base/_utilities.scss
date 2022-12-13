@@ -25,3 +25,31 @@
 .hide-sidebar {
   transform: translate(-100%);
 }
+
+/***** Slide Right *****/
+@keyframes slide-right {
+  from {
+    margin-right: -2%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: -5%;
+  }
+  to {
+    margin-right: 0%;
+  }
+}
+
+.exit-transition-hero {
+  animation: 800ms slide-left;
+}
+
+.enter-transition-hero {
+  // transition: all 9s linear;
+  animation: 400ms slide-right;
+}

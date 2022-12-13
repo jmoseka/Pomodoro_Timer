@@ -7,7 +7,8 @@ const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const closeSidebar = document.getElementById('close-sidebar');
 const musicOption = document.getElementById('music-option');
-const heroSection = document.querySelector('.hero-section');
+const sidebar = document.querySelector('.sidebar');
+const sidebarWindow = document.querySelector('.sidebar-window');
 // const statOption = document.getElementById('stat-option');
 
 // const startMinutes = 25;
@@ -99,15 +100,15 @@ btnReset.addEventListener('click', () => {
 });
 
 closeSidebar.addEventListener('click', () => {
-  document.querySelector('.sidebar').classList.remove('show-sidebar');
+  document.querySelector('.sidebar').classList.toggle('show-sidebar');
+  sidebarWindow.classList.toggle('hidden');
+  document.querySelector('.hero-container').classList.remove('enter-transition-hero');
+  document.querySelector('.hero-container').classList.add('exit-transition-hero');
 });
 
-const sidebar = document.querySelector('.sidebar');
-
 musicOption.addEventListener('click', () => {
-  document.querySelector('.sidebar').classList.toggle('show-sidebar');
-  // const width = window.pageXOffset;
-  const sectionWidth = heroSection.getBoundingClientRect().width;
-  const sidebarWidth = sidebar.getBoundingClientRect().width;
-  console.log(sidebarWidth, sectionWidth);
+  sidebarWindow.classList.toggle('hidden');
+  sidebar.classList.toggle('show-sidebar');
+  document.querySelector('.hero-container').classList.remove('exit-transition-hero');
+  document.querySelector('.hero-container').classList.toggle('enter-transition-hero');
 });
