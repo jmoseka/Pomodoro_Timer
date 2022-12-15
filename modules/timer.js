@@ -1,4 +1,3 @@
-
 /* eslint-disable no-plusplus */
 const timerEl = document.getElementById('time');
 const btnPlay = document.getElementById('play');
@@ -8,7 +7,6 @@ const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
 
 const originalTime = 25;
-const minuteBreakTime = 10;
 let sec = originalTime;
 let sessionCount = 1;
 let sessionCompleted = 0;
@@ -16,7 +14,6 @@ let totalFocusTime = 0;
 let id = 0;
 
 let isPaused = true;
-let isTakingBreak = false;
 
 const updateTotalFocusTime = () => {
   let focusHours = 0;
@@ -63,19 +60,11 @@ const updateCountDown = () => {
 
     // check if 25 minutes is over
     if (minutesEl === '00' && secondsEl === '00') {
-      if (isTakingBreak !== true) {
-        updateTotalFocusTime();
-        updateSessionCount();
-      }
+      updateTotalFocusTime();
+      updateSessionCount();
 
-      // take a break
-      // change original time to 10s
-      // take a break
-      // set sec to 5min
-
-      // i
-      isTakingBreak = true;
-      sec = 10;
+      // reset
+      sec = originalTime;
     }
     sec--;
   }
