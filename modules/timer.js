@@ -43,6 +43,21 @@ const updateSessionCount = () => {
   sessionCountEl.innerHTML = `${sessionCount} / 4 sessions`;
 };
 
+const takeBreak = () => {
+  // set an interval that runs every 1000 milliseconds (1 second)
+  console.log('should take a break for 5 seconds');
+  // const interval = setInterval(() => {
+  //   // print a message every second
+  //   console.log('Running for 5 seconds');
+  // }, 1000);
+
+  // // clear the interval after 5 seconds
+  // setTimeout(() => {
+  //   clearInterval(interval);
+  //   console.log('Finished running for 5 seconds');
+  // }, 5000);
+};
+
 // update count down function
 
 const updateCountDown = () => {
@@ -63,6 +78,7 @@ const updateCountDown = () => {
       updateTotalFocusTime();
       updateSessionCount();
 
+      takeBreak();
       // reset
       sec = originalTime;
     }
@@ -71,7 +87,7 @@ const updateCountDown = () => {
 };
 
 const pomoTimer = () => {
-  id = setInterval(updateCountDown, 50);
+  id = setInterval(updateCountDown, 400);
   console.log(id);
 };
 
