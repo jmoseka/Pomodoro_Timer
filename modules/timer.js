@@ -11,8 +11,7 @@ let sec = originalTime;
 let sessionCount = 1;
 let sessionCompleted = 0;
 let totalFocusTime = 0;
-let id = 0;
-
+let counter = 0;
 let isPaused = true;
 
 const updateTotalFocusTime = () => {
@@ -43,52 +42,73 @@ const updateSessionCount = () => {
   sessionCountEl.innerHTML = `${sessionCount} / 4 sessions`;
 };
 
-const takeBreak = () => {
-  // set an interval that runs every 1000 milliseconds (1 second)
-  console.log('should take a break for 5 seconds');
-  // const interval = setInterval(() => {
-  //   // print a message every second
-  //   console.log('Running for 5 seconds');
-  // }, 1000);
+const takeLongBreak = () => {
+  if (counter === 4) {
+    const interval = setInterval(() => {
+      console.log('This is the long break');
+    }, 1000);
 
-  // // clear the interval after 5 seconds
-  // setTimeout(() => {
-  //   clearInterval(interval);
-  //   console.log('Finished running for 5 seconds');
-  // }, 5000);
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 10000);
+  }
+};
+
+const updateCounterHTML = () => {
+  let secondsEl = 0;
+  let minutesEl = 0;
+
+  secondsEl = sec % 60; // convert to seconds
+  minutesEl = parseInt(sec / 60, 10); // convert to minutes
+
+  // display time add zeros if minutes or seconds is less than 0
+  secondsEl = secondsEl < 10 ? `0${secondsEl}` : secondsEl;
+  minutesEl = minutesEl < 10 ? `0${minutesEl}` : minutesEl;
+  timerEl.innerHTML = `${minutesEl}:${secondsEl}`;
 };
 
 // update count down function
 
 const updateCountDown = () => {
-  let secondsEl = 0;
-  let minutesEl = 0;
-
-  if (!isPaused) {
-    secondsEl = sec % 60; // convert to seconds
-    minutesEl = parseInt(sec / 60, 10); // convert to minutes
-
-    // display time add zeros if minutes or seconds is less than 0
-    secondsEl = secondsEl < 10 ? `0${secondsEl}` : secondsEl;
-    minutesEl = minutesEl < 10 ? `0${minutesEl}` : minutesEl;
-    timerEl.innerHTML = `${minutesEl}:${secondsEl}`;
-
-    // check if 25 minutes is over
-    if (minutesEl === '00' && secondsEl === '00') {
-      updateTotalFocusTime();
-      updateSessionCount();
-
-      takeBreak();
-      // reset
-      sec = originalTime;
-    }
+  const interval1 = setInterval(() => {
     sec--;
-  }
+    updateCounterHTML();
+    // check if 25 minutes is over
+    // if (minutesEl === '00' && secondsEl === '00') {
+
+    // }
+  }, 1000);
+
+  setTimeout(() => {
+    clearInterval(interval1);
+    updateTotalFocusTime();
+    updateSessionCount();
+    sec = 5;
+
+    // set the second interval to for shortbreak
+    const interval2 = setInterval(() => {
+      sec--;
+      updateCounterHTML();
+    }, 1000);
+
+    // after 5 seconds, clear the second interval
+    setTimeout(() => {
+      clearInterval(interval2);
+      sec = originalTime;
+      // start counter to check howm many times the intervals will run
+      counter++;
+      console.log('counter count----', counter);
+      if (counter < 3) {
+        updateCountDown();
+      } else {
+        takeLongBreak();
+      }
+    }, 5000);
+  }, 25000);
 };
 
 const pomoTimer = () => {
-  id = setInterval(updateCountDown, 400);
-  console.log(id);
+  updateCountDown();
 };
 
 btnPlay.addEventListener('click', () => {
@@ -113,7 +133,8 @@ btnReset.addEventListener('click', () => {
   btnPause.classList.remove('active-state');
 
   sec = originalTime;
-  isPaused = false;
+  isPaused = true;
+  timerEl.innerHTML = '25:00';
 });
 
 export default pomoTimer;

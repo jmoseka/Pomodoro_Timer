@@ -47,6 +47,10 @@ function runIntervals() {
   // if the counter is less than 4, start the intervals again
 }
 
-runIntervals();
+const pause = false;
+
+if (!pause) {
+  runIntervals();
+}
 
 console.log(counter);
