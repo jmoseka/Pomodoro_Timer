@@ -108,7 +108,9 @@ const updateCountDown = () => {
 };
 
 const pomoTimer = () => {
-  updateCountDown();
+  if (!false) {
+    setTimeout(updateCountDown);
+  }
 };
 
 btnPlay.addEventListener('click', () => {
@@ -116,7 +118,7 @@ btnPlay.addEventListener('click', () => {
   btnPause.classList.remove('active-state');
   btnReset.classList.remove('active-state');
 
-  isPaused = false;
+  isPaused = true;
 });
 
 btnPause.addEventListener('click', () => {
@@ -124,7 +126,7 @@ btnPause.addEventListener('click', () => {
   btnPlay.classList.remove('active-state');
   btnReset.classList.remove('active-state');
 
-  isPaused = true;
+  isPaused = false;
 });
 
 btnReset.addEventListener('click', () => {
