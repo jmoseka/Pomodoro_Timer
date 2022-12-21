@@ -70,47 +70,47 @@ const updateCounterHTML = () => {
 // update count down function
 
 const updateCountDown = () => {
-  const interval1 = setInterval(() => {
-    sec--;
-    updateCounterHTML();
-    // check if 25 minutes is over
-    // if (minutesEl === '00' && secondsEl === '00') {
-
-    // }
-  }, 1000);
-
-  setTimeout(() => {
-    clearInterval(interval1);
-    updateTotalFocusTime();
-    updateSessionCount();
-    sec = 5;
-
-    // set the second interval to for shortbreak
-    const interval2 = setInterval(() => {
+  if (!isPaused) {
+    const interval1 = setInterval(() => {
       sec--;
       updateCounterHTML();
+      // check if 25 minutes is over
+      // if (minutesEl === '00' && secondsEl === '00') {
+
+      // }
     }, 1000);
 
-    // after 5 seconds, clear the second interval
     setTimeout(() => {
-      clearInterval(interval2);
-      sec = originalTime;
-      // start counter to check howm many times the intervals will run
-      counter++;
-      console.log('counter count----', counter);
-      if (counter < 3) {
-        updateCountDown();
-      } else {
-        takeLongBreak();
-      }
-    }, 5000);
-  }, 25000);
+      clearInterval(interval1);
+      updateTotalFocusTime();
+      updateSessionCount();
+      sec = 5;
+
+      // set the second interval to for shortbreak
+      const interval2 = setInterval(() => {
+        sec--;
+        updateCounterHTML();
+      }, 1000);
+
+      // after 5 seconds, clear the second interval
+      setTimeout(() => {
+        clearInterval(interval2);
+        sec = originalTime;
+        // start counter to check howm many times the intervals will run
+        counter++;
+        console.log('counter count----', counter);
+        if (counter < 3) {
+          updateCountDown();
+        } else {
+          takeLongBreak();
+        }
+      }, 5000);
+    }, 25000);
+  }
 };
 
 const pomoTimer = () => {
-  if (!false) {
-    setTimeout(updateCountDown);
-  }
+  updateCountDown();
 };
 
 btnPlay.addEventListener('click', () => {
@@ -118,7 +118,8 @@ btnPlay.addEventListener('click', () => {
   btnPause.classList.remove('active-state');
   btnReset.classList.remove('active-state');
 
-  isPaused = true;
+  isPaused = false;
+  pomoTimer();
 });
 
 btnPause.addEventListener('click', () => {
@@ -126,7 +127,7 @@ btnPause.addEventListener('click', () => {
   btnPlay.classList.remove('active-state');
   btnReset.classList.remove('active-state');
 
-  isPaused = false;
+  isPaused = true;
 });
 
 btnReset.addEventListener('click', () => {
