@@ -33,6 +33,9 @@ h1 {
   color: #29313a;
   background-color: #8ee7a7; }
 
+.stat-option-active {
+  color: #8ee7a7; }
+
 .sidebar-container {
   margin: 0 auto;
   margin-top: 3rem;
