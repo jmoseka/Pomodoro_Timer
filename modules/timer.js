@@ -14,6 +14,7 @@ let totalFocusTime = 0;
 let counter = 0;
 let isPaused = true;
 let isShortBreak = false;
+let isLongBreak = false;
 
 const duration = {
   shortBreak: 5,
@@ -23,6 +24,7 @@ const duration = {
 const intervals = {
   interval1: 0,
   interval2: 0,
+  interval3: 0,
 };
 
 const updateTotalFocusTime = () => {
@@ -53,17 +55,17 @@ const updateSessionCount = () => {
   sessionCountEl.innerHTML = `${sessionCount} / 4 sessions`;
 };
 
-const takeLongBreak = () => {
-  if (counter === 4) {
-    const interval = setInterval(() => {
-      console.log('This is the long break');
-    }, 1000);
+// const takeLongBreak = () => {
+//   if (counter === 4) {
+//     const interval = setInterval(() => {
+//       console.log('This is the long break');
+//     }, 1000);
 
-    setTimeout(() => {
-      clearInterval(interval);
-    }, 10000);
-  }
-};
+//     setTimeout(() => {
+//       clearInterval(interval);
+//     }, 10000);
+//   }
+// };
 
 const updateCounterHTML = () => {
   let secondsEl = 0;
@@ -81,6 +83,42 @@ const updateCounterHTML = () => {
 // update count down function
 
 const updateCountDown = () => {
+  const takeShortBreak = () => {
+    intervals.interval2 = setInterval(() => {
+      if (counter < 4 && !isPaused) {
+        isShortBreak = true;
+        updateCounterHTML();
+        console.log('short count----------', sec);
+        sec--;
+
+        if (sec < 0) {
+          sec = originalTime;
+          clearInterval(intervals.interval2);
+          isShortBreak = false;
+          intervals.interval1 = setInterval(updateCountDown, 1000);
+        }
+      }
+    }, 1000);
+  };
+
+  const takeLongBreak = () => {
+    intervals.interval3 = setInterval(() => {
+      if (!isPaused) {
+        isLongBreak = true;
+        updateCounterHTML();
+        console.log('long count----------', sec);
+        sec--;
+
+        if (sec < 0) {
+          sec = originalTime;
+          clearInterval(intervals.interval3);
+          isLongBreak = false;
+          intervals.interval1 = setInterval(updateCountDown, 1000);
+        }
+      }
+    }, 1000);
+  };
+
   if (!isPaused) {
     updateCounterHTML();
     console.log('count----------', sec);
@@ -95,25 +133,12 @@ const updateCountDown = () => {
 
       // start shortbreak----------------
       // --------------------------------
-      intervals.interval2 = setInterval(() => {
-        if (counter < 4 && !isPaused) {
-          isShortBreak = true;
-          updateCounterHTML();
-          console.log('short count----------', sec);
-          sec--;
-
-          if (sec < 0) {
-            sec = originalTime;
-            clearInterval(intervals.interval2);
-            isShortBreak = false;
-            intervals.interval1 = setInterval(updateCountDown, 1000);
-          }
-        }
-      }, 1000);
+      takeShortBreak();
 
       // start shortbreak----------------
       // --------------------------------
       if (counter === 4) {
+        sec = duration.longBreak;
         takeLongBreak();
       }
       // ---------- end ----------------
