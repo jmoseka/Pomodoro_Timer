@@ -6,13 +6,16 @@ const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
 
-const originalTime = 25;
+const originalTime = 10;
 let sec = originalTime;
-let sessionCount = 1;
+let sessionCount = 0;
 let sessionCompleted = 0;
 let totalFocusTime = 0;
 let counter = 0;
 let isPaused = true;
+let isShortBreak = false;
+let interval1 = 0;
+let interval2 = 0;
 
 const updateTotalFocusTime = () => {
   let focusHours = 0;
@@ -71,46 +74,44 @@ const updateCounterHTML = () => {
 
 const updateCountDown = () => {
   if (!isPaused) {
-    const interval1 = setInterval(() => {
-      sec--;
-      updateCounterHTML();
-      // check if 25 minutes is over
-      // if (minutesEl === '00' && secondsEl === '00') {
+    updateCounterHTML();
+    console.log('count----------', sec);
+    sec--;
 
-      // }
-    }, 1000);
-
-    setTimeout(() => {
-      clearInterval(interval1);
+    if (sec < 0) {
+      sec = 5;
+      counter++;
+      clearTimeout(interval1);
       updateTotalFocusTime();
       updateSessionCount();
-      sec = 5;
 
-      // set the second interval to for shortbreak
-      const interval2 = setInterval(() => {
-        sec--;
-        updateCounterHTML();
+      // start shortbreak-------
+      interval2 = setInterval(() => {
+        if (counter < 4 && !isPaused) {
+          isShortBreak = true;
+          updateCounterHTML();
+          console.log('short count----------', sec);
+          sec--;
+
+          if (sec < 0) {
+            sec = originalTime;
+            clearInterval(interval2);
+            isShortBreak = false;
+            interval1 = setInterval(updateCountDown, 1000);
+          }
+        }
       }, 1000);
 
-      // after 5 seconds, clear the second interval
-      setTimeout(() => {
-        clearInterval(interval2);
-        sec = originalTime;
-        // start counter to check howm many times the intervals will run
-        counter++;
-        console.log('counter count----', counter);
-        if (counter < 3) {
-          updateCountDown();
-        } else {
-          takeLongBreak();
-        }
-      }, 5000);
-    }, 25000);
+      if (counter === 4) {
+        // take long break
+        takeLongBreak();
+      }
+    }
   }
 };
 
 const pomoTimer = () => {
-  updateCountDown();
+  interval1 = setInterval(updateCountDown, 1000);
 };
 
 btnPlay.addEventListener('click', () => {
@@ -119,7 +120,6 @@ btnPlay.addEventListener('click', () => {
   btnReset.classList.remove('active-state');
 
   isPaused = false;
-  pomoTimer();
 });
 
 btnPause.addEventListener('click', () => {
@@ -134,10 +134,13 @@ btnReset.addEventListener('click', () => {
   btnReset.classList.add('active-state');
   btnPlay.classList.remove('active-state');
   btnPause.classList.remove('active-state');
+  isPaused = false;
 
-  sec = originalTime;
-  isPaused = true;
-  timerEl.innerHTML = '25:00';
+  if (isShortBreak) {
+    sec = 5;
+  } else {
+    sec = originalTime;
+  }
 });
 
 export default pomoTimer;
