@@ -14,8 +14,16 @@ let totalFocusTime = 0;
 let counter = 0;
 let isPaused = true;
 let isShortBreak = false;
-let interval1 = 0;
-let interval2 = 0;
+
+const duration = {
+  shortBreak: 5,
+  longBreak: 10,
+};
+
+const intervals = {
+  interval1: 0,
+  interval2: 0,
+};
 
 const updateTotalFocusTime = () => {
   let focusHours = 0;
@@ -79,14 +87,15 @@ const updateCountDown = () => {
     sec--;
 
     if (sec < 0) {
-      sec = 5;
+      sec = duration.shortBreak;
       counter++;
-      clearTimeout(interval1);
+      clearTimeout(intervals.interval1);
       updateTotalFocusTime();
       updateSessionCount();
 
-      // start shortbreak-------
-      interval2 = setInterval(() => {
+      // start shortbreak----------------
+      // --------------------------------
+      intervals.interval2 = setInterval(() => {
         if (counter < 4 && !isPaused) {
           isShortBreak = true;
           updateCounterHTML();
@@ -95,23 +104,25 @@ const updateCountDown = () => {
 
           if (sec < 0) {
             sec = originalTime;
-            clearInterval(interval2);
+            clearInterval(intervals.interval2);
             isShortBreak = false;
-            interval1 = setInterval(updateCountDown, 1000);
+            intervals.interval1 = setInterval(updateCountDown, 1000);
           }
         }
       }, 1000);
 
+      // start shortbreak----------------
+      // --------------------------------
       if (counter === 4) {
-        // take long break
         takeLongBreak();
       }
+      // ---------- end ----------------
     }
   }
 };
 
 const pomoTimer = () => {
-  interval1 = setInterval(updateCountDown, 1000);
+  intervals.interval1 = setInterval(updateCountDown, 1000);
 };
 
 btnPlay.addEventListener('click', () => {
@@ -137,7 +148,7 @@ btnReset.addEventListener('click', () => {
   isPaused = true;
 
   if (isShortBreak) {
-    sec = 5;
+    sec = duration.shortBreak;
   } else {
     sec = originalTime;
   }
