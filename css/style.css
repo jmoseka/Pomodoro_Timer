@@ -26,7 +26,11 @@ h1 {
 .hidden {
   display: none; }
 
+.control-bg {
+  background-color: rgba(212, 214, 216, 0.267); }
+
 .active-state {
+  color: #29313a;
   background-color: #8ee7a7; }
 
 .sidebar-container {
@@ -173,7 +177,6 @@ body {
       padding: 1rem;
       min-width: 2rem;
       min-height: 2rem;
-      background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
       transition: all 0.3s ease; }

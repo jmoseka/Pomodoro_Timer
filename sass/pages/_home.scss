@@ -125,11 +125,11 @@ body {
     position: relative;
 
     .controls-icon {
+      // background-color: rgba(212, 214, 216, 0.267);
       text-align: center;
       padding: 1rem;
       min-width: 2rem;
       min-height: 2rem;
-      background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
       transition: $transition-ease;

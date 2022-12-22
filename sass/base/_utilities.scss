@@ -6,8 +6,12 @@
   display: none;
 }
 
+.control-bg {
+  background-color: rgba(212, 214, 216, 0.267);
+}
+
 .active-state {
-  //color: $color-secondary;
+  color: $color-primary;
   background-color: $color-secondary;
 }
 

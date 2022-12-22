@@ -134,13 +134,14 @@ btnReset.addEventListener('click', () => {
   btnReset.classList.add('active-state');
   btnPlay.classList.remove('active-state');
   btnPause.classList.remove('active-state');
-  isPaused = false;
+  isPaused = true;
 
   if (isShortBreak) {
     sec = 5;
   } else {
     sec = originalTime;
   }
+  updateCounterHTML();
 });
 
 export default pomoTimer;
