@@ -174,6 +174,9 @@ btnReset.addEventListener('click', () => {
 
   if (isShortBreak) {
     sec = duration.shortBreak;
+  }
+  if (isLongBreak) {
+    sec = duration.longBreak;
   } else {
     sec = originalTime;
   }
