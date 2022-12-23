@@ -21,13 +21,13 @@
         <aside class="sidebar">
             <button class="close-sidebar" id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
 
-            <div class="stats-container sidebar-container hidden">
+            <div class="stats-container sidebar-container">
                 <h2 class="sidebar-title">Your stats</h2>
 
                 <div class="stats">
                     <div class="stats__total">
                         <p>Total focus time</p>
-                        <span class="stats__total-time" id="total-">Complete a session to start counting</span>
+                        <span class="stats__total-time" id="total-time">Complete a session to start counting</span>
                     </div>
 
                     <div class="stats__total">
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="bg-music-container sidebar-container">
+            <div class="bg-music-container sidebar-container hidden">
                 <h2 class="sidebar-title">Background music</h2>
 
                 <div class="bg-music">
@@ -46,13 +46,19 @@
                         <li>Nature</li>
                         <li>Lofi</li>
                     </ul>
-<!-- 
+                    <!-- https://www.youtube.com/watch?v=lTTajzrSkCw -->
+
                     <div class="bg-music__video">
-                        <iframe class="video" width="420" height="315"
-                        src="https://www.youtube.com/embed/lTTajzrSkCw">
-                    </iframe>
-                    </div> -->
+                        <audio  controls="controls">
+                            <source src="https://www.youtube.com/watch?v=XzgUCkZHi3Y" />
+                            Your browser does not support the audio element.
+                        </audio>
+
+                        <button id="play-music">Play</button><button id="stop-music">Stop</button>
+                    </div>
                 </div>
+                <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
+ does not produce sound -->
 
             </div>
         </aside>
@@ -69,14 +75,14 @@
                     <h1 class="heading">Pomodoro Timer</h1>
                     <div class="timer">
                         <div class="timer__notice">
-                            <p><span class="session__count" id="session-count">1</span>/4 sessions</p>
+                            <p><span class="session__count" id="session-count">Lets focus</span></p>
                         </div>
                         <p class="timer__time" id="time">25:00</p>
     
                         <div class="timer__controls">
-                            <ion-icon class="controls-icon" id="pause" name="pause"></ion-icon>
-                            <ion-icon class="controls-icon" id="play" name="play"></ion-icon>
-                            <ion-icon class="controls-icon" id="reset" name="refresh"></ion-icon>
+                            <ion-icon class="controls-icon control-bg" id="pause" name="pause"></ion-icon>
+                            <ion-icon class="controls-icon control-bg" id="play" name="play"></ion-icon>
+                            <ion-icon class="controls-icon control-bg" id="reset" name="refresh"></ion-icon>
                             
                         
                         </div>

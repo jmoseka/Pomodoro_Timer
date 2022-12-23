@@ -14,7 +14,7 @@ body {
   transition: $transition-linear 80ms;
   display: flex;
   flex-direction: column;
-  transform: translate(-100%);
+  // transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -33,13 +33,6 @@ body {
   }
 }
 
-//   .stats-container {
-//     margin: 0 auto;
-//     margin-top: 3rem;
-//     color: #252c34;
-//     width: 90%;
-//   }
-
 .stats {
   display: flex;
   flex-direction: column;
@@ -47,14 +40,16 @@ body {
   font-weight: 600;
 
   &__total {
-    font-size: 1.8rem;
     font-weight: 500;
 
     p {
+      font-size: 1.78rem;
       padding: 0.8rem 0;
+      font-weight: 600;
     }
 
     span {
+      font-size: 1.6rem;
       color: $color-secondary-light;
       border-radius: $border-radius;
       display: block;
@@ -129,11 +124,11 @@ body {
     position: relative;
 
     .controls-icon {
+      // background-color: rgba(212, 214, 216, 0.267);
       text-align: center;
       padding: 1rem;
       min-width: 2rem;
       min-height: 2rem;
-      background-color: rgba(212, 214, 216, 0.267);
       border-radius: 50%;
       cursor: pointer;
       transition: $transition-ease;

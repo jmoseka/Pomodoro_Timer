@@ -29,6 +29,8 @@ const openCloseNav = () => {
 
   musicOption.addEventListener('click', () => {
     showSidebar();
+    musicOption.classList.add('stat-option-active');
+    statOption.classList.remove('stat-option-active');
     // addTransitions();
     if (!heroContainer.classList.contains('enter-tranition-hero')) {
       heroContainer.classList.add('enter-transition-hero');
@@ -40,6 +42,8 @@ const openCloseNav = () => {
 
   statOption.addEventListener('click', () => {
     showSidebar();
+    musicOption.classList.remove('stat-option-active');
+    statOption.classList.add('stat-option-active');
     // addTransitions();
     if (!heroContainer.classList.contains('enter-tranition-hero')) {
       heroContainer.classList.add('enter-transition-hero');

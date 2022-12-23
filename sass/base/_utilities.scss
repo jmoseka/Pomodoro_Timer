@@ -6,9 +6,17 @@
   display: none;
 }
 
+.control-bg {
+  background-color: rgba(212, 214, 216, 0.267);
+}
+
 .active-state {
-  //color: $color-secondary;
+  color: $color-primary;
   background-color: $color-secondary;
+}
+
+.stat-option-active {
+  color: $color-secondary;
 }
 
 .sidebar-container {
@@ -17,6 +25,10 @@
   color: #252c34;
   width: 90%;
   transition: $transition-ease;
+
+  .sidebar-title {
+    margin-bottom: 1.8rem;
+  }
 }
 
 .show-sidebar {
