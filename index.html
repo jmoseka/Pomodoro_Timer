@@ -21,7 +21,7 @@
         <aside class="sidebar">
             <button class="close-sidebar" id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
 
-            <div class="stats-container sidebar-container">
+            <div class="stats-container sidebar-container hidden">
                 <h2 class="sidebar-title">Your stats</h2>
 
                 <div class="stats">
@@ -37,24 +37,52 @@
                 </div>
             </div>
 
-            <div class="bg-music-container sidebar-container hidden">
+            <div class="bg-music-container sidebar-container">
                 <h2 class="sidebar-title">Background music</h2>
 
                 <div class="bg-music">
-                    <ul>
-                        <li>Classical</li>
-                        <li>Nature</li>
-                        <li>Lofi</li>
-                    </ul>
+
+                    <div class="bg-music__genre">
+                        <ul>
+                            <li class="bg-music-list">
+                                <div class="music-photo">
+                                    <img src="images/classical.jpg" alt="classic photo">
+                                </div>
+                                <h4 class="music-genre-title">Classic</h4>
+                            </li>
+                            <li>Nature</li>
+                            <li>
+                                
+                                Image by <a href="https://www.freepik.com/free-vector/hand-drawn-lo-fi-illustrations_23938644.htm#query=lofi&from_query=lofi%20girl&position=15&from_view=search&track=sph">Freepik</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
                     <!-- https://www.youtube.com/watch?v=lTTajzrSkCw -->
 
-                    <div class="bg-music__video">
-                        <audio  controls="controls">
-                            <source src="https://www.youtube.com/watch?v=XzgUCkZHi3Y" />
-                            Your browser does not support the audio element.
-                        </audio>
+                    <div class="music-container playing-music">
 
-                        <button id="play-music">Play</button><button id="stop-music">Stop</button>
+                        <h4 id="music-title">Lofi 1</h4>
+                    <div class="progress-container">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="bg-music__nav">
+                        <!-- <audio id="audio1" src="https://open.spotify.com/track/46zeJr0g4vNZUPYXJririB?si=c0de4b8830c944d8" controls="controls">
+                            Your browser does not support the audio element.
+                        </audio> -->
+                        <audio src="music/empty-mind.mp3" id="audio"></audio>
+
+                        <button id="prev-music" class="bg-music__btn">
+                            <i class="fa-solid fa-backward"></i>
+                        </button>
+                        <button id="play-music" class="bg-music__btn action-btn-big">
+                            <i class="icon-play fa-solid fa-play"></i>
+                        </button>
+                        <button id="next-music" class="bg-music__btn">
+                            <i class="fa-solid fa-forward"></i>
+                        </button>
+                    </div>
+
                     </div>
                 </div>
                 <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
@@ -111,5 +139,6 @@
     </footer>
 
     <script type="module" src="index.js"></script>
+    <script src="https://kit.fontawesome.com/1cd527edf2.js" crossorigin="anonymous"></script>
 </body>
 </html>

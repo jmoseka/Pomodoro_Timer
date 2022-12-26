@@ -8,7 +8,7 @@ body {
   left: 0;
   width: 30rem;
   height: 100vh;
-  background: $color-secondary;
+  background: $color-primary-light-1;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
   transition: $transition-linear 80ms;
@@ -61,17 +61,72 @@ body {
 }
 
 .bg-music {
-  border: 4px solid purple;
 
-  &__video {
-    margin-top: 8rem;
-    width: 2rem;
 
-    .video {
-      width: 26rem;
-      height: 16rem;
+  &__nav {
+    border-radius: $border-radius;
+    background: rgba(255, 255, 255, 0.432);
+    padding: 1.4rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+   
+  }
+
+  &__genre {
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    li {
+      list-style: none;
+      width: 45%;
     }
   }
+
+  &__btn {
+   
+  }
+}
+
+.bg-music-list {
+  background: $color-primary-dark-1;
+  
+
+  .music-photo {
+    height: 12rem;
+    border-top-left-radius: 50px solid white;
+    border-top-right-radius: 50px solid white;
+    
+    background-color: purple;
+    // border-top-left-radius: $border-radius;
+    // border-top-right-radius: $border-radius;
+
+    img {
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.music-container {
+  background-color: rebeccapurple;
+}
+
+
+.progress-container {
+  background-color: black;
+  padding: 6px;
+}
+
+.progress {
+  padding: 1px;
+  background-color: palevioletred;
 }
 
 .hero-container {
