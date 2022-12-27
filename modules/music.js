@@ -17,8 +17,7 @@ const musicOperation = () => {
 
   const loadSong = (song) => {
     title.textContent = song;
-    // audio.src = `music/${song}.mp3`;
-    audio.src = 'https://www.dropbox.com/s/fm2f579e5rdhucl/chill.mp3?dl=0';
+    audio.src = `music/${song}.mp3`;
   };
 
   const playSong = () => {
