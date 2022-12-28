@@ -10,7 +10,6 @@ const musicCard = document.querySelector('.music-card');
 const songs = ['chill', 'upbeat', 'empty-mind'];
 const audio = document.querySelector('#audio');
 const musicOperation = () => {
-  
   let songIndex = 2;
 
   // initially load song
@@ -18,7 +17,7 @@ const musicOperation = () => {
   const loadSong = (song) => {
     title.textContent = song;
     // audio.src = `music/${song}.mp3`;
-    // audio.src = 'https://www.mediafire.com/file/yh98gq9m40rwfhv/chill.mp3/file';
+    audio.src = 'https://www.mediafire.com/file/yh98gq9m40rwfhv/chill.mp3/file';
   };
 
   const playSong = () => {
@@ -96,29 +95,29 @@ const musicOperation = () => {
   //   }
   // });
 
-  playBtn.addEventListener(('click'), () => {
-    if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
-      musicContainer.classList.remove('playing-music');
-      pauseSong();
-    } else {
-      // playBtn.querySelector('.icon-play').classList.toggle('fa-play');
-      playBtn.querySelector('.icon-play').classList.add('fa-pause');
-      playSong();
-    }
-    // if (isPlaying) {
-    //   playSong();
-    // } else {
-    //   pauseSong();
-    // }
-  });
+  // playBtn.addEventListener(('click'), () => {
+  //   if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
+  //     musicContainer.classList.remove('playing-music');
+  //     pauseSong();
+  //   } else {
+  //     // playBtn.querySelector('.icon-play').classList.toggle('fa-play');
+  //     playBtn.querySelector('.icon-play').classList.add('fa-pause');
+  //     playSong();
+  //   }
+  //   // if (isPlaying) {
+  //   //   playSong();
+  //   // } else {
+  //   //   pauseSong();
+  //   // }
+  // });
 
-  prevBtn.addEventListener(('click'), prevSong);
-  nextBtn.addEventListener(('click'), nextSong);
+  // prevBtn.addEventListener(('click'), prevSong);
+  // nextBtn.addEventListener(('click'), nextSong);
   audio.addEventListener(('timeupdate'), updateProgress);
   progressContainer.addEventListener(('click'), setProgress);
 
   audio.addEventListener('ended', nextSong);
 
-  loadSong(songs[songIndex]);
+  // loadSong(songs[songIndex]);
 };
 export default musicOperation;
