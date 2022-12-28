@@ -48,36 +48,35 @@ const classicalMusic = [
 const natureMusic = [
   {
     title: 'Fly away',
-    mp3: 'fly',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Fly-Away-When-The-Fog-Settled-Down.mp3?raw=true',
   },
 
   {
     title: 'Contemplate the stars',
-    mp3: 'contemplate-stars',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/09-Meydan-Contemplate-the-stars.mp3?raw=true',
   },
 
   {
     title: 'Evening Improvisation',
-    mp3: 'evening',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Evening-Improvisation-with-Ethera.mp3?raw=true',
   },
 ];
 
 const lofiMusic = [
   {
     title: 'Chill',
-    mp3: 'chill',
-    lofi: ['chill', 'upbeat', 'empty-mind'],
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
   },
 
   {
 
     title: 'Upbeat',
-    mp3: 'upbeat',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/upbeat.mp3?raw=true',
   },
 
   {
     title: 'Empty mind',
-    mp3: 'empty-mind',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/empty-mind.mp3?raw=true',
   },
 ];
 
@@ -114,6 +113,28 @@ const prevSong = () => {
     musicTitleEl.textContent = classicalMusic[songIndex].title;
     play();
   }
+
+  if (isMusicPlaying.isNature) {
+    songIndex--;
+    if (songIndex < 0) {
+      songIndex = natureMusic.length - 1;
+    }
+
+    loadSong(natureMusic[songIndex].mp3);
+    musicTitleEl.textContent = natureMusic[songIndex].title;
+    play();
+  }
+
+  if (isMusicPlaying.isLofi) {
+    songIndex--;
+    if (songIndex < 0) {
+      songIndex = lofiMusic.length - 1;
+    }
+
+    loadSong(lofiMusic[songIndex].mp3);
+    musicTitleEl.textContent = lofiMusic[songIndex].title;
+    play();
+  }
 };
 
 const nextSong = () => {
@@ -125,6 +146,28 @@ const nextSong = () => {
 
     loadSong(classicalMusic[songIndex].mp3);
     musicTitleEl.textContent = classicalMusic[songIndex].title;
+    play();
+  }
+
+  if (isMusicPlaying.isNature) {
+    songIndex++;
+    if (songIndex > natureMusic.length - 1) {
+      songIndex = 0;
+    }
+
+    loadSong(natureMusic[songIndex].mp3);
+    musicTitleEl.textContent = natureMusic[songIndex].title;
+    play();
+  }
+
+  if (isMusicPlaying.isLofi) {
+    songIndex++;
+    if (songIndex > lofiMusic.length - 1) {
+      songIndex = 0;
+    }
+
+    loadSong(lofiMusic[songIndex].mp3);
+    musicTitleEl.textContent = lofiMusic[songIndex].title;
     play();
   }
 };
@@ -177,6 +220,8 @@ const populateMusicCard = () => {
         }
         cardNature.classList.remove('music-active');
         cardLofi.classList.remove('music-active');
+        isMusicPlaying.isNature = false;
+        isMusicPlaying.isLofi = false;
       } else if (musicCard.classList.contains('nature')) {
         musicCard.classList.toggle('music-active');
 
@@ -192,6 +237,8 @@ const populateMusicCard = () => {
         }
         cardClassic.classList.remove('music-active');
         cardLofi.classList.remove('music-active');
+        isMusicPlaying.isClassical = false;
+        isMusicPlaying.isLofi = false;
       } else if (musicCard.classList.contains('lofi')) {
         musicCard.classList.toggle('music-active');
 
@@ -207,6 +254,8 @@ const populateMusicCard = () => {
         }
         cardNature.classList.remove('music-active');
         cardClassic.classList.remove('music-active');
+        isMusicPlaying.isClassical = false;
+        isMusicPlaying.isNature = false;
       }
     });
   });

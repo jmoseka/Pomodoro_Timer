@@ -46,33 +46,39 @@
 
                     <div class="music-container">
 
+                    <div class="music-player-container">
                         <h4 id="music-title">No song selected</h4>
                     <div class="progress-container">
                         <div class="progress"></div>
                     </div>
 
-                    <div class="bg-music__nav">
+                    <div class="bg-music-nav">
                         <!-- <audio id="audio1" src="https://open.spotify.com/track/46zeJr0g4vNZUPYXJririB?si=c0de4b8830c944d8" controls="controls">
                             Your browser does not support the audio element.
                         </audio> -->
                         <audio src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true" id="audio"></audio>
 
-                        <button id="prev-music" class="bg-music__btn">
-                            <i class="fa-solid fa-backward"></i>
-                        </button>
+                        <div>
+                            <button id="prev-music" class="bg-music__btn">
+                                <i class="fa-solid fa-backward"></i>
+                            </button>
+                            
+                            <button id="next-music" class="bg-music__btn">
+                                <i class="fa-solid fa-forward"></i>
+                            </button>
+                        </div>
+
                         <button id="play-music" class="bg-music__btn action-btn-big">
                             <i class="icon-play fa-solid fa-play"></i>
                         </button>
-                        <button id="next-music" class="bg-music__btn">
-                            <i class="fa-solid fa-forward"></i>
-                        </button>
                     </div>
                     </div>
-                    
+
                     <ul class="bg-music-list">
                         <!-- populated dynamically -->
                     </ul>
-
+                    </div>
+                
                 </div>
                 <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
  does not produce sound -->

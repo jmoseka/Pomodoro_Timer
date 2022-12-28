@@ -137,15 +137,7 @@ body {
       display: block;
       width: 100%;
       padding: 1rem 0 1rem 1rem;
-      background-color: #252c34; }
-
-.bg-music__nav {
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.432);
-  padding: 1.4rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem; }
+      background: rgba(212, 214, 216, 0.129); }
 
 .bg-music-list {
   list-style: none;
@@ -175,16 +167,36 @@ body {
       line-height: 2;
       font-weight: 400; }
 
-.music-container {
-  background-color: rebeccapurple; }
-
-.progress-container {
-  background-color: black;
-  padding: 6px; }
+.music-player-container {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 2rem 1rem;
+  background: rgba(212, 214, 216, 0.129); }
+  .music-player-container #music-title {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.6rem;
+    font-style: italic; }
+  .music-player-container .progress-container {
+    margin: 1rem 0;
+    padding: 6px; }
+  .music-player-container .bg-music-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .music-player-container .bg-music-nav button {
+      cursor: pointer;
+      color: inherit;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      font-size: 2.4rem; }
+    .music-player-container .bg-music-nav button:first-child {
+      margin-right: 2.4rem; }
 
 .progress {
   padding: 1px;
-  background-color: palevioletred; }
+  background-color: #8ee7a7; }
 
 .hero-container {
   display: flex;
