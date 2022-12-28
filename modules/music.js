@@ -6,11 +6,11 @@ const title = document.querySelector('#music-title');
 const progressContainer = document.querySelector('.progress-container');
 const progress = document.querySelector('.progress');
 const musicContainer = document.querySelector('.music-container');
-const audio = document.querySelector('#audio');
 const musicCard = document.querySelector('.music-card');
 const songs = ['chill', 'upbeat', 'empty-mind'];
 
 const musicOperation = () => {
+  const audio = document.querySelector('#audio');
   let songIndex = 2;
 
   // initially load song
@@ -67,14 +67,35 @@ const musicOperation = () => {
 
   // event listeners
 
-  musicCard.addEventListener(('click'), () => {
-    musicCard.classList.add('music-active');
-    playSong();
-  });
+  // musicCard.forEach((card) => {
+  //   card.addEventListener('click', (e) => {
+  //     if (e.target.contains('classic')) {
+  //       const musicActive = card.classList.contains('music-active');
+  //       e.classList.toggle('music-active');
+
+  //       if (!musicActive) {
+  //         playSong();
+  //       } else {
+  //         pauseSong();
+  //         audio.currentTime = 0;
+  //       }
+  //     }
+  //   });
+  // });
+
+  // musicCard.addEventListener(('click'), () => {
+  //   const musicActive = musicCard.classList.contains('music-active');
+  //   musicCard.classList.toggle('music-active');
+
+  //   if (!musicActive) {
+  //     playSong();
+  //   } else {
+  //     pauseSong();
+  //     audio.currentTime = 0;
+  //   }
+  // });
 
   playBtn.addEventListener(('click'), () => {
-    //  const isPlaying = musicContainer.classList.contains('playing-music');
-
     if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
       musicContainer.classList.remove('playing-music');
       pauseSong();
