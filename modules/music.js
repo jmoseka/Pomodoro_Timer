@@ -8,16 +8,17 @@ const progress = document.querySelector('.progress');
 const musicContainer = document.querySelector('.music-container');
 const musicCard = document.querySelector('.music-card');
 const songs = ['chill', 'upbeat', 'empty-mind'];
-
+const audio = document.querySelector('#audio');
 const musicOperation = () => {
-  const audio = document.querySelector('#audio');
+  
   let songIndex = 2;
 
   // initially load song
 
   const loadSong = (song) => {
     title.textContent = song;
-    audio.src = `music/${song}.mp3`;
+    // audio.src = `music/${song}.mp3`;
+    // audio.src = 'https://www.mediafire.com/file/yh98gq9m40rwfhv/chill.mp3/file';
   };
 
   const playSong = () => {
