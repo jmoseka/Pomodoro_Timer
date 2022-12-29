@@ -201,11 +201,13 @@ body {
   align-items: center;
   margin-top: -6rem;
 
+
   &__notice {
+    max-width: 48rem;
     text-align: center;
     letter-spacing: 1px;
     border-radius: $border-radius;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     padding: 0.5rem 0.5rem;
     background-color: $color-primary-dark-1;
 
@@ -215,8 +217,8 @@ body {
   }
 
   &__time {
-    font-size: 16rem;
-    letter-spacing: 1.2rem;
+    font-size: 20rem;
+    letter-spacing: 1.5rem;
   }
 
   &__controls {

@@ -5,6 +5,7 @@ const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
+const motivateNoticeEl = document.getElementById('motivate-notice');
 
 const originalTime = 10;
 let sec = originalTime;
@@ -26,6 +27,14 @@ const intervals = {
   interval2: 0,
   interval3: 0,
 };
+
+const motivate = [
+  'Keep up the good work 💪',
+  'You are doing great 😃 ',
+  'Well, look at you go! 🤗',
+  'Nothing can stop you now 👏',
+  'Right on 👍',
+];
 
 const updateTotalFocusTime = () => {
   let focusHours = 0;
@@ -84,17 +93,19 @@ const updateCounterHTML = () => {
 
 const updateCountDown = () => {
   const takeShortBreak = () => {
+    motivateNoticeEl.textContent = 'Let\'s take a short break';
     intervals.interval2 = setInterval(() => {
       if (counter < 4 && !isPaused) {
         isShortBreak = true;
         updateCounterHTML();
-        console.log('short count----------', sec);
         sec--;
 
         if (sec < 0) {
           sec = originalTime;
           clearInterval(intervals.interval2);
           isShortBreak = false;
+          const random = Math.floor(Math.random() * motivate.length);
+          motivateNoticeEl.textContent = motivate[random];
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -102,17 +113,21 @@ const updateCountDown = () => {
   };
 
   const takeLongBreak = () => {
+    motivateNoticeEl.textContent = 'Time to take a long break';
     intervals.interval3 = setInterval(() => {
       if (!isPaused) {
         isLongBreak = true;
         updateCounterHTML();
-        console.log('long count----------', sec);
         sec--;
 
         if (sec < 0) {
           sec = originalTime;
           clearInterval(intervals.interval3);
+          clearInterval(intervals.interval1);
+          clearInterval(intervals.interval2);
+          counter = 0;
           isLongBreak = false;
+          motivateNoticeEl.textContent = '';
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -121,7 +136,6 @@ const updateCountDown = () => {
 
   if (!isPaused) {
     updateCounterHTML();
-    console.log('count----------', sec);
     sec--;
 
     if (sec < 0) {
