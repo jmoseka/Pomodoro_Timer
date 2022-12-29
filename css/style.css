@@ -92,7 +92,8 @@ h4 {
   border-radius: 6px; }
 
 body {
-  background-color: #29313a; }
+  background-color: #29313a;
+  overflow: visible; }
 
 .sidebar {
   position: fixed;
