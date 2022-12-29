@@ -26,8 +26,7 @@ body {
   outline: none;
   border: none;
   transition: $transition-ease;
-  cursor: pointer;  
-
+  cursor: pointer;
 
   .close-icon {
     color: $color-secondary-light;
@@ -47,7 +46,6 @@ body {
   &__total {
     font-weight: 400;
 
-
     p {
       font-size: 1.78rem;
       padding: 0.8rem 0;
@@ -59,14 +57,12 @@ body {
       border-radius: $border-radius;
       display: block;
       width: 100%;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 50px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 10px 50px;
       padding: 1rem 0;
       padding-left: 1rem;
     }
   }
 }
-
-
 
 .bg-music-list {
   list-style: none;
@@ -75,19 +71,15 @@ body {
   padding: 3rem 2rem;
   border-radius: $border-radius;
 
-  .music-card:last-child {
-    margin-bottom: 0;
-  }
-
   .music-card {
     transition: $transition-ease;
     border-radius: $border-radius;
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     padding: 1rem 0;
     margin-bottom: 1.5rem;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 10px 50px;
     cursor: pointer;
 
     &__img {
@@ -96,7 +88,6 @@ body {
       border-radius: $border-radius;
       width: 20%;
       height: 5rem;
-      
 
       img {
         height: 100%;
@@ -104,17 +95,41 @@ body {
       }
     }
 
-    &__desc {
-      letter-spacing: .8px;
-      line-height: 2;
-      font-weight: 400;
-
+    .music-card:last-child {
+      margin-bottom: 0;
     }
 
+    &__desc {
+      letter-spacing: 0.8px;
+      line-height: 2;
+      font-weight: 400;
+    }
+  }
+}
 
+.bg-music-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    cursor: pointer;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.6rem;
   }
 
-  
+  div {
+    button:last-child {
+      margin-left: 1.8rem;
+    }
+  }
+
+  .music-ctrl-icon:hover {
+    color: $color-secondary;
+  }
 }
 
 .music-player-container {
@@ -129,7 +144,6 @@ body {
   border-radius: $border-radius;
   // background-color: rgba(2, 2, 2, 0.158);
 
-
   #music-title {
     text-align: center;
     font-weight: 300;
@@ -138,40 +152,11 @@ body {
     font-style: italic;
   }
 
-
-  .bg-music-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    div {
-      button:last-child {
-        margin-left: 1.8rem;
-      }
-    }
-
-
-
-    button {
-      cursor: pointer;
-      color: inherit;
-      background-color: transparent;
-      outline: none;
-      border: none;
-      font-size: 1.6rem;
-    }
-
-    .music-ctrl-icon:hover {
-      color: $color-secondary;
-    }
-
-  }
-
   #play-music {
     display: inline-block;
     text-align: center;
     font-size: 1.2rem;
-    padding: .5rem;
+    padding: 0.5rem;
     min-width: 2.5rem;
     min-height: 1.5rem;
     border-radius: 50%;
@@ -179,6 +164,7 @@ body {
     background-color: $color-secondary-light;
   }
 }
+
 .progress {
   padding: 1px;
   background-color: $color-secondary;
@@ -220,16 +206,15 @@ body {
     letter-spacing: 1px;
     border-radius: $border-radius;
     font-size: 1.2rem;
-    padding: .5rem .5rem;
+    padding: 0.5rem 0.5rem;
     background-color: $color-primary-dark-1;
 
-    p{
-      padding: .35rem;
+    p {
+      padding: 0.35rem;
     }
   }
 
   &__time {
-    
     font-size: 16rem;
     letter-spacing: 1.2rem;
   }
