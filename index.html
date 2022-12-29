@@ -20,9 +20,11 @@
     <main>
 
         <aside class="sidebar">
-            <button class="close-sidebar" id="close-sidebar"><ion-icon name="close-outline"></ion-icon></button>
+            <button class="close-sidebar" id="close-sidebar">
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </button>
 
-            <div class="stats-container sidebar-container hidden">
+            <div class="stats-container sidebar-container">
                 <h2 class="sidebar-title">Your stats</h2>
 
                 <div class="stats">
@@ -58,19 +60,24 @@
                         </audio> -->
                         <audio src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true" id="audio"></audio>
 
-                        <div>
-                            <button id="prev-music" class="bg-music__btn">
-                                <i class="fa-solid fa-backward"></i>
-                            </button>
-                            
-                            <button id="next-music" class="bg-music__btn">
-                                <i class="fa-solid fa-forward"></i>
-                            </button>
-                        </div>
 
-                        <button id="play-music" class="bg-music__btn action-btn-big">
-                            <i class="icon-play fa-solid fa-play"></i>
-                        </button>
+                            <div>
+                                <button id="prev-music" class="bg-music__btn">
+                                    <i class="fa-solid fa-backward music-ctrl-icon"></i>
+                                </button>
+
+                                <button id="next-music" class="bg-music__btn">
+                                    <i class="fa-solid fa-forward music-ctrl-icon"></i>
+                                </button>
+                                
+                    
+                            </div>
+                            <button id="play-music" class="bg-music__btn action-btn-big">
+                                <i class="icon-play fa-solid fa-play music-ctrl-icon"></i>
+                            </button>
+
+                        
+                
                     </div>
                     </div>
 

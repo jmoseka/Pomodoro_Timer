@@ -116,7 +116,7 @@ const musicOperation = () => {
   audio.addEventListener(('timeupdate'), updateProgress);
   progressContainer.addEventListener(('click'), setProgress);
 
-  audio.addEventListener('ended', nextSong);
+  // audio.addEventListener('ended', nextSong);
 
   // loadSong(songs[songIndex]);
 };

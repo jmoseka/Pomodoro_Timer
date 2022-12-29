@@ -98,101 +98,122 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 30rem;
+  width: 34rem;
   height: 100vh;
   background: #3e464e;
   row-gap: 1rem;
-  box-shadow: var(--clr-red-dark);
   transition: all 0.3s linear 80ms;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  z-index: 100; }
 
 .close-sidebar {
   margin: 3rem 3rem 0 0;
   align-self: flex-end;
   background-color: transparent;
-  font-size: 3rem;
+  font-size: 2.5rem;
   outline: none;
   border: none;
   transition: all 0.3s ease;
   cursor: pointer; }
+  .close-sidebar .close-icon {
+    color: #e5e9e7; }
   .close-sidebar:hover {
     transform: scale(1.3); }
 
 .stats {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-weight: 600; }
+  display: block;
+  background-color: rgba(37, 44, 52, 0.6);
+  padding: 2rem 2rem;
+  border-radius: 6px; }
   .stats__total {
-    font-weight: 500; }
+    font-weight: 400; }
     .stats__total p {
       font-size: 1.78rem;
-      padding: 0.8rem 0;
-      font-weight: 600; }
+      padding: 0.8rem 0; }
     .stats__total span {
       font-size: 1.6rem;
-      color: #e5e9e7;
+      color: #8ee7a7;
       border-radius: 6px;
       display: block;
       width: 100%;
-      padding: 1rem 0 1rem 1rem;
-      background: rgba(212, 214, 216, 0.129); }
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 50px;
+      padding: 1rem 0;
+      padding-left: 1rem; }
 
 .bg-music-list {
   list-style: none;
-  display: block; }
+  display: block;
+  background-color: #252c34;
+  padding: 3rem 2rem;
+  border-radius: 6px; }
+  .bg-music-list .music-card:last-child {
+    margin-bottom: 0; }
   .bg-music-list .music-card {
     transition: all 0.3s ease;
-    background-color: #252c34;
     border-radius: 6px;
     display: flex;
-    height: 8rem;
-    margin-bottom: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 50px;
     cursor: pointer; }
     .bg-music-list .music-card__img {
+      margin: 0 2rem;
       overflow: hidden;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
-      width: 40%; }
+      border-radius: 6px;
+      width: 20%;
+      height: 5rem; }
       .bg-music-list .music-card__img img {
         height: 100%;
         width: 100%; }
     .bg-music-list .music-card__desc {
-      margin: 0 auto;
-      align-self: center;
-      justify-self: center;
       letter-spacing: .8px;
       line-height: 2;
       font-weight: 400; }
 
 .music-player-container {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  padding: 2rem 1rem;
-  background: rgba(212, 214, 216, 0.129); }
+  margin: 3rem 0 2rem 0;
+  padding: 0 1.4rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(37, 44, 52, 0.5);
+  border-radius: 6px; }
   .music-player-container #music-title {
     text-align: center;
     font-weight: 300;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
     font-style: italic; }
-  .music-player-container .progress-container {
-    margin: 1rem 0;
-    padding: 6px; }
   .music-player-container .bg-music-nav {
     width: 100%;
     display: flex;
     justify-content: space-between; }
+    .music-player-container .bg-music-nav div button:last-child {
+      margin-left: 1.8rem; }
     .music-player-container .bg-music-nav button {
       cursor: pointer;
       color: inherit;
       background-color: transparent;
       outline: none;
       border: none;
-      font-size: 2.4rem; }
-    .music-player-container .bg-music-nav button:first-child {
-      margin-right: 2.4rem; }
+      font-size: 1.6rem; }
+    .music-player-container .bg-music-nav .music-ctrl-icon:hover {
+      color: #8ee7a7; }
+  .music-player-container #play-music {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: .5rem;
+    min-width: 2.5rem;
+    min-height: 1.5rem;
+    border-radius: 50%;
+    color: #29313a;
+    background-color: #e5e9e7; }
 
 .progress {
   padding: 1px;
@@ -203,7 +224,7 @@ body {
   backface-visibility: hidden; }
 
 .sidebar-window {
-  width: 30rem; }
+  width: 34rem; }
 
 .hero-section {
   width: 100%;
@@ -229,7 +250,7 @@ body {
     border-radius: 6px;
     font-size: 1.2rem;
     padding: 0.8rem;
-    background-color: #1d2229; }
+    background-color: #21272e; }
   .timer__time {
     font-size: 16rem;
     letter-spacing: 1rem; }

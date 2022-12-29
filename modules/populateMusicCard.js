@@ -47,13 +47,13 @@ const classicalMusic = [
 
 const natureMusic = [
   {
-    title: 'Fly away',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Fly-Away-When-The-Fog-Settled-Down.mp3?raw=true',
+    title: 'Contemplate the stars',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/09-Meydan-Contemplate-the-stars.mp3?raw=true',
   },
 
   {
-    title: 'Contemplate the stars',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/09-Meydan-Contemplate-the-stars.mp3?raw=true',
+    title: 'Fly away',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Fly-Away-When-The-Fog-Settled-Down.mp3?raw=true',
   },
 
   {
@@ -176,6 +176,7 @@ const nextSong = () => {
   }
 };
 
+audio.addEventListener('ended', nextSong);
 prevBtn.addEventListener(('click'), prevSong);
 nextBtn.addEventListener(('click'), nextSong);
 playBtn.addEventListener(('click'), () => {
