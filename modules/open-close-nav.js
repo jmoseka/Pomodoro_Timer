@@ -25,6 +25,9 @@ const openCloseNav = () => {
     heroContainer.classList.remove('enter-transition-hero');
     // showHideSidebar();
     addExitTransition();
+
+    musicOption.classList.remove('stat-option-active');
+    statOption.classList.remove('stat-option-active');
   });
 
   musicOption.addEventListener('click', () => {

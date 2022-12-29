@@ -22,7 +22,7 @@
 .sidebar-container {
   margin: 0 auto;
   margin-top: 3rem;
-  color: #252c34;
+  color: $color-secondary-light;
   width: 90%;
   transition: $transition-ease;
 
@@ -67,4 +67,9 @@
 .enter-transition-hero {
   // transition: all 9s linear;
   animation: 500ms slide-right;
+}
+
+.music-active {
+  background-image: linear-gradient(to right top, #29313a, #263c47, #1d4751, #145356, #175e56);
+  background-image: linear-gradient(to right top, #29313a, #315b6a, #2e8990, #4bb9a4, #8ee7a7);
 }
