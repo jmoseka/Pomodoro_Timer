@@ -86,14 +86,18 @@ const stop = () => {
   document.querySelector('.icon-play').classList.add('fa-play');
 };
 
-const loadSong = (song) => {
+function loadSong(song) {
   audio.src = song;
-};
+}
 
 const play = () => {
   document.querySelector('.icon-play').classList.add('fa-pause');
   document.querySelector('.icon-play').classList.remove('fa-play');
-  audio.play();
+  // if (!isMusicPlaying.isClassical || !isMusicPlaying.isNature || !isMusicPlaying.isLofi) {
+  const playPromise = audio.play();
+  if (playPromise !== null) {
+    playPromise.catch(() => { });
+  }
 };
 
 const pause = () => {
@@ -110,8 +114,8 @@ const prevSong = () => {
     }
 
     loadSong(classicalMusic[songIndex].mp3);
-    musicTitleEl.textContent = classicalMusic[songIndex].title;
     play();
+    musicTitleEl.textContent = classicalMusic[songIndex].title;
   }
 
   if (isMusicPlaying.isNature) {
@@ -121,8 +125,8 @@ const prevSong = () => {
     }
 
     loadSong(natureMusic[songIndex].mp3);
-    musicTitleEl.textContent = natureMusic[songIndex].title;
     play();
+    musicTitleEl.textContent = natureMusic[songIndex].title;
   }
 
   if (isMusicPlaying.isLofi) {
@@ -132,8 +136,8 @@ const prevSong = () => {
     }
 
     loadSong(lofiMusic[songIndex].mp3);
-    musicTitleEl.textContent = lofiMusic[songIndex].title;
     play();
+    musicTitleEl.textContent = lofiMusic[songIndex].title;
   }
 };
 
@@ -214,9 +218,9 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(classicalMusic[0].mp3);
+          play();
           musicTitleEl.textContent = classicalMusic[0].title;
           isMusicPlaying.isClassical = true;
-          play();
         }
         cardNature.classList.remove('music-active');
         cardLofi.classList.remove('music-active');
@@ -231,9 +235,9 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(natureMusic[0].mp3);
+          play();
           musicTitleEl.textContent = natureMusic[0].title;
           isMusicPlaying.isNature = true;
-          play();
         }
         cardClassic.classList.remove('music-active');
         cardLofi.classList.remove('music-active');
@@ -248,9 +252,9 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(lofiMusic[0].mp3);
+          play();
           musicTitleEl.textContent = lofiMusic[0].title;
           isMusicPlaying.isLofi = true;
-          play();
         }
         cardNature.classList.remove('music-active');
         cardClassic.classList.remove('music-active');
