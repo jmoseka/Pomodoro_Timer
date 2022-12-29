@@ -1,6 +1,6 @@
 body {
   background-color: $color-primary;
-  overflow: visible;
+  overflow-y: scroll;
 }
 
 .sidebar {
@@ -195,7 +195,7 @@ body {
 
 .hero-section {
   width: 100%;
-  height: 93vh;
+  height: 60rem;
 }
 
 .content-container {
@@ -209,23 +209,29 @@ body {
 }
 
 .timer {
-  margin-top: -8rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -6rem;
 
   &__notice {
+    text-align: center;
     letter-spacing: 1px;
     border-radius: $border-radius;
     font-size: 1.2rem;
-    padding: 0.8rem;
+    padding: .5rem .5rem;
     background-color: $color-primary-dark-1;
+
+    p{
+      padding: .35rem;
+    }
   }
 
   &__time {
+    
     font-size: 16rem;
-    letter-spacing: 1rem;
+    letter-spacing: 1.2rem;
   }
 
   &__controls {
