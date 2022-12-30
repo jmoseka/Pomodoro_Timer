@@ -1,11 +1,16 @@
 /* eslint-disable no-plusplus */
+
+import {
+  updateShortBreakMsg, updateEncouragingMsg, updateLongBreakMsg, removeEncouragingMsg,
+  generateQuote,
+} from './notifyMsg.js';
+
 const timerEl = document.getElementById('time');
 const btnPlay = document.getElementById('play');
 const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
-const motivateNoticeEl = document.getElementById('motivate-notice');
 
 const originalTime = 10;
 let sec = originalTime;
@@ -16,6 +21,7 @@ let counter = 0;
 let isPaused = true;
 let isShortBreak = false;
 let isLongBreak = false;
+let quotePresent = false;
 
 const duration = {
   shortBreak: 5,
@@ -27,14 +33,6 @@ const intervals = {
   interval2: 0,
   interval3: 0,
 };
-
-const motivate = [
-  'Keep up the good work 💪',
-  'You are doing great 😃 ',
-  'Well, look at you go! 🤗',
-  'Nothing can stop you now 👏',
-  'Right on 👍',
-];
 
 const updateTotalFocusTime = () => {
   let focusHours = 0;
@@ -51,30 +49,17 @@ const updateTotalFocusTime = () => {
   }
 };
 
+const updateTotalSessionCount = () => {
+  sessionCompleted++;
+  completedSessionEl.innerHTML = sessionCompleted;
+  sessionCount = 0;
+};
+
 const updateSessionCount = () => {
 // update the number of sessions in DOM
   sessionCount++;
-
-  if (sessionCount > 4) {
-    sessionCompleted++;
-    completedSessionEl.innerHTML = sessionCompleted;
-    // reset back to one
-    sessionCount = 1;
-  }
-  sessionCountEl.innerHTML = `${sessionCount} / 4 sessions`;
+  sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
 };
-
-// const takeLongBreak = () => {
-//   if (counter === 4) {
-//     const interval = setInterval(() => {
-//       console.log('This is the long break');
-//     }, 1000);
-
-//     setTimeout(() => {
-//       clearInterval(interval);
-//     }, 10000);
-//   }
-// };
 
 const updateCounterHTML = () => {
   let secondsEl = 0;
@@ -93,7 +78,9 @@ const updateCounterHTML = () => {
 
 const updateCountDown = () => {
   const takeShortBreak = () => {
-    motivateNoticeEl.textContent = 'Let\'s take a short break';
+    // update a short break message
+    removeEncouragingMsg();
+    updateShortBreakMsg();
     intervals.interval2 = setInterval(() => {
       if (counter < 4 && !isPaused) {
         isShortBreak = true;
@@ -104,8 +91,11 @@ const updateCountDown = () => {
           sec = originalTime;
           clearInterval(intervals.interval2);
           isShortBreak = false;
-          const random = Math.floor(Math.random() * motivate.length);
-          motivateNoticeEl.textContent = motivate[random];
+
+          // update encouraging message
+          updateEncouragingMsg();
+          sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
+
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -113,7 +103,7 @@ const updateCountDown = () => {
   };
 
   const takeLongBreak = () => {
-    motivateNoticeEl.textContent = 'Time to take a long break';
+    updateLongBreakMsg();
     intervals.interval3 = setInterval(() => {
       if (!isPaused) {
         isLongBreak = true;
@@ -123,11 +113,12 @@ const updateCountDown = () => {
         if (sec < 0) {
           sec = originalTime;
           clearInterval(intervals.interval3);
-          clearInterval(intervals.interval1);
           clearInterval(intervals.interval2);
+          clearInterval(intervals.interval1);
           counter = 0;
           isLongBreak = false;
-          motivateNoticeEl.textContent = '';
+          removeEncouragingMsg();
+          generateQuote();
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -153,6 +144,7 @@ const updateCountDown = () => {
       // --------------------------------
       if (counter === 4) {
         sec = duration.longBreak;
+        updateTotalSessionCount();
         takeLongBreak();
       }
       // ---------- end ----------------
@@ -170,6 +162,10 @@ btnPlay.addEventListener('click', () => {
   btnReset.classList.remove('active-state');
 
   isPaused = false;
+  if (!quotePresent) {
+    generateQuote();
+  }
+  quotePresent = true;
 });
 
 btnPause.addEventListener('click', () => {
@@ -184,14 +180,14 @@ btnReset.addEventListener('click', () => {
   btnReset.classList.add('active-state');
   btnPlay.classList.remove('active-state');
   btnPause.classList.remove('active-state');
-  isPaused = true;
 
   if (isShortBreak) {
     sec = duration.shortBreak;
   }
   if (isLongBreak) {
     sec = duration.longBreak;
-  } else {
+  }
+  if (!isLongBreak && !isShortBreak) {
     sec = originalTime;
   }
   updateCounterHTML();
