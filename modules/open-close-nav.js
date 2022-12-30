@@ -1,6 +1,7 @@
 const sidebarWindow = document.querySelector('.sidebar-window');
 const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
+const overlay = document.querySelector('.overlay');
 
 const addExitTransition = () => {
   heroContainer.classList.remove('enter-transition-hero');
@@ -8,6 +9,7 @@ const addExitTransition = () => {
 };
 
 const showSidebar = () => {
+  overlay.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.remove('hidden');
 };
@@ -20,6 +22,7 @@ const openCloseNav = () => {
   const bgMusicContainer = document.querySelector('.bg-music-container');
 
   closeSidebarBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
     sidebarWindow.classList.add('hidden');
     sidebar.classList.remove('show-sidebar');
     heroContainer.classList.remove('enter-transition-hero');
@@ -31,6 +34,7 @@ const openCloseNav = () => {
   });
 
   musicOption.addEventListener('click', () => {
+
     showSidebar();
     musicOption.classList.add('stat-option-active');
     statOption.classList.remove('stat-option-active');

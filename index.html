@@ -18,13 +18,13 @@
 </head>
 <body>
     <main>
-
+        <img class="pomo-logo" src="images/pomo-logo.png" alt="App logo">
         <aside class="sidebar">
             <button class="close-sidebar" id="close-sidebar">
                 <i class="fa-solid fa-xmark close-icon"></i>
             </button>
 
-            <div class="stats-container sidebar-container">
+            <div class="stats-container sidebar-container hidden">
                 <h2 class="sidebar-title">Your stats</h2>
 
                 <div class="stats">
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="bg-music-container sidebar-container">
+            <div class="bg-music-container sidebar-container hidden">
                 <h2 class="sidebar-title">Background music</h2>
 
                 <div class="bg-music">   
@@ -101,9 +101,12 @@
             </div>
 
             <section class="hero-section">
+                
                 <div class="content-container big-width">
-                    <h1 class="heading">Pomodoro Timer</h1>
+                    
+                    <!-- <h1 class="heading">Pomodoro Timer</h1> -->
                     <div class="timer">
+                        <div class="overlay hidden"></div>
                         <div class="timer__notice">
                             <p id="motivate-notice"></p>
                             <p>
