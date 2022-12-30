@@ -102,7 +102,8 @@ body {
   left: 3%; }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
+  overflow-y: visible;
   top: 0;
   left: 0;
   width: 34rem;
@@ -113,7 +114,8 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 100;
-  transform: translate(-100%); }
+  transform: translate(-100%);
+  margin-bottom: 2rem; }
 
 .close-sidebar {
   margin: 3rem 3rem 0 0;
@@ -169,17 +171,17 @@ body {
       margin: 0 2rem;
       overflow: hidden;
       border-radius: 6px;
-      width: 20%;
-      height: 5rem; }
+      width: 8rem;
+      height: 7rem; }
       .bg-music-list .music-card__img img {
-        height: 100%;
-        width: 100%; }
-    .bg-music-list .music-card .music-card:last-child {
-      margin-bottom: 0; }
+        width: 100%;
+        height: 100%; }
     .bg-music-list .music-card__desc {
       letter-spacing: 0.8px;
       line-height: 2;
       font-weight: 400; }
+  .bg-music-list .music-card:last-child {
+    margin-bottom: 0; }
 
 .bg-music-nav {
   width: 100%;
@@ -311,3 +313,11 @@ body {
     height: 110%;
     background-color: rgba(41, 49, 58, 0.8);
     backdrop-filter: blur(8px); } }
+
+@media (max-width: 700px) {
+  .sidebar, .sidebar-window {
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: purple;
+    height: auto; } }

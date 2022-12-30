@@ -19,79 +19,84 @@
 <body>
     <main>
         <img class="pomo-logo" src="images/pomo-logo.png" alt="App logo">
-        <aside class="sidebar">
-            <button class="close-sidebar" id="close-sidebar">
-                <i class="fa-solid fa-xmark close-icon"></i>
-            </button>
-
-            <div class="stats-container sidebar-container hidden">
-                <h2 class="sidebar-title">Your stats</h2>
-
-                <div class="stats">
-                    <div class="stats__total">
-                        <p>Total focus time</p>
-                        <span class="stats__total-time" id="total-time">Complete a session to start counting</span>
-                    </div>
-
-                    <div class="stats__total">
-                        <p>Total sessions completed</p>
-                        <span id="total-session">0</span>
+        <div class="sidebar-container">
+            <aside class="sidebar">
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fa-solid fa-xmark close-icon"></i>
+                </button>
+    
+                <div class="stats-container sidebar-container hidden">
+                    <h2 class="sidebar-title">Your stats</h2>
+    
+                    <div class="stats">
+                        <div class="stats__total">
+                            <p>Total focus time</p>
+                            <span class="stats__total-time" id="total-time">Complete a session to start counting</span>
+                        </div>
+    
+                        <div class="stats__total">
+                            <p>Total sessions completed</p>
+                            <span id="total-session">0</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="bg-music-container sidebar-container hidden">
-                <h2 class="sidebar-title">Background music</h2>
-
-                <div class="bg-music">   
-                                <!-- Image by <a href="https://www.freepik.com/free-vector/hand-drawn-lo-fi-illustrations_23938644.htm#query=lofi&from_query=lofi%20girl&position=15&from_view=search&track=sph">Freepik</a> -->
-
-                    <div class="music-container">
-
-                    <div class="music-player-container">
-                        <h4 id="music-title">No song selected</h4>
-                    <div class="progress-container">
-                        <div class="progress"></div>
-                    </div>
-
-                    <div class="bg-music-nav">
-                        <!-- <audio id="audio1" src="https://open.spotify.com/track/46zeJr0g4vNZUPYXJririB?si=c0de4b8830c944d8" controls="controls">
-                            Your browser does not support the audio element.
-                        </audio> -->
-                        <audio src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true" id="audio"></audio>
-
-
-                            <div>
-                                <button id="prev-music" class="bg-music__btn">
-                                    <i class="fa-solid fa-backward music-ctrl-icon"></i>
-                                </button>
-
-                                <button id="next-music" class="bg-music__btn">
-                                    <i class="fa-solid fa-forward music-ctrl-icon"></i>
-                                </button>
-                                
-                    
-                            </div>
-                            <button id="play-music" class="bg-music__btn action-btn-big">
-                                <i class="icon-play fa-solid fa-play music-ctrl-icon"></i>
-                            </button>
-
+    
+                <div class="bg-music-container sidebar-container hidden">
+                    <h2 class="sidebar-title">Background music</h2>
+    
+                    <div class="bg-music">   
+    
+                                    <!-- Image by <a href="https://www.freepik.com/free-vector/hand-drawn-lo-fi-illustrations_23938644.htm#query=lofi&from_query=lofi%20girl&position=15&from_view=search&track=sph">Freepik</a> -->
+    
+                        <div class="music-container">
+    
+                        <div class="music-player-container">
+                            <h4 id="music-title">No song selected</h4>
+                        <div class="progress-container">
+                            <div class="progress"></div>
+                        </div>
+    
+                        <div class="bg-music-nav">
+                            <!-- <audio id="audio1" src="https://open.spotify.com/track/46zeJr0g4vNZUPYXJririB?si=c0de4b8830c944d8" controls="controls">
+                                Your browser does not support the audio element.
+                            </audio> -->
+                            <audio src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true" id="audio"></audio>
+    
+    
+                                <div>
+                                    <button id="prev-music" class="bg-music__btn">
+                                        <i class="fa-solid fa-backward music-ctrl-icon"></i>
+                                    </button>
+    
+                                    <button id="next-music" class="bg-music__btn">
+                                        <i class="fa-solid fa-forward music-ctrl-icon"></i>
+                                    </button>
+                                    
                         
-                
+                                </div>
+                                <button id="play-music" class="bg-music__btn action-btn-big">
+                                    <i class="icon-play fa-solid fa-play music-ctrl-icon"></i>
+                                </button>
+    
+                            
+                    
+                        </div>
+                        </div>
+    
+                        <ul class="bg-music-list">
+                            <!-- populated dynamically -->
+                        </ul>
+                        </div>
+                    
+                    
+    
                     </div>
-                    </div>
-
-                    <ul class="bg-music-list">
-                        <!-- populated dynamically -->
-                    </ul>
-                    </div>
-                
+                    <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
+     does not produce sound -->
+    
                 </div>
-                <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
- does not produce sound -->
-
-            </div>
-        </aside>
+            </aside>
+        </div>
 
 
         <div class="hero-container">
@@ -142,9 +147,9 @@
         
     </main>
 
-    <footer >
+    <!-- <footer >
             <p>Made with ♥ by Jamila Moseka</p> 
-    </footer>
+    </footer> -->
 
     <script type="module" src="index.js"></script>
     <script src="https://kit.fontawesome.com/1cd527edf2.js" crossorigin="anonymous"></script>

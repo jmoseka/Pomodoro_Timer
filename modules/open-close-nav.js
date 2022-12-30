@@ -10,6 +10,7 @@ const addExitTransition = () => {
 
 const showSidebar = () => {
   overlay.classList.remove('hidden');
+  heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.remove('hidden');
 };
@@ -23,6 +24,7 @@ const openCloseNav = () => {
 
   closeSidebarBtn.addEventListener('click', () => {
     overlay.classList.add('hidden');
+    heroContainer.classList.add('hidden');
     sidebarWindow.classList.add('hidden');
     sidebar.classList.remove('show-sidebar');
     heroContainer.classList.remove('enter-transition-hero');
