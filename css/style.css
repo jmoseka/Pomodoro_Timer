@@ -93,7 +93,8 @@ h4 {
 
 body {
   background-color: #29313a;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  font-family: 'Lato', sans-serif; }
 
 .pomo-logo {
   width: 12rem;
@@ -115,7 +116,8 @@ body {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  background-color: orange; }
 
 .close-sidebar {
   margin: 3rem 3rem 0 0;
@@ -315,9 +317,7 @@ body {
     backdrop-filter: blur(8px); } }
 
 @media (max-width: 700px) {
-  .sidebar, .sidebar-window {
+  .sidebar {
     width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: purple;
-    height: auto; } }
+    overflow-x: hidden; } }

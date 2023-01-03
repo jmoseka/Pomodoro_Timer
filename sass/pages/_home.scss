@@ -1,6 +1,7 @@
 body {
   background-color: $color-primary;
   overflow-y: scroll;
+  font-family: 'Lato', sans-serif;
 }
 
 .pomo-logo {
@@ -27,6 +28,7 @@ body {
   z-index: 100;
   transform: translate(-100%);
   margin-bottom: 2rem;
+  background-color: orange;
 }
 
 .close-sidebar {
@@ -295,12 +297,10 @@ body {
 }
 
 @media(max-width: 700px) {
-  .sidebar, .sidebar-window {
+  .sidebar {
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: purple;
-    height: auto;
   }
 }
 
