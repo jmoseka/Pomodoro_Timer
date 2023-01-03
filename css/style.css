@@ -47,7 +47,6 @@ h4 {
 
 .sidebar-container {
   margin: 0 auto;
-  margin-top: 3rem;
   color: #e5e9e7;
   width: 90%;
   transition: all 0.3s ease; }
@@ -116,7 +115,6 @@ body {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
-  margin-bottom: 2rem;
   background-color: orange; }
 
 .close-sidebar {

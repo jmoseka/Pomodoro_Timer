@@ -27,7 +27,6 @@ body {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
-  margin-bottom: 2rem;
   background-color: orange;
 }
 
@@ -115,9 +114,9 @@ body {
     }
   }
 
-  .music-card:last-child {
-    margin-bottom: 0;
-  }
+  // .music-card:last-child {
+  //   margin-bottom: 0;
+  // }
 }
 
 .bg-music-nav {
