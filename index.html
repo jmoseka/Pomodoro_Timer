@@ -11,7 +11,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap" rel="stylesheet">
     <title>Pomodoro Timer</title>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -20,7 +20,7 @@
 </head>
 <body>
     <main>
-        <img class="pomo-logo" src="images/pomo-logo.png" alt="App logo">
+        <!-- <img class="pomo-logo" src="images/pomo-logo.png" alt="App logo"> -->
         <div class="sidebar-container">
             <aside class="sidebar">
                 <button class="close-sidebar" id="close-sidebar">
@@ -120,14 +120,14 @@
                                 <span class="session__count" id="session-count">Let's focus</span>
                             </p>
                         </div>
-                        <p class="timer__time" id="time">25:00</p>
+                        <div class="timer-content">
+                            <p class="timer__time" id="time">25:00</p>
     
                         <div class="timer__controls">
                             <ion-icon class="controls-icon control-bg" id="pause" name="pause"></ion-icon>
                             <ion-icon class="controls-icon control-bg" id="play" name="play"></ion-icon>
                             <ion-icon class="controls-icon control-bg" id="reset" name="refresh"></ion-icon>
-                            
-                        
+                        </div>
                         </div>
                     </div>
     
@@ -149,9 +149,14 @@
         
     </main>
 
-    <!-- <footer >
-            <p>Made with ♥ by Jamila Moseka</p> 
-    </footer> -->
+    <footer >
+            <p class="footer-txt">Made with 💛 by Jamila Moseka</p> 
+            <div class="footer-icons">
+            <a href="https://github.com/jmoseka" target="_blank"><ion-icon name="logo-github" class="footer-icon"></ion-icon></a>
+            <a href="https://twitter.com/milamoseka" target="_blank"><ion-icon name="logo-twitter" class="footer-icon"></ion-icon></a>
+            <a href="https://www.linkedin.com/in/jamila-moseka/" target="_blank"><ion-icon name="logo-linkedin"  class="footer-icon"></ion-icon></a>
+            </div>
+    </footer>
 
     <script type="module" src="index.js"></script>
     <script src="https://kit.fontawesome.com/1cd527edf2.js" crossorigin="anonymous"></script>
