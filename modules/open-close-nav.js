@@ -4,6 +4,20 @@ const heroContainer = document.querySelector('.hero-container');
 const overlay = document.querySelector('.overlay');
 
 let innerWidth = 0;
+innerWidth = window.innerWidth;
+
+window.addEventListener('resize', () => {
+  innerWidth = window.innerWidth;
+  if (sidebar.classList.contains('show-sidebar')) {
+    if (innerWidth < 830) {
+      overlay.classList.add('overlay-blur');
+    } else {
+      overlay.classList.remove('overlay-blur');
+    }
+  } else {
+    overlay.classList.remove('overlay-blur');
+  }
+});
 
 const showSidebar = () => {
   // overlay.classList.remove('hidden');
@@ -23,19 +37,6 @@ const openCloseNav = () => {
   const statOption = document.getElementById('stat-option');
   const statsContainer = document.querySelector('.stats-container');
   const bgMusicContainer = document.querySelector('.bg-music-container');
-
-  window.addEventListener('resize', () => {
-    innerWidth = window.innerWidth;
-    if (sidebar.classList.contains('show-sidebar')) {
-      if (innerWidth < 830) {
-        overlay.classList.add('overlay-blur');
-      } else {
-        overlay.classList.remove('overlay-blur');
-      }
-    } else {
-      overlay.classList.remove('overlay-blur');
-    }
-  });
 
   closeSidebarBtn.addEventListener('click', () => {
     // if (overlay.classList.contains('hidden')) {

@@ -263,6 +263,7 @@ body {
   align-items: center;
   justify-content: space-between; }
   .timer__notice {
+    margin-top: -4rem;
     font-weight: 100;
     line-height: 1.6;
     width: 60%;

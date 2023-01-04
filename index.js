@@ -7,5 +7,4 @@ openCloseNav();
 populateMusicCard();
 pomoTimer();
 
-
 // onresize = (event) => {};
