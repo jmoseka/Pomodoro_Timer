@@ -3,16 +3,11 @@ const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
 const overlay = document.querySelector('.overlay');
 
-const addExitTransition = () => {
-  heroContainer.classList.remove('enter-transition-hero');
-  heroContainer.classList.add('exit-transition-hero');
-};
-
 const showSidebar = () => {
   overlay.classList.remove('hidden');
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
-  sidebarWindow.classList.remove('hidden');
+  sidebarWindow.classList.add('sidebar-window-style');
 };
 
 const openCloseNav = () => {
@@ -25,26 +20,18 @@ const openCloseNav = () => {
   closeSidebarBtn.addEventListener('click', () => {
     overlay.classList.add('hidden');
     heroContainer.classList.add('hidden');
-    sidebarWindow.classList.add('hidden');
+    sidebarWindow.classList.remove('sidebar-window-style');
     sidebar.classList.remove('show-sidebar');
-    heroContainer.classList.remove('enter-transition-hero');
-    // showHideSidebar();
-    addExitTransition();
 
     musicOption.classList.remove('stat-option-active');
     statOption.classList.remove('stat-option-active');
   });
 
   musicOption.addEventListener('click', () => {
-
     showSidebar();
     musicOption.classList.add('stat-option-active');
     statOption.classList.remove('stat-option-active');
-    // addTransitions();
-    if (!heroContainer.classList.contains('enter-tranition-hero')) {
-      heroContainer.classList.add('enter-transition-hero');
-    }
-    heroContainer.classList.remove('exit-transition-hero');
+
     bgMusicContainer.classList.remove('hidden');
     statsContainer.classList.add('hidden');
   });
@@ -53,12 +40,7 @@ const openCloseNav = () => {
     showSidebar();
     musicOption.classList.remove('stat-option-active');
     statOption.classList.add('stat-option-active');
-    // addTransitions();
-    if (!heroContainer.classList.contains('enter-tranition-hero')) {
-      heroContainer.classList.add('enter-transition-hero');
-    }
 
-    heroContainer.classList.remove('exit-transition-hero');
     bgMusicContainer.classList.add('hidden');
     statsContainer.classList.remove('hidden');
   });

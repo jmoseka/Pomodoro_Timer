@@ -62,7 +62,7 @@ h4 {
 /***** Slide Right *****/
 @keyframes slide-right {
   from {
-    margin-right: 10%; }
+    margin-right: 0%; }
   to {
     margin-left: 0%; } }
 
@@ -71,12 +71,6 @@ h4 {
     margin-left: 10%; }
   to {
     margin-right: 0%; } }
-
-.exit-transition-hero {
-  animation: 500ms slide-left; }
-
-.enter-transition-hero {
-  animation: 500ms slide-right; }
 
 .music-active {
   background-image: linear-gradient(to right top, #29313a, #263c47, #1d4751, #145356, #175e56);
@@ -239,12 +233,18 @@ body {
   backface-visibility: hidden; }
 
 .sidebar-window {
+  min-width: 0;
+  width: 0rem;
   z-index: 80;
-  min-width: 34rem; }
+  transition: min-width 360ms linear; }
+
+.sidebar-window-style {
+  min-width: 34rem;
+  opacity: 0; }
 
 .hero-section {
   width: 100%;
-  height: 56rem; }
+  height: 52rem; }
 
 .content-container {
   margin: 0 auto;
@@ -255,12 +255,12 @@ body {
   color: #e5e9e7; }
 
 .timer {
+  margin: auto;
   width: 100%;
   height: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around; }
+  align-items: center; }
   .timer__notice {
     font-weight: 100;
     line-height: 1.6;

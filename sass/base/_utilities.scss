@@ -41,7 +41,7 @@
 /***** Slide Right *****/
 @keyframes slide-right {
   from {
-    margin-right: 10%;
+    margin-right:0%;
   }
 
   to {
@@ -59,14 +59,14 @@
   }
 }
 
-.exit-transition-hero {
-  animation: 500ms slide-left;
-}
+// .exit-transition-hero {
+//   animation: 500ms slide-left;
+// }
 
-.enter-transition-hero {
-  // transition: all 9s linear;
-  animation: 500ms slide-right;
-}
+// .enter-transition-hero {
+//   // transition: all 9s linear;
+//   animation: 500ms slide-right;
+// }
 
 .music-active {
   background-image: linear-gradient(to right top, #29313a, #263c47, #1d4751, #145356, #175e56);
