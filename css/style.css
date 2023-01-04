@@ -93,6 +93,12 @@ body {
   justify-content: space-between;
   height: 100vh; }
 
+main {
+  margin: 0 auto;
+  border: 3px solid yellow;
+  max-width: 1200px;
+  width: 100%; }
+
 .pomo-logo {
   width: 12rem;
   position: absolute;
@@ -230,7 +236,8 @@ body {
 
 .hero-container {
   display: flex;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  border: 3px solid brown; }
 
 .sidebar-window {
   min-width: 0;
@@ -275,11 +282,15 @@ body {
     color: #c7f3d3;
     background-color: rgba(33, 39, 46, 0.4); }
   .timer .timer-content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: .4rem; }
   .timer__time {
+    width: inherit;
+    text-align: center;
+    border: 3px solid green;
     font-size: 16rem;
     line-height: 1.3;
     letter-spacing: 1.5rem; }
