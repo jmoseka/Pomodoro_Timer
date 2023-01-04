@@ -6,3 +6,6 @@ import populateMusicCard from './modules/populateMusicCard.js';
 openCloseNav();
 populateMusicCard();
 pomoTimer();
+
+
+// onresize = (event) => {};

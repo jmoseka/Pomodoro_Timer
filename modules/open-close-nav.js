@@ -3,8 +3,15 @@ const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
 const overlay = document.querySelector('.overlay');
 
+let innerWidth = 0;
+
 const showSidebar = () => {
-  overlay.classList.remove('hidden');
+  // overlay.classList.remove('hidden');
+  if (innerWidth < 830) {
+    overlay.classList.add('overlay-blur');
+  } else {
+    overlay.classList.remove('overlay-blur');
+  }
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.add('sidebar-window-style');
@@ -17,8 +24,24 @@ const openCloseNav = () => {
   const statsContainer = document.querySelector('.stats-container');
   const bgMusicContainer = document.querySelector('.bg-music-container');
 
+  window.addEventListener('resize', () => {
+    innerWidth = window.innerWidth;
+    if (sidebar.classList.contains('show-sidebar')) {
+      if (innerWidth < 830) {
+        overlay.classList.add('overlay-blur');
+      } else {
+        overlay.classList.remove('overlay-blur');
+      }
+    } else {
+      overlay.classList.remove('overlay-blur');
+    }
+  });
+
   closeSidebarBtn.addEventListener('click', () => {
-    overlay.classList.add('hidden');
+    // if (overlay.classList.contains('hidden')) {
+    //   overlay.classList.add('hidden');
+    // }
+    overlay.classList.remove('overlay-blur');
     heroContainer.classList.add('hidden');
     sidebarWindow.classList.remove('sidebar-window-style');
     sidebar.classList.remove('show-sidebar');

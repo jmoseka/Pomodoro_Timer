@@ -232,6 +232,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   
 
 
@@ -346,20 +347,28 @@ footer {
 }
 
 
+.overlay-blur {
+  z-index: 40;
+        position: absolute;
+        width: 110%;
+        height: 100%;
+        background-color: rgba($color-primary, .8);
+        backdrop-filter: blur(8px);
+}
 
 @media(max-width: 830px) {
   body {
     overflow-x: hidden;
   }
   
-    .overlay {
-        z-index: 40;
-        position: absolute;
-        width: 110%;
-        height: 100%;
-        background-color: rgba($color-primary, .8);
-        backdrop-filter: blur(8px);
-      }
+    // .overlay {
+    //     z-index: 40;
+    //     position: absolute;
+    //     width: 110%;
+    //     height: 100%;
+    //     background-color: rgba($color-primary, .8);
+    //     backdrop-filter: blur(8px);
+    //   }
 }
 
 @media(max-width: 700px) {

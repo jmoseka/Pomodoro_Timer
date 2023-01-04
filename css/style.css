@@ -260,7 +260,8 @@ body {
   height: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-between; }
   .timer__notice {
     font-weight: 100;
     line-height: 1.6;
@@ -333,16 +334,17 @@ footer {
     footer .footer-icons .footer-icon:hover {
       color: #8ee7a7; }
 
+.overlay-blur {
+  z-index: 40;
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background-color: rgba(41, 49, 58, 0.8);
+  backdrop-filter: blur(8px); }
+
 @media (max-width: 830px) {
   body {
-    overflow-x: hidden; }
-  .overlay {
-    z-index: 40;
-    position: absolute;
-    width: 110%;
-    height: 100%;
-    background-color: rgba(41, 49, 58, 0.8);
-    backdrop-filter: blur(8px); } }
+    overflow-x: hidden; } }
 
 @media (max-width: 700px) {
   .sidebar {
