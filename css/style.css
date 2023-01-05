@@ -20,6 +20,9 @@ h3 {
 h4 {
   font-size: 1.2rem; }
 
+p {
+  margin: 0; }
+
 .heading {
   margin-top: 3rem; }
 
@@ -95,8 +98,7 @@ body {
 
 main {
   margin: 0 auto;
-  border: 3px solid yellow;
-  max-width: 1200px;
+  max-width: 1500px;
   width: 100%; }
 
 .pomo-logo {
@@ -250,27 +252,31 @@ main {
   opacity: 0; }
 
 .hero-section {
+  border: 8px solid black;
   width: 100%;
-  height: 52rem; }
+  height: calc(50rem + 4vw);
+  max-height: 54rem;
+  min-height: 54rem; }
 
 .content-container {
+  border: 4px solid purple;
   margin: 0 auto;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   color: #e5e9e7; }
 
 .timer {
   margin: auto;
   width: 100%;
-  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between; }
   .timer__notice {
-    margin-top: -4rem;
+    margin-top: 2rem;
     font-weight: 100;
     line-height: 1.6;
     width: 60%;
@@ -278,9 +284,11 @@ main {
     letter-spacing: 1.2px;
     border-radius: 6px;
     font-size: 1.25rem;
-    padding: 0.8rem;
+    padding: 0.9rem;
     color: #c7f3d3;
     background-color: rgba(33, 39, 46, 0.4); }
+    .timer__notice p {
+      margin: 0; }
   .timer .timer-content {
     width: 100%;
     display: flex;
@@ -292,8 +300,7 @@ main {
     transition: .3s all ease;
     width: inherit;
     text-align: center;
-    border: 3px solid green;
-    font-size: calc(3.8rem + 10vw);
+    font-size: calc(3.2rem + 10vw);
     letter-spacing: 1.5rem; }
   .timer__controls {
     display: flex;
@@ -329,6 +336,7 @@ main {
       background-color: #8ee7a7; }
 
 footer {
+  border: 3px solid pink;
   display: flex;
   align-items: center;
   gap: 2rem;

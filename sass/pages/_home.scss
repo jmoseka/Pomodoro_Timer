@@ -8,12 +8,11 @@ body {
   height: 100vh;
 }
 
-
 main {
   margin: 0 auto;
-  border: 3px solid yellow;
-  max-width: 1200px;
+  max-width: 1500px;
   width: 100%;
+
 }
 
 .pomo-logo {
@@ -220,34 +219,36 @@ main {
 }
 
 .hero-section {
+  border: 8px solid black;
   width: 100%;
-  height: 52rem;
+  height: calc(50rem + 4vw);
+  max-height: 54rem;
+  min-height: 54rem;
 }
 
-
 .content-container {
+  border: 4px solid purple;
   margin: 0 auto;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   color: $color-secondary-light;
 }
 
-
 .timer {
   margin: auto;
   width: 100%;
-  height: 70%;
+  // height: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   
 
-
   &__notice {
-    margin-top: -4rem;
+    margin-top: 2rem;
     font-weight: 100;
     line-height: 1.6;
     width: 60%;
@@ -255,12 +256,14 @@ main {
     letter-spacing: 1.2px;
     border-radius: $border-radius;
     font-size: 1.25rem;
-    padding: 0.8rem;
+    padding: 0.9rem;
     color: #c7f3d3;
     background-color: rgba($color-primary-dark-1, .4%); 
+
+    p {
+      margin: 0;
+    }
   }
-
-
 
   .timer-content {
     width: 100%;
@@ -271,16 +274,12 @@ main {
   }
 
 
-
   &__time {
     backface-visibility: hidden;
     transition: .3s all ease;
     width: inherit;
     text-align: center;
-    border: 3px solid green;
-    font-size: calc(3.8rem + 10vw);
-    // font-size: 132px;
-    // line-height: 1.3;
+    font-size: calc(3.2rem + 10vw);
     letter-spacing: 1.5rem;
   }
 
@@ -333,6 +332,7 @@ main {
 }
 
 footer {
+  border: 3px solid pink;
   display: flex;
   align-items: center;
   gap: 2rem;
