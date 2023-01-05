@@ -12,7 +12,6 @@ main {
   margin: 0 auto;
   max-width: 1500px;
   width: 100%;
-
 }
 
 .pomo-logo {
@@ -20,10 +19,7 @@ main {
   position: absolute;
   top: 0;
   left: 3%;
-
 }
-
-
 
 .sidebar {
   position: absolute;
@@ -70,12 +66,12 @@ main {
     font-weight: 400;
 
     p {
-      font-size: 1.78rem;
+      font-size: 1.7rem;
       padding: 0.8rem 0;
     }
 
     span {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: $color-secondary;
       border-radius: $border-radius;
       display: block;
@@ -109,8 +105,8 @@ main {
       margin: 0 2rem;
       overflow: hidden;
       border-radius: $border-radius;
-      width: 8rem;
-      height: 7rem;
+      width: 7rem;
+      height: 6rem;
 
       img {
         width: 100%;
@@ -122,6 +118,11 @@ main {
       letter-spacing: 0.8px;
       line-height: 2;
       font-weight: 400;
+    }
+
+    &:hover {
+      color: $color-secondary;
+      transform: translateY(0.2rem);
     }
   }
 
@@ -173,31 +174,36 @@ main {
     font-size: 1.4rem;
     line-height: 1.5;
     font-style: italic;
-    letter-spacing: .8px;
+    letter-spacing: 0.8px;
   }
 
   #play-music {
     display: inline-block;
     text-align: center;
     font-size: 1.2rem;
-    padding: 0.5rem;
     min-width: 2.5rem;
-    min-height: 1.5rem;
+    min-height: 2.5rem;
     border-radius: 50%;
     color: $color-primary;
     background-color: $color-secondary-light;
   }
 }
 
+.progress-container {
+  width: 100%;
+  background-color: inherit;
+  align-self: flex-start;
+}
+
 .progress {
-  padding: 1px;
+  // padding: .5px;
+  width: 1%;
   background-color: $color-secondary;
 }
 
 .hero-container {
   display: flex;
   backface-visibility: hidden;
-  border: 3px solid brown;
 }
 
 // .sidebar-window {
@@ -205,10 +211,9 @@ main {
 //   min-width: $width;
 // }
 
-
 .sidebar-window {
   min-width: 0;
-  width: 0rem;
+  width: 0;
   z-index: 80;
   transition: min-width 360ms linear;
 }
@@ -219,7 +224,6 @@ main {
 }
 
 .hero-section {
-  border: 8px solid black;
   width: 100%;
   height: calc(50rem + 4vw);
   max-height: 54rem;
@@ -227,7 +231,6 @@ main {
 }
 
 .content-container {
-  border: 4px solid purple;
   margin: 0 auto;
   height: 100%;
   display: flex;
@@ -245,10 +248,9 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  
 
   &__notice {
-    margin-top: 2rem;
+    margin-top: 3.4rem;
     font-weight: 100;
     line-height: 1.6;
     width: 60%;
@@ -258,7 +260,11 @@ main {
     font-size: 1.25rem;
     padding: 0.9rem;
     color: #c7f3d3;
-    background-color: rgba($color-primary-dark-1, .4%); 
+    background-color: rgba($color-primary-dark-1, 0.4%);
+
+    #motivate-notice {
+      color: $color-secondary-light;
+    }
 
     p {
       margin: 0;
@@ -270,16 +276,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .4rem;
+    gap: 0.4rem;
   }
-
 
   &__time {
     backface-visibility: hidden;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
     width: inherit;
     text-align: center;
-    font-size: calc(3.2rem + 10vw);
+    font-size: calc(3rem + 10vw);
     letter-spacing: 1.5rem;
   }
 
@@ -305,8 +310,6 @@ main {
   }
 }
 
-
-
 .option-menu {
   margin: 0 auto;
   background-color: #d4d6d811;
@@ -316,10 +319,9 @@ main {
 
   .option {
     font-size: 2rem;
-    padding: 1rem 12rem;
-    // padding: 1.1rem 0;
+    padding: 0.9rem 14rem;
     cursor: pointer;
-    transition: $transition-ease;
+    transition: background-color 0.3s ease-in;
     width: 100%;
     text-align: center;
 
@@ -332,21 +334,15 @@ main {
 }
 
 footer {
-  border: 3px solid pink;
   display: flex;
-  align-items: center;
   gap: 2rem;
   font-size: 1.3rem;
   align-items: flex-end;
   color: $color-secondary-light;
 
-
-
   .footer-txt {
-    padding: .4rem;
+    padding: 0.4rem;
   }
-
-  
 
   .footer-icons {
     cursor: pointer;
@@ -361,39 +357,106 @@ footer {
     }
 
     .footer-icon:hover {
-        color: $color-secondary;
+      color: $color-secondary;
     }
   }
 }
 
-
 .overlay-blur {
   z-index: 40;
-        position: absolute;
-        width: 110%;
-        height: 100%;
-        background-color: rgba($color-primary, .8);
-        backdrop-filter: blur(8px);
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background-color: rgba($color-primary, 0.8);
+  backdrop-filter: blur(8px);
 }
 
-@media(max-width: 830px) {
+@media (max-width: 830px) {
   body {
-    overflow-x: hidden;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 60%;
+  }
+
+  .hero-section {
+    // height: calc(50rem + 4vw);
+    max-height: 50rem;
+    min-height: 50rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 75%;
+  }
+
+  .timer__controls {
+    gap: 1.5rem;
+
+    .controls-icon {
+      min-height: 1.5rem;
+      min-width: 1.5rem;
+    }
+  }
+
+  .option-menu {
+    .option {
+      padding-top: 0.5rem;
+    }
   }
 }
 
-@media(max-width: 700px) {
-  
+@media (max-width: 600px) {
   .sidebar {
+    padding: 0 1rem;
     width: 100%;
-    overflow-y: scroll;
+  }
+
+  .hero-section {
+    max-height: 48rem;
+    min-height: 48rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 90%;
+  }
+
+  .timer__controls {
+    gap: 1.3rem;
+
+    .controls-icon {
+      min-height: 1.3rem;
+      min-width: 1.3rem;
+    }
+  }
+
+  .option-menu {
+    width: 96%;
+
+    .option {
+      padding: 0.4rem 0;
+    }
   }
 }
 
-@media(max-width: 385px) {
+@media (max-width: 360px) {
+  body {
+    min-width: 302px;
+  }
+
+  .sidebar-container {
+    min-width: 360px;
+  }
+
   .sidebar {
-    // min-width: 385px;
-    // max-width: 385px;
+    overflow-x: scroll;
   }
 }
 
+@media (max-width: 300px) {
+  .timer__time {
+    font-size: 7rem;
+  }
+}

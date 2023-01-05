@@ -5,6 +5,7 @@ const nextBtn = document.querySelector('#next-music');
 const bgMusicList = document.querySelector('.bg-music-list');
 const musicTitleEl = document.querySelector('#music-title');
 const playBtn = document.querySelector('#play-music');
+const progress = document.querySelector('.progress');
 
 let songIndex = 0;
 const noSong = 'No song selected';
@@ -176,7 +177,14 @@ const nextSong = () => {
   }
 };
 
+const updateProgress = (e) => {
+  const { duration, currentTime } = e.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
+};
+
 audio.addEventListener('ended', nextSong);
+audio.addEventListener(('timeupdate'), updateProgress);
 prevBtn.addEventListener(('click'), prevSong);
 nextBtn.addEventListener(('click'), nextSong);
 playBtn.addEventListener(('click'), () => {
