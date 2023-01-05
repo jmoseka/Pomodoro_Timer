@@ -1,13 +1,32 @@
 body {
   background-color: $color-primary;
   overflow-y: scroll;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1500px;
+  width: 100%;
+}
+
+.pomo-logo {
+  width: 12rem;
+  position: absolute;
+  top: 0;
+  left: 3%;
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
+  overflow-y: visible;
   top: 0;
   left: 0;
-  width: 34rem;
+  width: $width;
   height: 100vh;
   background: $color-primary-light-1;
   row-gap: 1rem;
@@ -15,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 100;
-  //transform: translate(-100%);
+  transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -47,12 +66,12 @@ body {
     font-weight: 400;
 
     p {
-      font-size: 1.78rem;
+      font-size: 1.7rem;
       padding: 0.8rem 0;
     }
 
     span {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: $color-secondary;
       border-radius: $border-radius;
       display: block;
@@ -86,17 +105,13 @@ body {
       margin: 0 2rem;
       overflow: hidden;
       border-radius: $border-radius;
-      width: 20%;
-      height: 5rem;
+      width: 7rem;
+      height: 6rem;
 
       img {
-        height: 100%;
         width: 100%;
+        height: 100%;
       }
-    }
-
-    .music-card:last-child {
-      margin-bottom: 0;
     }
 
     &__desc {
@@ -104,6 +119,15 @@ body {
       line-height: 2;
       font-weight: 400;
     }
+
+    &:hover {
+      color: $color-secondary;
+      transform: translateY(0.2rem);
+    }
+  }
+
+  .music-card:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -128,7 +152,7 @@ body {
   }
 
   .music-ctrl-icon:hover {
-    color: $color-secondary;
+    color: $color-secondary-dark;
   }
 }
 
@@ -150,23 +174,30 @@ body {
     font-size: 1.4rem;
     line-height: 1.5;
     font-style: italic;
+    letter-spacing: 0.8px;
   }
 
   #play-music {
     display: inline-block;
     text-align: center;
     font-size: 1.2rem;
-    padding: 0.5rem;
     min-width: 2.5rem;
-    min-height: 1.5rem;
+    min-height: 2.5rem;
     border-radius: 50%;
     color: $color-primary;
     background-color: $color-secondary-light;
   }
 }
 
+.progress-container {
+  width: 100%;
+  background-color: inherit;
+  align-self: flex-start;
+}
+
 .progress {
-  padding: 1px;
+  // padding: .5px;
+  width: 1%;
   background-color: $color-secondary;
 }
 
@@ -175,13 +206,28 @@ body {
   backface-visibility: hidden;
 }
 
+// .sidebar-window {
+//   z-index: 80;
+//   min-width: $width;
+// }
+
 .sidebar-window {
-  width: 34rem;
+  min-width: 0;
+  width: 0;
+  z-index: 80;
+  transition: min-width 360ms linear;
+}
+
+.sidebar-window-style {
+  min-width: $width;
+  opacity: 0;
 }
 
 .hero-section {
   width: 100%;
-  height: 60rem;
+  height: calc(50rem + 4vw);
+  max-height: 54rem;
+  min-height: 54rem;
 }
 
 .content-container {
@@ -195,28 +241,51 @@ body {
 }
 
 .timer {
+  margin: auto;
   width: 100%;
+  // height: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -6rem;
+  justify-content: space-between;
 
   &__notice {
+    margin-top: 3.4rem;
+    font-weight: 100;
+    line-height: 1.6;
+    width: 60%;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     border-radius: $border-radius;
-    font-size: 1.2rem;
-    padding: 0.5rem 0.5rem;
-    background-color: $color-primary-dark-1;
+    font-size: 1.25rem;
+    padding: 0.9rem;
+    color: #c7f3d3;
+    background-color: rgba($color-primary-dark-1, 0.4%);
+
+    #motivate-notice {
+      color: $color-secondary-light;
+    }
 
     p {
-      padding: 0.35rem;
+      margin: 0;
     }
   }
 
+  .timer-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
   &__time {
-    font-size: 16rem;
-    letter-spacing: 1.2rem;
+    backface-visibility: hidden;
+    transition: 0.3s all ease;
+    width: inherit;
+    text-align: center;
+    font-size: calc(3rem + 10vw);
+    letter-spacing: 1.5rem;
   }
 
   &__controls {
@@ -235,14 +304,14 @@ body {
       transition: $transition-ease;
 
       &:hover {
-        color: $color-primary;
-        background-color: $color-secondary;
+        color: $color-secondary-dark;
       }
     }
   }
 }
 
 .option-menu {
+  margin: 0 auto;
   background-color: #d4d6d811;
   display: flex;
   justify-content: space-between;
@@ -250,9 +319,9 @@ body {
 
   .option {
     font-size: 2rem;
-    padding: 1rem 8rem;
+    padding: 0.9rem 14rem;
     cursor: pointer;
-    transition: $transition-ease;
+    transition: background-color 0.3s ease-in;
     width: 100%;
     text-align: center;
 
@@ -261,5 +330,133 @@ body {
       border-radius: $border-radius;
       background-color: $color-secondary;
     }
+  }
+}
+
+footer {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.3rem;
+  align-items: flex-end;
+  color: $color-secondary-light;
+
+  .footer-txt {
+    padding: 0.4rem;
+  }
+
+  .footer-icons {
+    cursor: pointer;
+    font-size: 1.6rem;
+
+    a {
+      color: $color-secondary-light;
+    }
+
+    .footer-icon {
+      margin-left: 1rem;
+    }
+
+    .footer-icon:hover {
+      color: $color-secondary;
+    }
+  }
+}
+
+.overlay-blur {
+  z-index: 40;
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background-color: rgba($color-primary, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 830px) {
+  body {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 60%;
+  }
+
+  .hero-section {
+    // height: calc(50rem + 4vw);
+    max-height: 50rem;
+    min-height: 50rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 75%;
+  }
+
+  .timer__controls {
+    gap: 1.5rem;
+
+    .controls-icon {
+      min-height: 1.5rem;
+      min-width: 1.5rem;
+    }
+  }
+
+  .option-menu {
+    .option {
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .hero-section {
+    max-height: 48rem;
+    min-height: 48rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 90%;
+  }
+
+  .timer__controls {
+    gap: 1.3rem;
+
+    .controls-icon {
+      min-height: 1.3rem;
+      min-width: 1.3rem;
+    }
+  }
+
+  .option-menu {
+    width: 96%;
+
+    .option {
+      padding: 0.4rem 0;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    min-width: 302px;
+  }
+
+  .sidebar-container {
+    min-width: 360px;
+  }
+
+  .sidebar {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 300px) {
+  .timer__time {
+    font-size: 7rem;
   }
 }

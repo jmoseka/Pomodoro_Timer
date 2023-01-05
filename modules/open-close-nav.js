@@ -1,15 +1,34 @@
 const sidebarWindow = document.querySelector('.sidebar-window');
 const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
+const overlay = document.querySelector('.overlay');
 
-const addExitTransition = () => {
-  heroContainer.classList.remove('enter-transition-hero');
-  heroContainer.classList.add('exit-transition-hero');
-};
+let innerWidth = 0;
+innerWidth = window.innerWidth;
+
+window.addEventListener('resize', () => {
+  innerWidth = window.innerWidth;
+  if (sidebar.classList.contains('show-sidebar')) {
+    if (innerWidth < 830) {
+      overlay.classList.add('overlay-blur');
+    } else {
+      overlay.classList.remove('overlay-blur');
+    }
+  } else {
+    overlay.classList.remove('overlay-blur');
+  }
+});
 
 const showSidebar = () => {
+  // overlay.classList.remove('hidden');
+  if (innerWidth < 830) {
+    overlay.classList.add('overlay-blur');
+  } else {
+    overlay.classList.remove('overlay-blur');
+  }
+  heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
-  sidebarWindow.classList.remove('hidden');
+  sidebarWindow.classList.add('sidebar-window-style');
 };
 
 const openCloseNav = () => {
@@ -20,11 +39,13 @@ const openCloseNav = () => {
   const bgMusicContainer = document.querySelector('.bg-music-container');
 
   closeSidebarBtn.addEventListener('click', () => {
-    sidebarWindow.classList.add('hidden');
+    // if (overlay.classList.contains('hidden')) {
+    //   overlay.classList.add('hidden');
+    // }
+    overlay.classList.remove('overlay-blur');
+    heroContainer.classList.add('hidden');
+    sidebarWindow.classList.remove('sidebar-window-style');
     sidebar.classList.remove('show-sidebar');
-    heroContainer.classList.remove('enter-transition-hero');
-    // showHideSidebar();
-    addExitTransition();
 
     musicOption.classList.remove('stat-option-active');
     statOption.classList.remove('stat-option-active');
@@ -34,11 +55,7 @@ const openCloseNav = () => {
     showSidebar();
     musicOption.classList.add('stat-option-active');
     statOption.classList.remove('stat-option-active');
-    // addTransitions();
-    if (!heroContainer.classList.contains('enter-tranition-hero')) {
-      heroContainer.classList.add('enter-transition-hero');
-    }
-    heroContainer.classList.remove('exit-transition-hero');
+
     bgMusicContainer.classList.remove('hidden');
     statsContainer.classList.add('hidden');
   });
@@ -47,12 +64,7 @@ const openCloseNav = () => {
     showSidebar();
     musicOption.classList.remove('stat-option-active');
     statOption.classList.add('stat-option-active');
-    // addTransitions();
-    if (!heroContainer.classList.contains('enter-tranition-hero')) {
-      heroContainer.classList.add('enter-transition-hero');
-    }
 
-    heroContainer.classList.remove('exit-transition-hero');
     bgMusicContainer.classList.add('hidden');
     statsContainer.classList.remove('hidden');
   });

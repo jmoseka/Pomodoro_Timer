@@ -18,11 +18,15 @@ h1 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.48rem;
 }
 
 h4 {
   font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
 }
 
 .heading {
@@ -60,7 +64,6 @@ h4 {
 
 .sidebar-container {
   margin: 0 auto;
-  margin-top: 3rem;
   color: #e5e9e7;
   width: 90%;
   transition: all 0.3s ease;
@@ -81,7 +84,7 @@ h4 {
 /***** Slide Right *****/
 @keyframes slide-right {
   from {
-    margin-right: 10%;
+    margin-right: 0%;
   }
 
   to {
@@ -97,14 +100,6 @@ h4 {
   to {
     margin-right: 0%;
   }
-}
-
-.exit-transition-hero {
-  animation: 500ms slide-left;
-}
-
-.enter-transition-hero {
-  animation: 500ms slide-right;
 }
 
 .music-active {
@@ -124,13 +119,32 @@ h4 {
 body {
   background-color: #29313a;
   overflow-y: scroll;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1500px;
+  width: 100%;
+}
+
+.pomo-logo {
+  width: 12rem;
+  position: absolute;
+  top: 0;
+  left: 3%;
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
+  overflow-y: visible;
   top: 0;
   left: 0;
-  width: 34rem;
+  width: 36rem;
   height: 100vh;
   background: #3e464e;
   row-gap: 1rem;
@@ -138,6 +152,7 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 100;
+  transform: translate(-100%);
 }
 
 .close-sidebar {
@@ -171,12 +186,12 @@ body {
 }
 
 .stats__total p {
-  font-size: 1.78rem;
+  font-size: 1.7rem;
   padding: 0.8rem 0;
 }
 
 .stats__total span {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #8ee7a7;
   border-radius: 6px;
   display: block;
@@ -210,23 +225,28 @@ body {
   margin: 0 2rem;
   overflow: hidden;
   border-radius: 6px;
-  width: 20%;
-  height: 5rem;
+  width: 7rem;
+  height: 6rem;
 }
 
 .bg-music-list .music-card__img img {
-  height: 100%;
   width: 100%;
-}
-
-.bg-music-list .music-card .music-card:last-child {
-  margin-bottom: 0;
+  height: 100%;
 }
 
 .bg-music-list .music-card__desc {
   letter-spacing: 0.8px;
   line-height: 2;
   font-weight: 400;
+}
+
+.bg-music-list .music-card:hover {
+  color: #8ee7a7;
+  transform: translateY(0.2rem);
+}
+
+.bg-music-list .music-card:last-child {
+  margin-bottom: 0;
 }
 
 .bg-music-nav {
@@ -249,7 +269,7 @@ body {
 }
 
 .bg-music-nav .music-ctrl-icon:hover {
-  color: #8ee7a7;
+  color: #175e56;
 }
 
 .music-player-container {
@@ -270,22 +290,28 @@ body {
   font-size: 1.4rem;
   line-height: 1.5;
   font-style: italic;
+  letter-spacing: 0.8px;
 }
 
 .music-player-container #play-music {
   display: inline-block;
   text-align: center;
   font-size: 1.2rem;
-  padding: 0.5rem;
   min-width: 2.5rem;
-  min-height: 1.5rem;
+  min-height: 2.5rem;
   border-radius: 50%;
   color: #29313a;
   background-color: #e5e9e7;
 }
 
+.progress-container {
+  width: 100%;
+  background-color: inherit;
+  align-self: flex-start;
+}
+
 .progress {
-  padding: 1px;
+  width: 1%;
   background-color: #8ee7a7;
 }
 
@@ -295,12 +321,22 @@ body {
 }
 
 .sidebar-window {
-  width: 34rem;
+  min-width: 0;
+  width: 0;
+  z-index: 80;
+  transition: min-width 360ms linear;
+}
+
+.sidebar-window-style {
+  min-width: 36rem;
+  opacity: 0;
 }
 
 .hero-section {
   width: 100%;
-  height: 60rem;
+  height: calc(50rem + 4vw);
+  max-height: 54rem;
+  min-height: 54rem;
 }
 
 .content-container {
@@ -314,29 +350,51 @@ body {
 }
 
 .timer {
+  margin: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -6rem;
+  justify-content: space-between;
 }
 
 .timer__notice {
+  margin-top: 3.4rem;
+  font-weight: 100;
+  line-height: 1.6;
+  width: 60%;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   border-radius: 6px;
-  font-size: 1.2rem;
-  padding: 0.5rem 0.5rem;
-  background-color: #21272e;
+  font-size: 1.25rem;
+  padding: 0.9rem;
+  color: #c7f3d3;
+  background-color: rgba(33, 39, 46, 0.4);
+}
+
+.timer__notice #motivate-notice {
+  color: #e5e9e7;
 }
 
 .timer__notice p {
-  padding: 0.35rem;
+  margin: 0;
+}
+
+.timer .timer-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .timer__time {
-  font-size: 16rem;
-  letter-spacing: 1.2rem;
+  backface-visibility: hidden;
+  transition: 0.3s all ease;
+  width: inherit;
+  text-align: center;
+  font-size: calc(3rem + 10vw);
+  letter-spacing: 1.5rem;
 }
 
 .timer__controls {
@@ -356,11 +414,11 @@ body {
 }
 
 .timer__controls .controls-icon:hover {
-  color: #29313a;
-  background-color: #8ee7a7;
+  color: #175e56;
 }
 
 .option-menu {
+  margin: 0 auto;
   background-color: #d4d6d811;
   display: flex;
   justify-content: space-between;
@@ -369,9 +427,9 @@ body {
 
 .option-menu .option {
   font-size: 2rem;
-  padding: 1rem 8rem;
+  padding: 0.9rem 14rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease-in;
   width: 100%;
   text-align: center;
 }
@@ -380,4 +438,129 @@ body {
   color: #29313a;
   border-radius: 6px;
   background-color: #8ee7a7;
+}
+
+footer {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.3rem;
+  align-items: flex-end;
+  color: #e5e9e7;
+}
+
+footer .footer-txt {
+  padding: 0.4rem;
+}
+
+footer .footer-icons {
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+footer .footer-icons a {
+  color: #e5e9e7;
+}
+
+footer .footer-icons .footer-icon {
+  margin-left: 1rem;
+}
+
+footer .footer-icons .footer-icon:hover {
+  color: #8ee7a7;
+}
+
+.overlay-blur {
+  z-index: 40;
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background-color: rgba(41, 49, 58, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 830px) {
+  body {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 60%;
+  }
+
+  .hero-section {
+    max-height: 50rem;
+    min-height: 50rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 75%;
+  }
+
+  .timer__controls {
+    gap: 1.5rem;
+  }
+
+  .timer__controls .controls-icon {
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+  }
+
+  .option-menu .option {
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .hero-section {
+    max-height: 48rem;
+    min-height: 48rem;
+  }
+
+  .timer__notice {
+    margin-top: 4rem;
+    width: 90%;
+  }
+
+  .timer__controls {
+    gap: 1.3rem;
+  }
+
+  .timer__controls .controls-icon {
+    min-height: 1.3rem;
+    min-width: 1.3rem;
+  }
+
+  .option-menu {
+    width: 96%;
+  }
+
+  .option-menu .option {
+    padding: 0.4rem 0;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    min-width: 302px;
+  }
+
+  .sidebar-container {
+    min-width: 360px;
+  }
+
+  .sidebar {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 300px) {
+  .timer__time {
+    font-size: 7rem;
+  }
 }

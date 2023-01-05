@@ -1,4 +1,10 @@
 /* eslint-disable no-plusplus */
+
+import {
+  updateShortBreakMsg, updateEncouragingMsg, updateLongBreakMsg, removeEncouragingMsg,
+  generateQuote,
+} from './notifyMsg.js';
+
 const timerEl = document.getElementById('time');
 const btnPlay = document.getElementById('play');
 const btnPause = document.getElementById('pause');
@@ -15,6 +21,7 @@ let counter = 0;
 let isPaused = true;
 let isShortBreak = false;
 let isLongBreak = false;
+let quotePresent = false;
 
 const duration = {
   shortBreak: 5,
@@ -42,30 +49,17 @@ const updateTotalFocusTime = () => {
   }
 };
 
+const updateTotalSessionCount = () => {
+  sessionCompleted++;
+  completedSessionEl.innerHTML = sessionCompleted;
+  sessionCount = 0;
+};
+
 const updateSessionCount = () => {
 // update the number of sessions in DOM
   sessionCount++;
-
-  if (sessionCount > 4) {
-    sessionCompleted++;
-    completedSessionEl.innerHTML = sessionCompleted;
-    // reset back to one
-    sessionCount = 1;
-  }
-  sessionCountEl.innerHTML = `${sessionCount} / 4 sessions`;
+  sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
 };
-
-// const takeLongBreak = () => {
-//   if (counter === 4) {
-//     const interval = setInterval(() => {
-//       console.log('This is the long break');
-//     }, 1000);
-
-//     setTimeout(() => {
-//       clearInterval(interval);
-//     }, 10000);
-//   }
-// };
 
 const updateCounterHTML = () => {
   let secondsEl = 0;
@@ -84,17 +78,24 @@ const updateCounterHTML = () => {
 
 const updateCountDown = () => {
   const takeShortBreak = () => {
+    // update a short break message
+    removeEncouragingMsg();
+    updateShortBreakMsg();
     intervals.interval2 = setInterval(() => {
       if (counter < 4 && !isPaused) {
         isShortBreak = true;
         updateCounterHTML();
-        console.log('short count----------', sec);
         sec--;
 
         if (sec < 0) {
           sec = originalTime;
           clearInterval(intervals.interval2);
           isShortBreak = false;
+
+          // update encouraging message
+          updateEncouragingMsg();
+          sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
+
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -102,17 +103,22 @@ const updateCountDown = () => {
   };
 
   const takeLongBreak = () => {
+    updateLongBreakMsg();
     intervals.interval3 = setInterval(() => {
       if (!isPaused) {
         isLongBreak = true;
         updateCounterHTML();
-        console.log('long count----------', sec);
         sec--;
 
         if (sec < 0) {
           sec = originalTime;
           clearInterval(intervals.interval3);
+          clearInterval(intervals.interval2);
+          clearInterval(intervals.interval1);
+          counter = 0;
           isLongBreak = false;
+          removeEncouragingMsg();
+          generateQuote();
           intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
@@ -121,7 +127,6 @@ const updateCountDown = () => {
 
   if (!isPaused) {
     updateCounterHTML();
-    console.log('count----------', sec);
     sec--;
 
     if (sec < 0) {
@@ -139,6 +144,7 @@ const updateCountDown = () => {
       // --------------------------------
       if (counter === 4) {
         sec = duration.longBreak;
+        updateTotalSessionCount();
         takeLongBreak();
       }
       // ---------- end ----------------
@@ -156,6 +162,10 @@ btnPlay.addEventListener('click', () => {
   btnReset.classList.remove('active-state');
 
   isPaused = false;
+  if (!quotePresent) {
+    generateQuote();
+  }
+  quotePresent = true;
 });
 
 btnPause.addEventListener('click', () => {
@@ -170,14 +180,14 @@ btnReset.addEventListener('click', () => {
   btnReset.classList.add('active-state');
   btnPlay.classList.remove('active-state');
   btnPause.classList.remove('active-state');
-  isPaused = true;
 
   if (isShortBreak) {
     sec = duration.shortBreak;
   }
   if (isLongBreak) {
     sec = duration.longBreak;
-  } else {
+  }
+  if (!isLongBreak && !isShortBreak) {
     sec = originalTime;
   }
   updateCounterHTML();
