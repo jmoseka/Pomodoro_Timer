@@ -12,6 +12,9 @@ main {
   margin: 0 auto;
   max-width: 1500px;
   width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .pomo-logo {
@@ -447,7 +450,7 @@ footer {
   }
 
   .sidebar-container {
-    min-width: 360px;
+    // min-width: 360px;
   }
 
   .sidebar {
