@@ -11,6 +11,7 @@ const btnPause = document.getElementById('pause');
 const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
+const alarmRing = document.getElementById('alarm-ring');
 
 const originalTime = 1500;
 let sec = originalTime;
@@ -32,6 +33,11 @@ const intervals = {
   interval1: 0,
   interval2: 0,
   interval3: 0,
+};
+
+const ringAlarm = () => {
+  alarmRing.src = 'modules/alarm.mp3';
+  alarmRing.play();
 };
 
 const updateTotalFocusTime = () => {
@@ -79,6 +85,7 @@ const updateCounterHTML = () => {
 const updateCountDown = () => {
   const takeShortBreak = () => {
     // update a short break message
+    ringAlarm();
     removeEncouragingMsg();
     updateShortBreakMsg();
     intervals.interval2 = setInterval(() => {
@@ -103,6 +110,7 @@ const updateCountDown = () => {
   };
 
   const takeLongBreak = () => {
+    ringAlarm();
     updateLongBreakMsg();
     intervals.interval3 = setInterval(() => {
       if (!isPaused) {
