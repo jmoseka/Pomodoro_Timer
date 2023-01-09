@@ -89,20 +89,19 @@ p {
 
 body {
   background-color: #29313a;
-  overflow-y: scroll;
   font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh; }
+  height: 100vh;
+  border: 2px solid red; }
 
 main {
   margin: 0 auto;
-  max-width: 1500px;
   width: 100%;
   height: 100vh;
   position: relative;
-  overflow: hidden; }
+  overflow-x: hidden; }
 
 .pomo-logo {
   width: 12rem;
@@ -263,9 +262,8 @@ main {
 .hero-section {
   width: 100%;
   height: calc(50rem + 4vw);
-  max-height: 55rem;
-  min-height: 55rem;
-  border: 4px solid gray;
+  max-height: 50rem;
+  min-height: 50rem;
   margin-top: 6rem; }
 
 .content-container {
@@ -369,3 +367,23 @@ footer {
   height: 100%;
   background-color: rgba(41, 49, 58, 0.8);
   backdrop-filter: blur(8px); }
+
+@media (max-width: 600px) {
+  .sidebar {
+    padding: 0 1rem;
+    width: 100%; }
+  .hero-section {
+    max-height: 40rem;
+    min-height: 40rem; }
+  .timer__notice {
+    margin-top: 4rem;
+    width: 90%; }
+  .timer__controls {
+    gap: 1.3rem; }
+    .timer__controls .controls-icon {
+      min-height: 1.3rem;
+      min-width: 1.3rem; }
+  .option-menu {
+    width: 96%; }
+    .option-menu .option {
+      padding: 0.4rem 0; } }
