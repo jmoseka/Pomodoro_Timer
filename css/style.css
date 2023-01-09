@@ -15,7 +15,7 @@ h1 {
   font-size: 2.8rem; }
 
 h3 {
-  font-size: 1.48rem; }
+  font-size: 1.55rem; }
 
 h4 {
   font-size: 1.2rem; }
@@ -93,8 +93,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  border: 2px solid red; }
+  height: 100vh; }
 
 main {
   margin: 0 auto;
@@ -170,16 +169,17 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0 10px 50px;
     cursor: pointer; }
     .bg-music-list .music-card__img {
-      margin: 0 2rem;
+      margin-right: 1rem;
       overflow: hidden;
       border-radius: 6px;
-      width: 7rem;
-      height: 6rem; }
+      min-width: 6rem;
+      width: 6rem;
+      height: 5rem; }
       .bg-music-list .music-card__img img {
         width: 100%;
         height: 100%; }
@@ -247,7 +247,11 @@ main {
 
 .hero-container {
   display: flex;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  height: 75%;
+  width: 100%;
+  position: absolute;
+  top: 8%; }
 
 .sidebar-window {
   min-width: 0;
@@ -261,10 +265,7 @@ main {
 
 .hero-section {
   width: 100%;
-  height: calc(50rem + 4vw);
-  max-height: 50rem;
-  min-height: 50rem;
-  margin-top: 6rem; }
+  border: 4px solid gray; }
 
 .content-container {
   margin: 0 auto;
@@ -342,22 +343,26 @@ main {
       border-radius: 6px;
       background-color: #8ee7a7; }
 
-footer {
+.footer {
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  margin-top: 7rem;
   display: flex;
   gap: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   align-items: flex-end;
-  color: #e5e9e7; }
-  footer .footer-txt {
-    padding: 0.4rem; }
-  footer .footer-icons {
+  color: #e5e9e7;
+  border: 1px solid green; }
+  .footer .footer-icons {
     cursor: pointer;
     font-size: 1.6rem; }
-    footer .footer-icons a {
+    .footer .footer-icons a {
       color: #e5e9e7; }
-    footer .footer-icons .footer-icon {
-      margin-left: 1rem; }
-    footer .footer-icons .footer-icon:hover {
+    .footer .footer-icons .footer-icon {
+      margin-right: .5rem; }
+    .footer .footer-icons .footer-icon:hover {
       color: #8ee7a7; }
 
 .overlay-blur {
@@ -368,22 +373,65 @@ footer {
   background-color: rgba(41, 49, 58, 0.8);
   backdrop-filter: blur(8px); }
 
-@media (max-width: 600px) {
+@media (max-width: 830px) {
   .sidebar {
-    padding: 0 1rem;
-    width: 100%; }
-  .hero-section {
-    max-height: 40rem;
-    min-height: 40rem; }
+    width: 60%; }
   .timer__notice {
-    margin-top: 4rem;
-    width: 90%; }
-  .timer__controls {
-    gap: 1.3rem; }
-    .timer__controls .controls-icon {
-      min-height: 1.3rem;
-      min-width: 1.3rem; }
+    width: 80%; } }
+
+@media (max-width: 650px) {
   .option-menu {
     width: 96%; }
     .option-menu .option {
-      padding: 0.4rem 0; } }
+      padding: 0.9rem 0; } }
+
+@media (max-width: 500px) {
+  .timer__notice {
+    width: 90%; }
+  .option-menu {
+    width: 95%;
+    flex-direction: column;
+    gap: .8rem;
+    background-color: transparent; }
+    .option-menu .option {
+      border-radius: 6px;
+      background-color: #d4d6d811;
+      padding: 0.9rem 0; } }
+
+@media (max-width: 600px) {
+  .sidebar {
+    padding: 0 1rem;
+    width: 100%; } }
+
+@media (max-width: 400px) {
+  h3 {
+    font-size: 1.35rem; }
+  .sidebar {
+    min-width: 219px; }
+  .sidebar-container {
+    width: 97%; }
+  .bg-music-list {
+    padding: 1.4rem; }
+    .bg-music-list .music-card {
+      padding: 1rem; }
+    .bg-music-list .music-card__img {
+      min-width: 5rem;
+      width: 5rem;
+      height: 4rem; }
+  .timer__time {
+    font-size: calc(6rem + 5vw); } }
+
+@media (max-width: 346px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: start; }
+    .footer .footer .footer-icons .footer-icon:first-child {
+      margin-left: 0; } }
+
+@media (max-width: 260px) {
+  body {
+    max-width: 250px; }
+  .timer__time {
+    font-size: calc(4.5rem + 5vw); } }
