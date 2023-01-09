@@ -361,7 +361,7 @@ main {
     .footer .footer-icons a {
       color: #e5e9e7; }
     .footer .footer-icons .footer-icon {
-      margin-right: .5rem; }
+      margin-right: 0.5rem; }
     .footer .footer-icons .footer-icon:hover {
       color: #8ee7a7; }
 
@@ -391,7 +391,7 @@ main {
   .option-menu {
     width: 95%;
     flex-direction: column;
-    gap: .8rem;
+    gap: 0.8rem;
     background-color: transparent; }
     .option-menu .option {
       border-radius: 6px;
