@@ -1,6 +1,6 @@
+
 body {
   background-color: $color-primary;
-  overflow-y: scroll;
   font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: column;
@@ -10,8 +10,10 @@ body {
 
 main {
   margin: 0 auto;
-  max-width: 1500px;
   width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .pomo-logo {
@@ -96,17 +98,18 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0 10px 50px;
     cursor: pointer;
 
     &__img {
-      margin: 0 2rem;
+      margin-right: 1rem;
       overflow: hidden;
       border-radius: $border-radius;
-      width: 7rem;
-      height: 6rem;
+      min-width: 6rem;
+      width: 6rem;
+      height: 5rem;
 
       img {
         width: 100%;
@@ -204,6 +207,10 @@ main {
 .hero-container {
   display: flex;
   backface-visibility: hidden;
+  height: 75%;
+  width: 100%;
+  position: absolute;
+  top: 8%;
 }
 
 // .sidebar-window {
@@ -225,9 +232,10 @@ main {
 
 .hero-section {
   width: 100%;
-  height: calc(50rem + 4vw);
-  max-height: 54rem;
-  min-height: 54rem;
+  //height: calc(48rem + 4vw);
+  //max-height: 50rem;
+  //min-height: 50rem;
+  border: 4px solid gray;
 }
 
 .content-container {
@@ -241,7 +249,7 @@ main {
 }
 
 .timer {
-  margin: auto;
+  // margin: auto;
   width: 100%;
   // height: 55%;
   display: flex;
@@ -250,7 +258,7 @@ main {
   justify-content: space-between;
 
   &__notice {
-    margin-top: 3.4rem;
+    // margin-top: 3.4rem;
     font-weight: 100;
     line-height: 1.6;
     width: 60%;
@@ -284,7 +292,7 @@ main {
     transition: 0.3s all ease;
     width: inherit;
     text-align: center;
-    font-size: calc(3rem + 10vw);
+    font-size: calc(8rem + 5vw);
     letter-spacing: 1.5rem;
   }
 
@@ -333,16 +341,17 @@ main {
   }
 }
 
-footer {
+.footer {
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  margin-top: 7rem;
   display: flex;
   gap: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   align-items: flex-end;
   color: $color-secondary-light;
-
-  .footer-txt {
-    padding: 0.4rem;
-  }
 
   .footer-icons {
     cursor: pointer;
@@ -353,7 +362,7 @@ footer {
     }
 
     .footer-icon {
-      margin-left: 1rem;
+      margin-right: 0.5rem;
     }
 
     .footer-icon:hover {
@@ -372,37 +381,70 @@ footer {
 }
 
 @media (max-width: 830px) {
-  body {
-    overflow: hidden;
-  }
+  //   body {
+  //     overflow: hidden;
+  //   }
 
   .sidebar {
     width: 60%;
   }
 
-  .hero-section {
-    // height: calc(50rem + 4vw);
-    max-height: 50rem;
-    min-height: 50rem;
-  }
-
   .timer__notice {
-    margin-top: 4rem;
-    width: 75%;
+    width: 80%;
   }
 
-  .timer__controls {
-    gap: 1.5rem;
+  //   .hero-section {
+  //     // height: calc(50rem + 4vw);
+  //     max-height: 50rem;
+  //     min-height: 50rem;
+  //   }
 
-    .controls-icon {
-      min-height: 1.5rem;
-      min-width: 1.5rem;
+  //   .timer__notice {
+  //     margin-top: 4rem;
+  //     width: 75%;
+  //   }
+
+  //   .timer__controls {
+  //     gap: 1.5rem;
+
+  //     .controls-icon {
+  //       min-height: 1.5rem;
+  //       min-width: 1.5rem;
+  //     }
+  //   }
+
+  //   .option-menu {
+  //     .option {
+  //       padding-top: 0.5rem;
+  //     }
+  //   }
+}
+
+@media (max-width: 650px) {
+  .option-menu {
+    width: 96%;
+
+    .option {
+      padding: 0.9rem 0;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .timer__notice {
+    width: 90%;
   }
 
   .option-menu {
+    width: 95%;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: transparent;
+
     .option {
-      padding-top: 0.5rem;
+      border-radius: $border-radius;
+      background-color: #d4d6d811;
+      padding: 0.9rem 0;
     }
   }
 }
@@ -413,50 +455,109 @@ footer {
     width: 100%;
   }
 
-  .hero-section {
-    max-height: 48rem;
-    min-height: 48rem;
-  }
+  // .hero-section {
+  //   max-height: 40rem;
+  //   min-height: 40rem;
+  // }
 
-  .timer__notice {
-    margin-top: 4rem;
-    width: 90%;
-  }
+  // .timer__notice {
+  //   margin-top: 4rem;
+  //   width: 90%;
+  // }
 
-  .timer__controls {
-    gap: 1.3rem;
+  // .timer__controls {
+  //   gap: 1.3rem;
 
-    .controls-icon {
-      min-height: 1.3rem;
-      min-width: 1.3rem;
-    }
-  }
+  //   .controls-icon {
+  //     min-height: 1.3rem;
+  //     min-width: 1.3rem;
+  //   }
+  // }
 
-  .option-menu {
-    width: 96%;
+  // .option-menu {
+  //   width: 96%;
 
-    .option {
-      padding: 0.4rem 0;
-    }
-  }
+  //   .option {
+  //     padding: 0.4rem 0;
+  //   }
+  // }
 }
 
-@media (max-width: 360px) {
-  body {
-    min-width: 302px;
-  }
-
-  .sidebar-container {
-    min-width: 360px;
+@media (max-width: 400px) {
+  h3 {
+    font-size: 1.35rem;
   }
 
   .sidebar {
-    overflow-x: scroll;
+    min-width: 219px;
+  }
+
+  .sidebar-container {
+    width: 97%;
+  }
+
+  .bg-music-list {
+    padding: 1.4rem;
+
+    .music-card {
+      padding: 1rem;
+    }
+
+    .music-card__img {
+      min-width: 5rem;
+      width: 5rem;
+      height: 4rem;
+    }
+  }
+
+  .timer__time {
+    font-size: calc(6rem + 5vw);
   }
 }
 
-@media (max-width: 300px) {
-  .timer__time {
-    font-size: 7rem;
+@media (max-width: 346px) {
+  //  .timer__time {
+  //   font-size: calc(5.5rem + 5vw);
+  //  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: start;
+
+    .footer .footer-icons .footer-icon:first-child {
+      margin-left: 0;
+    }
   }
 }
+
+@media (max-width: 260px) {
+  body {
+    max-width: 250px;
+  }
+
+  .timer__time {
+    font-size: calc(4.5rem + 5vw);
+  }
+}
+
+// @media (max-width: 360px) {
+//   body {
+//     min-width: 302px;
+//   }
+
+//   .sidebar-container {
+//     // min-width: 360px;
+//   }
+
+//   .sidebar {
+//     overflow-x: scroll;
+//   }
+// }
+
+// @media (max-width: 300px) {
+//   .timer__time {
+//     font-size: 7rem;
+//   }
+// }
