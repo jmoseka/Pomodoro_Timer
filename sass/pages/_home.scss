@@ -347,17 +347,11 @@ main {
   position: absolute;
   bottom: 0;
   margin-top: 7rem;
-  // height: 6rem;
   display: flex;
   gap: 2rem;
   font-size: 1.5rem;
   align-items: flex-end;
   color: $color-secondary-light;
-  border: 1px solid green;
-
-  .footer-txt {
-    //  padding: 0.4rem;
-  }
 
   .footer-icons {
     cursor: pointer;
