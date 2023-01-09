@@ -12,7 +12,7 @@ const btnReset = document.getElementById('reset');
 const sessionCountEl = document.getElementById('session-count');
 const completedSessionEl = document.getElementById('total-session');
 
-const originalTime = 10;
+const originalTime = 1500;
 let sec = originalTime;
 let sessionCount = 0;
 let sessionCompleted = 0;
@@ -24,8 +24,8 @@ let isLongBreak = false;
 let quotePresent = false;
 
 const duration = {
-  shortBreak: 5,
-  longBreak: 10,
+  shortBreak: 300,
+  longBreak: 900,
 };
 
 const intervals = {
@@ -191,6 +191,7 @@ btnReset.addEventListener('click', () => {
     sec = originalTime;
   }
   updateCounterHTML();
+  generateQuote();
 });
 
 export default pomoTimer;

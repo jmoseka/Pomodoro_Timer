@@ -14,6 +14,7 @@ main {
   height: 100vh;
   position: relative;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .pomo-logo {
@@ -173,7 +174,6 @@ main {
 
   #music-title {
     text-align: center;
-    font-weight: 300;
     font-size: 1.4rem;
     line-height: 1.5;
     font-style: italic;
@@ -217,7 +217,7 @@ main {
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 260ms linear;
+  transition: min-width 310ms linear;
 }
 
 .sidebar-window-style {
@@ -245,27 +245,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-  &__notice {
-    font-weight: 100;
-    line-height: 1.6;
-    width: 60%;
-    text-align: center;
-    letter-spacing: 1.2px;
-    border-radius: $border-radius;
-    font-size: 1.25rem;
-    padding: 0.9rem;
-    color: #c7f3d3;
-    background-color: rgba($color-primary-dark-1, 0.4%);
-
-    #motivate-notice {
-      color: $color-secondary-light;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
 
   .timer-content {
     width: 100%;
@@ -305,6 +284,36 @@ main {
   }
 }
 
+.timer-notice-container {
+  width: 100%;
+  text-align: center;
+  height: 6.2rem;
+}
+
+
+.timer__notice {
+  margin: 0 auto;
+  font-weight: 100;
+  line-height: 1.6;
+  width: 60%;
+  text-align: center;
+  letter-spacing: 1.2px;
+  border-radius: $border-radius;
+  font-size: 1.3rem;
+  padding: 0.9rem;
+  color: #c7f3d3;
+  background-color: rgba($color-primary-dark-1, 0.4%);
+
+
+  #motivate-notice {
+    color: $color-secondary-light;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
 .option-menu {
   margin: 0 auto;
   background-color: #d4d6d811;
@@ -339,6 +348,10 @@ main {
   font-size: 1.5rem;
   align-items: flex-end;
   color: $color-secondary-light;
+
+  p {
+    padding: .4rem;
+  }
 
   .footer-icons {
     cursor: pointer;
@@ -442,7 +455,13 @@ main {
   }
 
   .timer__time {
-    font-size: calc(6rem + 5vw);
+    font-size: calc(6.2rem + 5vw);
+    letter-spacing: 1.2rem;
+  }
+
+  .timer__controls .controls-icon {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
   }
 }
 

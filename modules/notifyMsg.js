@@ -31,7 +31,10 @@ const quotes = [
   'Either you run the day or the day runs you - Jim Rohn',
   'Opportunity is missed by most people because it is dressed in overalls and looks like work - Thomas Edison',
   'Don’t judge each day by the harvest you reap but by the seeds that you plant - Robert Louis Stevenson',
-  '“Whether you think you can, or you think you can’t – you’re right - Henry Ford',
+  'Whether you think you can, or you think you can’t – you’re right - Henry Ford',
+  'I am not a product of my circumstances. I am a product of my decisions.” — Stephen R. Covey',
+  'I’m a greater believer in luck, and I find the harder I work the more I have of it.” — Thomas Jefferson',
+  'Just one small positive thought in the morning can change your whole day.” — Dalai Lama',
 ];
 
 const generateQuote = () => {
