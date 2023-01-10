@@ -148,11 +148,6 @@ const pause = () => {
   audio.pause();
 };
 
-audio.addEventListener('stalled', () => {
-  audio.load();
-  playSong();
-});
-
 const prevSong = () => {
   if (isMusicPlaying.isClassical) {
     songIndex--;
