@@ -254,12 +254,13 @@ main {
   top: 8%; }
 
 .sidebar-window {
+  background-color: yellow;
   will-change: transform;
   transition-timing-function: linear;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 320ms; }
+  transition: min-width 340ms; }
 
 .sidebar-window-style {
   min-width: 36rem;
@@ -343,9 +344,9 @@ main {
     font-size: 2rem;
     padding: 0.9rem 14rem;
     cursor: pointer;
-    transition: background-color 0.3s ease-in;
     width: 100%;
-    text-align: center; }
+    text-align: center;
+    transition: background-color 0.3s ease-in; }
     .option-menu .option:hover {
       color: #29313a;
       border-radius: 6px;

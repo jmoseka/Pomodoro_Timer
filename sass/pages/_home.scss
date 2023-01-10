@@ -214,12 +214,13 @@ main {
 
 
 .sidebar-window {
+  background-color: yellow;
   will-change: transform;
   transition-timing-function: linear;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 320ms;
+  transition: min-width 340ms;
 }
 
 .sidebar-window-style {
@@ -327,9 +328,9 @@ main {
     font-size: 2rem;
     padding: 0.9rem 14rem;
     cursor: pointer;
-    transition: background-color 0.3s ease-in;
     width: 100%;
     text-align: center;
+    transition: background-color 0.3s ease-in;
 
     &:hover {
       color: $color-primary;
