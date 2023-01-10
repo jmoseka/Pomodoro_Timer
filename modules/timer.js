@@ -197,9 +197,9 @@ btnReset.addEventListener('click', () => {
   }
   if (!isLongBreak && !isShortBreak) {
     sec = originalTime;
+    generateQuote();
   }
   updateCounterHTML();
-  generateQuote();
 });
 
 export default pomoTimer;

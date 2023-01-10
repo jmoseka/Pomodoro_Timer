@@ -214,10 +214,12 @@ main {
 
 
 .sidebar-window {
+  will-change: transform;
+  transition-timing-function: linear;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 310ms linear;
+  transition: min-width 320ms;
 }
 
 .sidebar-window-style {
@@ -339,34 +341,27 @@ main {
 
 .footer {
   width: 100%;
-  padding: 1rem;
   position: absolute;
   bottom: 0;
   margin-top: 7rem;
-  display: flex;
-  gap: 2rem;
-  font-size: 1.5rem;
-  align-items: flex-end;
-  color: $color-secondary-light;
+  text-align: center;
 
-  p {
-    padding: .4rem;
-  }
+
 
   .footer-icons {
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     a {
-      color: $color-secondary-light;
+      color: $color-primary-light-2;
+
+      :hover {
+        color: $color-secondary;
+      }
     }
 
     .footer-icon {
-      margin-right: 0.5rem;
-    }
-
-    .footer-icon:hover {
-      color: $color-secondary;
+      margin-right: 1.4rem;
     }
   }
 }
@@ -465,22 +460,6 @@ main {
   }
 }
 
-@media (max-width: 346px) {
-  //  .timer__time {
-  //   font-size: calc(5.5rem + 5vw);
-  //  }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    justify-content: start;
-
-    .footer .footer-icons .footer-icon:first-child {
-      margin-left: 0;
-    }
-  }
-}
 
 @media (max-width: 260px) {
   body {

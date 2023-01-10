@@ -33,6 +33,10 @@ const isMusicPlaying = {
 
 const classicalMusic = [
   {
+    title: 'Foggy countryside',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Foggy-Countryside.mp3?raw=true',
+  },
+  {
     title: 'Prelude',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-prelude.mp3?raw=true',
   },
@@ -48,13 +52,26 @@ const classicalMusic = [
 
 const natureMusic = [
   {
+    title: 'Birds of elm',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/The-Birds-World-Elm-Lake.mp3?raw=true',
+  },
+  {
     title: 'Contemplate the stars',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/09-Meydan-Contemplate-the-stars.mp3?raw=true',
+  },
+  {
+    title: 'A gentle reminder',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/A-Gentle-Reminder.mp3?raw=true',
   },
 
   {
     title: 'Fly away',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Fly-Away-When-The-Fog-Settled-Down.mp3?raw=true',
+  },
+
+  {
+    title: 'Sonido Ambiente',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sonido-ambiente.mp3?raw=true',
   },
 
   {
@@ -65,25 +82,30 @@ const natureMusic = [
 
 const lofiMusic = [
   {
-    title: 'Coding night',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sleep-cat.mp3?raw=true',
-  },
-
-  {
     title: 'H.K trap',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/hk.mp3?raw=true',
   },
-
+  {
+    title: 'Jazy hiphop',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/jazzy-hiphop.mp3?raw=true',
+  },
+  {
+    title: 'Coding night',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/coding-night.mp3?raw=true',
+  },
+  {
+    title: 'The untitled',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/untitled.mp3?raw=true',
+  },
   {
     title: 'Lofi study',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/lofi-study.mp3?raw=true',
   },
 
   {
     title: 'Sleepy cat',
-    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sleepy-cat.mp3?raw=true',
   },
-
   {
     title: 'Chill',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
@@ -118,16 +140,6 @@ const playSong = () => {
   audio.addEventListener('loadedmetadata', () => {
     audio.play();
   });
-
-  // audio.playSong().catch((error) => {
-  //   console.log(error);
-  // });
-
-  // if (!isMusicPlaying.isClassical || !isMusicPlaying.isNature || !isMusicPlaying.isLofi) {
-  // const playPromise = audio.playSong();
-  // // if (playPromise !== null) {
-  // //   playPromise.catch(() => { });
-  // // }
 };
 
 const pause = () => {

@@ -222,7 +222,6 @@ main {
   border-radius: 6px; }
   .music-player-container #music-title {
     text-align: center;
-    font-weight: 300;
     font-size: 1.4rem;
     line-height: 1.5;
     font-style: italic;
@@ -255,10 +254,12 @@ main {
   top: 8%; }
 
 .sidebar-window {
+  will-change: transform;
+  transition-timing-function: linear;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 310ms linear; }
+  transition: min-width 320ms; }
 
 .sidebar-window-style {
   min-width: 36rem;
@@ -352,26 +353,19 @@ main {
 
 .footer {
   width: 100%;
-  padding: 1rem;
   position: absolute;
   bottom: 0;
   margin-top: 7rem;
-  display: flex;
-  gap: 2rem;
-  font-size: 1.5rem;
-  align-items: flex-end;
-  color: #e5e9e7; }
-  .footer p {
-    padding: .4rem; }
+  text-align: center; }
   .footer .footer-icons {
     cursor: pointer;
-    font-size: 1.6rem; }
+    font-size: 2rem; }
     .footer .footer-icons a {
-      color: #e5e9e7; }
+      color: #7c8085; }
+      .footer .footer-icons a :hover {
+        color: #8ee7a7; }
     .footer .footer-icons .footer-icon {
-      margin-right: 0.5rem; }
-    .footer .footer-icons .footer-icon:hover {
-      color: #8ee7a7; }
+      margin-right: 1.4rem; }
 
 .overlay-blur {
   z-index: 40;
@@ -432,15 +426,6 @@ main {
   .timer__controls .controls-icon {
     min-width: 1.5rem;
     min-height: 1.5rem; } }
-
-@media (max-width: 346px) {
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    justify-content: start; }
-    .footer .footer .footer-icons .footer-icon:first-child {
-      margin-left: 0; } }
 
 @media (max-width: 260px) {
   body {
