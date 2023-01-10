@@ -46,12 +46,13 @@ const updateTotalFocusTime = () => {
 
   totalFocusTime += originalTime;
   focusMinutes = parseInt(totalFocusTime / 60, 10);
-  focusHours = parseInt(totalFocusTime % 60, 10);
+  focusHours = parseInt(focusMinutes / 60, 10);
 
-  if (focusMinutes > 60) {
+  if (focusMinutes >= 60) {
+    focusMinutes = parseInt(focusMinutes % 60, 10);
     document.getElementById('total-time').innerHTML = `${focusHours}h ${focusMinutes}m`;
   } else {
-    document.getElementById('total-time').innerHTML = `${totalFocusTime}m`;
+    document.getElementById('total-time').innerHTML = `${focusMinutes}m`;
   }
 };
 
