@@ -65,6 +65,26 @@ const natureMusic = [
 
 const lofiMusic = [
   {
+    title: 'Coding night',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sleep-cat.mp3?raw=true',
+  },
+
+  {
+    title: 'H.K trap',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+  },
+
+  {
+    title: 'Lofi study',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+  },
+
+  {
+    title: 'Sleepy cat',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
+  },
+
+  {
     title: 'Chill',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
   },
@@ -91,14 +111,23 @@ function loadSong(song) {
   audio.src = song;
 }
 
-const play = () => {
+const playSong = () => {
   document.querySelector('.icon-play').classList.add('fa-pause');
   document.querySelector('.icon-play').classList.remove('fa-play');
+
+  audio.addEventListener('loadedmetadata', () => {
+    audio.play();
+  });
+
+  // audio.playSong().catch((error) => {
+  //   console.log(error);
+  // });
+
   // if (!isMusicPlaying.isClassical || !isMusicPlaying.isNature || !isMusicPlaying.isLofi) {
-  const playPromise = audio.play();
-  if (playPromise !== null) {
-    playPromise.catch(() => { });
-  }
+  // const playPromise = audio.playSong();
+  // // if (playPromise !== null) {
+  // //   playPromise.catch(() => { });
+  // // }
 };
 
 const pause = () => {
@@ -106,6 +135,11 @@ const pause = () => {
   document.querySelector('.icon-play').classList.remove('fa-pause');
   audio.pause();
 };
+
+audio.addEventListener('stalled', () => {
+  audio.load();
+  playSong();
+});
 
 const prevSong = () => {
   if (isMusicPlaying.isClassical) {
@@ -115,7 +149,7 @@ const prevSong = () => {
     }
 
     loadSong(classicalMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = classicalMusic[songIndex].title;
   }
 
@@ -126,7 +160,7 @@ const prevSong = () => {
     }
 
     loadSong(natureMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = natureMusic[songIndex].title;
   }
 
@@ -137,7 +171,7 @@ const prevSong = () => {
     }
 
     loadSong(lofiMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = lofiMusic[songIndex].title;
   }
 };
@@ -151,7 +185,7 @@ const nextSong = () => {
 
     loadSong(classicalMusic[songIndex].mp3);
     musicTitleEl.textContent = classicalMusic[songIndex].title;
-    play();
+    playSong();
   }
 
   if (isMusicPlaying.isNature) {
@@ -162,7 +196,7 @@ const nextSong = () => {
 
     loadSong(natureMusic[songIndex].mp3);
     musicTitleEl.textContent = natureMusic[songIndex].title;
-    play();
+    playSong();
   }
 
   if (isMusicPlaying.isLofi) {
@@ -173,7 +207,7 @@ const nextSong = () => {
 
     loadSong(lofiMusic[songIndex].mp3);
     musicTitleEl.textContent = lofiMusic[songIndex].title;
-    play();
+    playSong();
   }
 };
 
@@ -192,7 +226,7 @@ playBtn.addEventListener(('click'), () => {
     if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
       pause();
     } else {
-      play();
+      playSong();
     }
   }
 });
@@ -227,7 +261,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(classicalMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = classicalMusic[0].title;
           isMusicPlaying.isClassical = true;
         }
@@ -244,7 +278,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(natureMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = natureMusic[0].title;
           isMusicPlaying.isNature = true;
         }
@@ -261,7 +295,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(lofiMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = lofiMusic[0].title;
           isMusicPlaying.isLofi = true;
         }
