@@ -9,6 +9,7 @@ const progress = document.querySelector('.progress');
 
 let songIndex = 0;
 const noSong = 'No song selected';
+let currentSong = '';
 
 const cardList = [
   {
@@ -130,6 +131,7 @@ const stop = () => {
 };
 
 function loadSong(song) {
+  currentSong = song;
   audio.src = song;
 }
 
@@ -233,6 +235,7 @@ playBtn.addEventListener(('click'), () => {
     if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
       pause();
     } else {
+      audio.play();
       playSong();
     }
   }
