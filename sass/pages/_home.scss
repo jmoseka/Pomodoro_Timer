@@ -212,12 +212,13 @@ main {
   top: 8%;
 }
 
-
 .sidebar-window {
+  background-color: yellow;
+  will-change: transform;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 310ms linear;
+  transition: min-width 340ms linear;
 }
 
 .sidebar-window-style {
@@ -290,7 +291,6 @@ main {
   height: 6.2rem;
 }
 
-
 .timer__notice {
   margin: 0 auto;
   font-weight: 100;
@@ -303,7 +303,6 @@ main {
   padding: 0.9rem;
   color: #c7f3d3;
   background-color: rgba($color-primary-dark-1, 0.4%);
-
 
   #motivate-notice {
     color: $color-secondary-light;
@@ -325,9 +324,9 @@ main {
     font-size: 2rem;
     padding: 0.9rem 14rem;
     cursor: pointer;
-    transition: background-color 0.3s ease-in;
     width: 100%;
     text-align: center;
+    transition: background-color 0.3s ease-in;
 
     &:hover {
       color: $color-primary;
@@ -339,34 +338,26 @@ main {
 
 .footer {
   width: 100%;
-  padding: 1rem;
   position: absolute;
   bottom: 0;
   margin-top: 7rem;
-  display: flex;
-  gap: 2rem;
-  font-size: 1.5rem;
-  align-items: flex-end;
-  color: $color-secondary-light;
-
-  p {
-    padding: .4rem;
-  }
+  text-align: left;
+  padding-left: 1rem;
 
   .footer-icons {
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     a {
-      color: $color-secondary-light;
+      color: $color-primary-light-2;
+
+      :hover {
+        color: $color-secondary;
+      }
     }
 
     .footer-icon {
-      margin-right: 0.5rem;
-    }
-
-    .footer-icon:hover {
-      color: $color-secondary;
+      margin-right: 1.4rem;
     }
   }
 }
@@ -381,7 +372,6 @@ main {
 }
 
 @media (max-width: 830px) {
-
   .sidebar {
     width: 60%;
   }
@@ -462,23 +452,6 @@ main {
   .timer__controls .controls-icon {
     min-width: 1.5rem;
     min-height: 1.5rem;
-  }
-}
-
-@media (max-width: 346px) {
-  //  .timer__time {
-  //   font-size: calc(5.5rem + 5vw);
-  //  }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    justify-content: start;
-
-    .footer .footer-icons .footer-icon:first-child {
-      margin-left: 0;
-    }
   }
 }
 

@@ -33,6 +33,10 @@ const isMusicPlaying = {
 
 const classicalMusic = [
   {
+    title: 'Foggy countryside',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Foggy-Countryside.mp3?raw=true',
+  },
+  {
     title: 'Prelude',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-prelude.mp3?raw=true',
   },
@@ -48,13 +52,26 @@ const classicalMusic = [
 
 const natureMusic = [
   {
+    title: 'Birds of elm',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/The-Birds-World-Elm-Lake.mp3?raw=true',
+  },
+  {
     title: 'Contemplate the stars',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/09-Meydan-Contemplate-the-stars.mp3?raw=true',
+  },
+  {
+    title: 'A gentle reminder',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/A-Gentle-Reminder.mp3?raw=true',
   },
 
   {
     title: 'Fly away',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/Fly-Away-When-The-Fog-Settled-Down.mp3?raw=true',
+  },
+
+  {
+    title: 'Sonido Ambiente',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sonido-ambiente.mp3?raw=true',
   },
 
   {
@@ -64,6 +81,31 @@ const natureMusic = [
 ];
 
 const lofiMusic = [
+  {
+    title: 'H.K trap',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/hk.mp3?raw=true',
+  },
+  {
+    title: 'Jazy hiphop',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/jazzy-hiphop.mp3?raw=true',
+  },
+  {
+    title: 'Coding night',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/coding-night.mp3?raw=true',
+  },
+  {
+    title: 'The untitled',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/untitled.mp3?raw=true',
+  },
+  {
+    title: 'Lofi study',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/lofi-study.mp3?raw=true',
+  },
+
+  {
+    title: 'Sleepy cat',
+    mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/sleepy-cat.mp3?raw=true',
+  },
   {
     title: 'Chill',
     mp3: 'https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/chill.mp3?raw=true',
@@ -91,14 +133,13 @@ function loadSong(song) {
   audio.src = song;
 }
 
-const play = () => {
+const playSong = () => {
   document.querySelector('.icon-play').classList.add('fa-pause');
   document.querySelector('.icon-play').classList.remove('fa-play');
-  // if (!isMusicPlaying.isClassical || !isMusicPlaying.isNature || !isMusicPlaying.isLofi) {
-  const playPromise = audio.play();
-  if (playPromise !== null) {
-    playPromise.catch(() => { });
-  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    audio.play();
+  });
 };
 
 const pause = () => {
@@ -115,7 +156,7 @@ const prevSong = () => {
     }
 
     loadSong(classicalMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = classicalMusic[songIndex].title;
   }
 
@@ -126,7 +167,7 @@ const prevSong = () => {
     }
 
     loadSong(natureMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = natureMusic[songIndex].title;
   }
 
@@ -137,7 +178,7 @@ const prevSong = () => {
     }
 
     loadSong(lofiMusic[songIndex].mp3);
-    play();
+    playSong();
     musicTitleEl.textContent = lofiMusic[songIndex].title;
   }
 };
@@ -151,7 +192,7 @@ const nextSong = () => {
 
     loadSong(classicalMusic[songIndex].mp3);
     musicTitleEl.textContent = classicalMusic[songIndex].title;
-    play();
+    playSong();
   }
 
   if (isMusicPlaying.isNature) {
@@ -162,7 +203,7 @@ const nextSong = () => {
 
     loadSong(natureMusic[songIndex].mp3);
     musicTitleEl.textContent = natureMusic[songIndex].title;
-    play();
+    playSong();
   }
 
   if (isMusicPlaying.isLofi) {
@@ -173,7 +214,7 @@ const nextSong = () => {
 
     loadSong(lofiMusic[songIndex].mp3);
     musicTitleEl.textContent = lofiMusic[songIndex].title;
-    play();
+    playSong();
   }
 };
 
@@ -192,7 +233,8 @@ playBtn.addEventListener(('click'), () => {
     if (playBtn.querySelector('.icon-play').classList.contains('fa-pause')) {
       pause();
     } else {
-      play();
+      audio.play();
+      playSong();
     }
   }
 });
@@ -227,7 +269,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(classicalMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = classicalMusic[0].title;
           isMusicPlaying.isClassical = true;
         }
@@ -244,7 +286,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(natureMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = natureMusic[0].title;
           isMusicPlaying.isNature = true;
         }
@@ -261,7 +303,7 @@ const populateMusicCard = () => {
           musicTitleEl.textContent = noSong;
         } else {
           loadSong(lofiMusic[0].mp3);
-          play();
+          playSong();
           musicTitleEl.textContent = lofiMusic[0].title;
           isMusicPlaying.isLofi = true;
         }
