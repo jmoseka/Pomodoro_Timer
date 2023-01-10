@@ -212,15 +212,13 @@ main {
   top: 8%;
 }
 
-
 .sidebar-window {
   background-color: yellow;
   will-change: transform;
-  transition-timing-function: linear;
   min-width: 0;
   width: 0;
   z-index: 80;
-  transition: min-width 340ms;
+  transition: min-width 340ms linear;
 }
 
 .sidebar-window-style {
@@ -293,7 +291,6 @@ main {
   height: 6.2rem;
 }
 
-
 .timer__notice {
   margin: 0 auto;
   font-weight: 100;
@@ -306,7 +303,6 @@ main {
   padding: 0.9rem;
   color: #c7f3d3;
   background-color: rgba($color-primary-dark-1, 0.4%);
-
 
   #motivate-notice {
     color: $color-secondary-light;
@@ -345,9 +341,8 @@ main {
   position: absolute;
   bottom: 0;
   margin-top: 7rem;
-  text-align: center;
-
-
+  text-align: left;
+  padding-left: 1rem;
 
   .footer-icons {
     cursor: pointer;
@@ -377,7 +372,6 @@ main {
 }
 
 @media (max-width: 830px) {
-
   .sidebar {
     width: 60%;
   }
@@ -460,7 +454,6 @@ main {
     min-height: 1.5rem;
   }
 }
-
 
 @media (max-width: 260px) {
   body {
