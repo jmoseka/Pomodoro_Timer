@@ -43,6 +43,7 @@
 ```bash
 $ git clone https://github.com/jmoseka/Pomodoro_Timer.git
 $ cd Pomodoro_Timer
+$ npm install
 ```
 
 ### Open page in browser

@@ -48,8 +48,6 @@ const updateTotalFocusTime = () => {
   focusMinutes = parseInt(totalFocusTime / 60, 10);
   focusHours = parseInt(focusMinutes / 60, 10);
 
-  console.log(totalFocusTime, 'min', focusMinutes, 'hr', focusHours);
-
   if (focusMinutes >= 60) {
     focusMinutes = parseInt(focusMinutes % 60, 10);
     document.getElementById('total-time').innerHTML = `${focusHours}h ${focusMinutes}m`;
