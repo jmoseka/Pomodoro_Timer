@@ -1,6 +1,6 @@
 # Pomodoro Timer
 
- Pomodoro Timer is a web based application that allows users to improve their focus and productivity using the Pomodoro Technique. The technique involves a break down of time into intervals - a 25-minute work session, followed by a 5-minute break, and a 15-minute long break after three cycles to complete a full session of 1h and 40minutes.
+ Pomodoro Timer is a web based application that allows users to improve their focus and productivity using the Pomodoro Technique. The technique is a time management method that breaks down time into short intervals (traditionally 25-minute) separated by breaks. This helps you stay focused and accomplish more within the working intervals, avoid burn out and overall easy to manage your work. And to top it off, the web app includes uplifting messages to keep your motivation levels high!
 
 ### Benefits 
  It is a valuable tool for anyone looking to improve their time management and increase their productivity because it helps
