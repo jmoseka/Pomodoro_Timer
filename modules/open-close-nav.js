@@ -26,11 +26,11 @@ const showSidebar = () => {
     overlay.classList.remove('overlay-blur');
   }
 
-  // if (innerWidth < 600) {
-  //   sidebarWindow.style.transition = 'none';
-  // } else {
-  //   sidebarWindow.style.transition = 'min-width 340ms linear';
-  // }
+  if (innerWidth < 600) {
+    sidebarWindow.style.transition = 'none';
+  } else {
+    sidebarWindow.style.transition = 'min-width 340ms linear';
+  }
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.add('sidebar-window-style');
