@@ -20,7 +20,6 @@ window.addEventListener('resize', () => {
 });
 
 const showSidebar = () => {
-  // overlay.classList.remove('hidden');
   if (innerWidth < 830) {
     overlay.classList.add('overlay-blur');
   } else {
