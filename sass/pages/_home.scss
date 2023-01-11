@@ -33,7 +33,7 @@ main {
   height: 100vh;
   background: $color-primary-light-1;
   row-gap: 1rem;
-  transition: $transition-linear 80ms;
+  transition: $transition-linear;
   display: flex;
   flex-direction: column;
   z-index: 100;

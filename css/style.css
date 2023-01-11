@@ -118,7 +118,7 @@ main {
   height: 100vh;
   background: #3e464e;
   row-gap: 1rem;
-  transition: all 0.3s linear 80ms;
+  transition: all 0.3s linear;
   display: flex;
   flex-direction: column;
   z-index: 100;
