@@ -104,7 +104,7 @@ const updateCountDown = () => {
           updateEncouragingMsg();
           sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
 
-          intervals.interval1 = setInterval(updateCountDown, 2);
+          intervals.interval1 = setInterval(updateCountDown, 1000);
         }
       }
     }, 2);
@@ -162,7 +162,7 @@ const updateCountDown = () => {
 };
 
 const pomoTimer = () => {
-  intervals.interval1 = setInterval(updateCountDown, 2);
+  intervals.interval1 = setInterval(updateCountDown, 1000);
 };
 
 btnPlay.addEventListener('click', () => {
