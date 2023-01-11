@@ -27,7 +27,7 @@ const showSidebar = () => {
   }
 
   if (innerWidth < 600) {
-    sidebarWindow.style.transition = 'min-width 50ms linear';
+    sidebarWindow.style.transition = 'none';
   } else {
     sidebarWindow.style.transition = 'min-width 340ms linear';
   }
