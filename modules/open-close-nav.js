@@ -26,6 +26,12 @@ const showSidebar = () => {
   } else {
     overlay.classList.remove('overlay-blur');
   }
+
+  if (innerWidth < 600) {
+    sidebarWindow.style.transition = 'min-width 120ms linear';
+  } else {
+    sidebarWindow.style.transition = 'min-width 340ms linear';
+  }
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.add('sidebar-window-style');
