@@ -58,14 +58,13 @@ $ open index.html
 
 - GitHub: [@jmoseka](https://github.com/jmoseka)
 
-👤 **Ohachor Victor
 
-- GitHub: [@jmoseka](https://github.com/OVECJOE)
+## 🤝 Contribution
+👤 **Ohachor Victor**
 
+[@OVECJOE](https://github.com/OVECJOE) - Proposed and implemented a change to consolidate the play and pause buttons into a single button, which simplified the UI/UX and made it easier for users to start and pause the timer
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
+[feat: Adjusted the user experience of the play and pause button](https://github.com/jmoseka/Pomodoro_Timer/pull/9)
 
 ## Show your support
 
