@@ -58,6 +58,11 @@ $ open index.html
 
 - GitHub: [@jmoseka](https://github.com/jmoseka)
 
+👤 **Ohachor Victor
+
+- GitHub: [@jmoseka](https://github.com/OVECJOE)
+
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
