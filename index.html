@@ -1,172 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Pomodoro Timer</title>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <main>
-        <div class="sidebar-container">
-            <aside class="sidebar">
-                <button class="close-sidebar" id="close-sidebar">
-                    <i class="fa-solid fa-xmark close-icon"></i>
-                </button>
+      <div class="sidebar-container">
+        <aside class="sidebar">
+          <button class="close-sidebar" id="close-sidebar" type="button">
+            <i class="fa-solid fa-xmark close-icon"></i>
+          </button>
 
-                <div class="stats-container sidebar-container hidden">
-                    <h2 class="sidebar-title">Your stats</h2>
+          <div class="stats-container sidebar-container hidden">
+            <h2 class="sidebar-title">Your stats</h2>
 
-                    <div class="stats">
-                        <div class="stats__total">
-                            <p>Total focus time</p>
-                            <span class="stats__total-time" id="total-time">Complete a session to start counting</span>
-                        </div>
+            <div class="stats">
+              <div class="stats__total">
+                <p>Total focus time</p>
+                <span class="stats__total-time" id="total-time"
+                  >Complete a session to start counting</span
+                >
+              </div>
 
-                        <div class="stats__total">
-                            <p>Total sessions completed</p>
-                            <span id="total-session">0</span>
-                        </div>
+              <div class="stats__total">
+                <p>Total sessions completed</p>
+                <span id="total-session">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-music-container sidebar-container hidden">
+            <h2 class="sidebar-title">Background music</h2>
+
+            <div class="bg-music">
+              <div class="music-container">
+                <div class="music-player-container">
+                  <h4 id="music-title">No song selected</h4>
+                  <div class="progress-container">
+                    <div class="progress"></div>
+                  </div>
+
+                  <div class="bg-music-nav">
+                    <audio
+                      src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true"
+                      id="audio"
+                    ></audio>
+
+                    <div>
+                      <button type="button" id="prev-music" class="bg-music__btn">
+                        <i class="fa-solid fa-backward music-ctrl-icon"></i>
+                      </button>
+
+                      <button type="button" id="next-music" class="bg-music__btn">
+                        <i class="fa-solid fa-forward music-ctrl-icon"></i>
+                      </button>
                     </div>
+                    <button
+                      id="play-music"
+                      class="bg-music__btn action-btn-big"
+                      type="button"
+                    >
+                      <i class="icon-play fa-solid fa-play music-ctrl-icon"></i>
+                    </button>
+                  </div>
                 </div>
 
-                <div class="bg-music-container sidebar-container hidden">
-                    <h2 class="sidebar-title">Background music</h2>
-
-                    <div class="bg-music">
-
-                        <div class="music-container">
-
-                            <div class="music-player-container">
-                                <h4 id="music-title">No song selected</h4>
-                                <div class="progress-container">
-                                    <div class="progress"></div>
-                                </div>
-
-                                <div class="bg-music-nav">
-                                    <audio
-                                        src="https://github.com/jmoseka/Pomodoro_Timer/blob/feature-music/music/classical-andate.mp3?raw=true"
-                                        id="audio"></audio>
-
-
-                                    <div>
-                                        <button id="prev-music" class="bg-music__btn">
-                                            <i class="fa-solid fa-backward music-ctrl-icon"></i>
-                                        </button>
-
-                                        <button id="next-music" class="bg-music__btn">
-                                            <i class="fa-solid fa-forward music-ctrl-icon"></i>
-                                        </button>
-
-
-                                    </div>
-                                    <button id="play-music" class="bg-music__btn action-btn-big">
-                                        <i class="icon-play fa-solid fa-play music-ctrl-icon"></i>
-                                    </button>
-
-
-                                </div>
-                            </div>
-
-                            <ul class="bg-music-list">
-                                <!-- populated dynamically -->
-                            </ul>
-                        </div>
-
-
-
-                    </div>
-                    <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
+                <ul class="bg-music-list">
+                  <!-- populated dynamically -->
+                </ul>
+              </div>
+            </div>
+            <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
      does not produce sound -->
+          </div>
+        </aside>
+      </div>
 
-                </div>
-            </aside>
-        </div>
+      <audio src="" id="alarm-ring"></audio>
 
-        <audio src="" id="alarm-ring"></audio>
+      <div class="hero-container">
+        <div class="sidebar-window">&nbsp;</div>
 
-        <div class="hero-container">
+        <section class="hero-section">
+          <div class="overlay"></div>
 
-            <div class="sidebar-window">
-                &nbsp;
+          <div class="content-container">
+            <div class="timer-notice-container">
+              <div class="timer__notice">
+                <p id="motivate-notice"></p>
+                <p>
+                  <span class="session__count" id="session-count"
+                    >Let's focus</span
+                  >
+                </p>
+              </div>
             </div>
 
-            <section class="hero-section">
-                <div class="overlay"></div>
-
-                <div class="content-container">
-                    <div class="timer-notice-container">
-                        <div class="timer__notice">
-                            <p id="motivate-notice"></p>
-                            <p>
-                                <span class="session__count" id="session-count">Let's focus</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- <h1 class="heading">Pomodoro Timer</h1> -->
-                    <div class="timer">
-
-
-                        <div class="timer-content">
-                            <div class="display-1 timer__time">
-                                <p id="time">25:00</p>
-                            </div>
-
-
-                            <div class="timer__controls">
-                                <ion-icon class="controls-icon control-bg" id="pause" name="pause"></ion-icon>
-                                <ion-icon class="controls-icon control-bg" id="play" name="play"></ion-icon>
-                                <ion-icon class="controls-icon control-bg" id="reset" name="refresh"></ion-icon>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="option-menu">
-                        <div class="option" id="music-option">
-                            <ion-icon class="option-icon" name="musical-notes-outline"></ion-icon>
-                        </div>
-                        <div class="option" id="stat-option">
-                            <ion-icon class="option-icon" id="stat-option" name="stats-chart-outline"></ion-icon>
-                        </div>
-                    </div>
-
+            <!-- <h1 class="heading">Pomodoro Timer</h1> -->
+            <div class="timer">
+              <div class="timer-content">
+                <div class="display-1 timer__time">
+                  <p id="time">25:00</p>
                 </div>
-            </section>
-        </div>
 
-
-        <div class="footer">
-            <div class="footer-icons">
-                <a href="https://github.com/jmoseka/Pomodoro_Timer" target="_blank"><ion-icon name="logo-github"
-                        class="footer-icon"></ion-icon></a>
-                <a href="https://twitter.com/milamoseka" target="_blank"><ion-icon name="logo-twitter"
-                        class="footer-icon"></ion-icon></a>
-                <a href="https://www.linkedin.com/in/jamila-moseka/" target="_blank"><ion-icon name="logo-linkedin"
-                        class="footer-icon"></ion-icon></a>
+                <div class="timer__controls">
+                  <ion-icon
+                    class="controls-icon control-bg hidden"
+                    id="pause"
+                    name="pause"
+                  ></ion-icon>
+                  <ion-icon
+                    class="controls-icon control-bg"
+                    id="play"
+                    name="play"
+                  ></ion-icon>
+                  <ion-icon
+                    class="controls-icon control-bg"
+                    id="reset"
+                    name="refresh"
+                  ></ion-icon>
+                </div>
+              </div>
             </div>
+
+            <div class="option-menu">
+              <div class="option" id="music-option">
+                <ion-icon
+                  class="option-icon"
+                  name="musical-notes-outline"
+                ></ion-icon>
+              </div>
+              <div class="option" id="stat-option">
+                <ion-icon
+                  class="option-icon"
+                  id="stat-option"
+                  name="stats-chart-outline"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer">
+        <div class="footer-icons">
+          <a href="https://github.com/jmoseka/Pomodoro_Timer" target="_blank" rel="noopener"
+            ><ion-icon name="logo-github" class="footer-icon"></ion-icon
+          ></a>
+          <a href="https://twitter.com/milamoseka" target="_blank" rel="noopener"
+            ><ion-icon name="logo-twitter" class="footer-icon"></ion-icon
+          ></a>
+          <a href="https://www.linkedin.com/in/jamila-moseka/" target="_blank" rel="noopener"
+            ><ion-icon name="logo-linkedin" class="footer-icon"></ion-icon
+          ></a>
         </div>
+      </div>
     </main>
 
-
     <script type="module" src="index.js"></script>
-    <script src="https://kit.fontawesome.com/1cd527edf2.js" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://kit.fontawesome.com/1cd527edf2.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
