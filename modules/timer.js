@@ -1,7 +1,10 @@
 /* eslint-disable no-plusplus */
 
 import {
-  updateShortBreakMsg, updateEncouragingMsg, updateLongBreakMsg, removeEncouragingMsg,
+  updateShortBreakMsg,
+  updateEncouragingMsg,
+  updateLongBreakMsg,
+  removeEncouragingMsg,
   generateQuote,
 } from './notifyMsg.js';
 
@@ -50,7 +53,9 @@ const updateTotalFocusTime = () => {
 
   if (focusMinutes >= 60) {
     focusMinutes = parseInt(focusMinutes % 60, 10);
-    document.getElementById('total-time').innerHTML = `${focusHours}h ${focusMinutes}m`;
+    document.getElementById(
+      'total-time',
+    ).innerHTML = `${focusHours}h ${focusMinutes}m`;
   } else {
     document.getElementById('total-time').innerHTML = `${focusMinutes}m`;
   }
@@ -63,7 +68,7 @@ const updateTotalSessionCount = () => {
 };
 
 const updateSessionCount = () => {
-// update the number of sessions in DOM
+  // update the number of sessions in DOM
   sessionCount++;
   sessionCountEl.innerHTML = `${sessionCount} / 4 sessions completed`;
 };
@@ -166,21 +171,26 @@ const pomoTimer = () => {
 };
 
 btnPlay.addEventListener('click', () => {
-  btnPlay.classList.add('active-state');
-  btnPause.classList.remove('active-state');
-  btnReset.classList.remove('active-state');
+  btnPlay.classList.add('hidden');
+  btnPause.classList.remove('hidden');
+  btnPause.classList.add('active-state');
 
   isPaused = false;
+
   if (!quotePresent) {
     generateQuote();
   }
+
+  // remove the active-state class from the reset button
+  btnReset.classList.remove('active-state');
+
   quotePresent = true;
 });
 
 btnPause.addEventListener('click', () => {
-  btnPause.classList.add('active-state');
-  btnPlay.classList.remove('active-state');
-  btnReset.classList.remove('active-state');
+  btnPause.classList.remove('active-state');
+  btnPause.classList.add('hidden');
+  btnPlay.classList.remove('hidden');
 
   isPaused = true;
 });
@@ -200,6 +210,12 @@ btnReset.addEventListener('click', () => {
     sec = originalTime;
     generateQuote();
   }
+
+  // pause the timer
+  if (!isPaused) {
+    btnPause.click();
+  }
+
   updateCounterHTML();
 });
 
