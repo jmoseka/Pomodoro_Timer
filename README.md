@@ -58,13 +58,16 @@ $ open index.html
 
 - GitHub: [@jmoseka](https://github.com/jmoseka)
 
-
 ## 🤝 Contribution
 👤 **Ohachor Victor**
 
-[@OVECJOE](https://github.com/OVECJOE) - Proposed and implemented a change to consolidate the play and pause buttons into a single button, which simplified the UI/UX and made it easier for users to start and pause the timer
+[@OVECJOE](https://github.com/OVECJOE) 
+- Proposed and implemented a change to consolidate the play and pause buttons into a single button, which simplified the UI/UX and made it easier for users to start and pause the timer
 
 [feat: Adjusted the user experience of the play and pause button](https://github.com/jmoseka/Pomodoro_Timer/pull/9)
+- Convert Pomodoro_Timer into a Progressive Web App (PWA), enabling users to install it on their devices and use it offline providing a more seamless and user-friendly experience.
+
+[feat: Make Pomodoro Timer a PWA](https://github.com/jmoseka/Pomodoro_Timer/pull/10)
 
 ## Show your support
 
