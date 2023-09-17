@@ -72,3 +72,8 @@
   background-image: linear-gradient(to right top, #29313a, #263c47, #1d4751, #145356, #175e56);
   background-image: linear-gradient(to right top, #29313a, #315b6a, #2e8990, #4bb9a4, #8ee7a7);
 }
+
+.disable-pointer-events {
+  pointer-events: none !important;
+  overflow-y: hidden !important;
+}
