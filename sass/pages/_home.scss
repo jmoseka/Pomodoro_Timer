@@ -13,8 +13,7 @@ main {
   width: 100%;
   height: 100vh;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .pomo-logo {
@@ -26,7 +25,7 @@ main {
 
 .sidebar {
   position: absolute;
-  overflow-y: visible;
+  overflow-y: auto;
   top: 0;
   left: 0;
   width: $width;
@@ -38,6 +37,36 @@ main {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
+
+  .pwa-install-container {
+    position: sticky;
+    bottom: 0.5rem;
+    display: flex;
+    margin-top: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &.hidden {
+      display: none;
+    }
+
+    .btn {
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      outline: none;
+      background-color: $color-primary-dark;
+      color: $color-secondary-light;
+
+      &:hover {
+        background-color: $color-secondary;
+        color: $color-primary;
+      }
+    }
+  }
 }
 
 .close-sidebar {
@@ -203,13 +232,21 @@ main {
   background-color: $color-secondary;
 }
 
-.hero-container {
-  display: flex;
-  backface-visibility: hidden;
-  height: 75%;
-  width: 100%;
+.hero-container-parent {
+  overflow-y: auto;
+  overflow-x: hidden;
   position: absolute;
-  top: 8%;
+  width: 100%;
+  inset: 0;
+  backface-visibility: hidden;
+
+  .hero-container {
+    display: flex;
+    height: 75%;
+    width: 100%;
+    top: 8%;
+    position: absolute;
+  }
 }
 
 .sidebar-window {
@@ -234,6 +271,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   color: $color-secondary-light;
@@ -321,7 +359,7 @@ main {
 
   .option {
     font-size: 2rem;
-    padding: 0.9rem 14rem;
+    padding: 0.9rem calc(10rem + 4vmin);
     cursor: pointer;
     width: 100%;
     text-align: center;
@@ -337,7 +375,7 @@ main {
 
 .footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   margin-top: 7rem;
   text-align: left;
@@ -365,7 +403,7 @@ main {
   z-index: 40;
   position: absolute;
   width: 110%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba($color-primary, 0.8);
   backdrop-filter: blur(8px);
 }

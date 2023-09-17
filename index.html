@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+<html lang="en" dir="auto">
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pomodoro Timer is a productivity app that helps you stay focused on your tasks by timing your work and break sessions.">
+    <meta name="theme-color" content="#29313a">
+
+    <link rel="icon" href="images/pomo-logo.png" type="image/png"> 
+    <link rel="apple-touch-icon" href="images/pomo-logo.png" type="image/png">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title>Pomodoro Timer</title>
 
     <script
@@ -101,73 +98,82 @@
             <!-- this code <audio src="https://www.youtube.com/watch?v=VIDEO_ID" controls></audio>
      does not produce sound -->
           </div>
+          <!-- PWA install button, hidden by default -->
+          <div class="pwa-install-container hidden">
+            <button class="btn" type="button">
+              <ion-icon name="cloud-download" aria-hidden="true"></ion-icon>
+              <span>Install</span>
+            </button>
+          </div>
         </aside>
       </div>
 
       <audio src="" id="alarm-ring"></audio>
 
-      <div class="hero-container">
-        <div class="sidebar-window">&nbsp;</div>
-
-        <section class="hero-section">
-          <div class="overlay"></div>
-
-          <div class="content-container">
-            <div class="timer-notice-container">
-              <div class="timer__notice">
-                <p id="motivate-notice"></p>
-                <p>
-                  <span class="session__count" id="session-count"
-                    >Let's focus</span
-                  >
-                </p>
-              </div>
-            </div>
-
-            <!-- <h1 class="heading">Pomodoro Timer</h1> -->
-            <div class="timer">
-              <div class="timer-content">
-                <div class="display-1 timer__time">
-                  <p id="time">25:00</p>
-                </div>
-
-                <div class="timer__controls">
-                  <ion-icon
-                    class="controls-icon control-bg hidden"
-                    id="pause"
-                    name="pause"
-                  ></ion-icon>
-                  <ion-icon
-                    class="controls-icon control-bg"
-                    id="play"
-                    name="play"
-                  ></ion-icon>
-                  <ion-icon
-                    class="controls-icon control-bg"
-                    id="reset"
-                    name="refresh"
-                  ></ion-icon>
+      <div class="hero-container-parent">
+        <div class="hero-container">
+          <div class="sidebar-window">&nbsp;</div>
+  
+          <section class="hero-section">
+            <div class="overlay"></div>
+  
+            <div class="content-container">
+              <div class="timer-notice-container">
+                <div class="timer__notice">
+                  <p id="motivate-notice"></p>
+                  <p>
+                    <span class="session__count" id="session-count"
+                      >Let's focus</span
+                    >
+                  </p>
                 </div>
               </div>
-            </div>
-
-            <div class="option-menu">
-              <div class="option" id="music-option">
-                <ion-icon
-                  class="option-icon"
-                  name="musical-notes-outline"
-                ></ion-icon>
+  
+              <!-- <h1 class="heading">Pomodoro Timer</h1> -->
+              <div class="timer">
+                <div class="timer-content">
+                  <div class="display-1 timer__time">
+                    <p id="time">25:00</p>
+                  </div>
+  
+                  <div class="timer__controls">
+                    <ion-icon
+                      class="controls-icon control-bg hidden"
+                      id="pause"
+                      name="pause"
+                    ></ion-icon>
+                    <ion-icon
+                      class="controls-icon control-bg"
+                      id="play"
+                      name="play"
+                    ></ion-icon>
+                    <ion-icon
+                      class="controls-icon control-bg"
+                      id="reset"
+                      name="refresh"
+                    ></ion-icon>
+                  </div>
+                </div>
               </div>
-              <div class="option" id="stat-option">
-                <ion-icon
-                  class="option-icon"
-                  id="stat-option"
-                  name="stats-chart-outline"
-                ></ion-icon>
+  
+              <div class="option-menu">
+                <div class="option" id="music-option">
+                  <ion-icon
+                    class="option-icon"
+                    name="musical-notes-outline"
+                  ></ion-icon>
+                </div>
+                <div class="option" id="stat-option">
+                  <ion-icon
+                    class="option-icon"
+                    id="stat-option"
+                    name="stats-chart-outline"
+                  ></ion-icon>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
 
       <div class="footer">

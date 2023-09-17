@@ -1,6 +1,9 @@
+import handlePWAInstall from './pwa-install.js';
+
 const sidebarWindow = document.querySelector('.sidebar-window');
 const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
+const heroContainerParent = document.querySelector('.hero-container-parent');
 const overlay = document.querySelector('.overlay');
 
 let innerWidth = 0;
@@ -8,6 +11,7 @@ innerWidth = window.innerWidth;
 
 window.addEventListener('resize', () => {
   innerWidth = window.innerWidth;
+
   if (sidebar.classList.contains('show-sidebar')) {
     if (innerWidth < 830) {
       overlay.classList.add('overlay-blur');
@@ -16,12 +20,15 @@ window.addEventListener('resize', () => {
     }
   } else {
     overlay.classList.remove('overlay-blur');
+    heroContainerParent.classList.remove('disable-pointer-events');
   }
 });
 
 const showSidebar = () => {
   if (innerWidth < 830) {
     overlay.classList.add('overlay-blur');
+    // Disable pointer events on hero container parent
+    heroContainerParent.classList.add('disable-pointer-events');
   } else {
     overlay.classList.remove('overlay-blur');
   }
@@ -34,6 +41,8 @@ const showSidebar = () => {
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.add('sidebar-window-style');
+
+  handlePWAInstall();
 };
 
 const openCloseNav = () => {
@@ -44,9 +53,6 @@ const openCloseNav = () => {
   const bgMusicContainer = document.querySelector('.bg-music-container');
 
   closeSidebarBtn.addEventListener('click', () => {
-    // if (overlay.classList.contains('hidden')) {
-    //   overlay.classList.add('hidden');
-    // }
     overlay.classList.remove('overlay-blur');
     heroContainer.classList.add('hidden');
     sidebarWindow.classList.remove('sidebar-window-style');
@@ -54,6 +60,9 @@ const openCloseNav = () => {
 
     musicOption.classList.remove('stat-option-active');
     statOption.classList.remove('stat-option-active');
+
+    // Enable pointer events on hero container parent
+    heroContainerParent.classList.remove('disable-pointer-events');
   });
 
   musicOption.addEventListener('click', () => {
