@@ -6,6 +6,10 @@
   "start_url": "/",
   "name": "Pomodoro Timer V1",
   "short_name": "PTimer",
+  "categories": [
+      "productivity",
+      "tools"
+  ],
   "description": "Pomodoro Timer is an open source project that implements the Pomodoro Technique. It is a productivity tool that helps you to stay focused on a task by breaking down work into intervals, traditionally 25 minutes in length, separated by short breaks.",
   "icons": [
       {

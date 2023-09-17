@@ -38,6 +38,36 @@ main {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
+
+  .pwa-install-container {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &.hidden {
+      display: none;
+    }
+
+    .btn {
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: none;
+      outline: none;
+      background-color: $color-primary-dark;
+      color: $color-secondary-light;
+
+      &:hover {
+        background-color: $color-secondary;
+        color: $color-primary;
+      }
+    }
+  }
 }
 
 .close-sidebar {

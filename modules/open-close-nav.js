@@ -1,3 +1,5 @@
+import handlePWAInstall from './pwa-install.js';
+
 const sidebarWindow = document.querySelector('.sidebar-window');
 const sidebar = document.querySelector('.sidebar');
 const heroContainer = document.querySelector('.hero-container');
@@ -34,6 +36,8 @@ const showSidebar = () => {
   heroContainer.classList.remove('hidden');
   sidebar.classList.add('show-sidebar');
   sidebarWindow.classList.add('sidebar-window-style');
+
+  handlePWAInstall();
 };
 
 const openCloseNav = () => {

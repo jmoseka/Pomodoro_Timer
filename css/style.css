@@ -157,6 +157,36 @@ main {
   transform: translate(-100%);
 }
 
+.sidebar .pwa-install-container {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar .pwa-install-container.hidden {
+  display: none;
+}
+
+.sidebar .pwa-install-container .btn {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+  outline: none;
+  background-color: #252c34;
+  color: #e5e9e7;
+}
+
+.sidebar .pwa-install-container .btn:hover {
+  background-color: #8ee7a7;
+  color: #29313a;
+}
+
 .close-sidebar {
   margin: 3rem 3rem 0 0;
   align-self: flex-end;
