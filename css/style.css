@@ -128,8 +128,6 @@ main {
   transform: translate(-100%);
   padding-bottom: 1rem; }
   .sidebar .pwa-install-container {
-    position: sticky;
-    bottom: 0.5rem;
     display: flex;
     margin-top: auto;
     flex-direction: column;
