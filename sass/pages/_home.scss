@@ -1,7 +1,6 @@
-
 body {
   background-color: $color-primary;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,6 +36,7 @@ main {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
+  padding-bottom: 1rem;
 
   .pwa-install-container {
     position: sticky;
