@@ -22,6 +22,10 @@ main {
   left: 3%;
 }
 
+.sidebar-container {
+  padding-bottom: 1rem;
+}
+
 .sidebar {
   position: absolute;
   overflow-y: auto;
@@ -36,21 +40,14 @@ main {
   flex-direction: column;
   z-index: 100;
   transform: translate(-100%);
-  padding-bottom: 1rem;
 
   .pwa-install-container {
-    position: sticky;
-    bottom: 0.5rem;
     display: flex;
     margin-top: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-
-    &.hidden {
-      display: none;
-    }
 
     .btn {
       font-size: 1.8rem;
@@ -70,7 +67,7 @@ main {
 }
 
 .close-sidebar {
-  margin: 3rem 3rem 0 0;
+  margin: 2rem 3rem 0 0;
   align-self: flex-end;
   background-color: transparent;
   font-size: 2.5rem;
