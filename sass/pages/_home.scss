@@ -1,7 +1,6 @@
-
 body {
   background-color: $color-primary;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,18 +38,17 @@ main {
   transform: translate(-100%);
 
   .pwa-install-container {
-    position: sticky;
-    bottom: 0.5rem;
     display: flex;
     margin-top: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+    position: relative;
 
-    &.hidden {
-      display: none;
-    }
+    // &.hidden {
+    //   display: none;
+    // }
 
     .btn {
       font-size: 1.8rem;
@@ -70,7 +68,7 @@ main {
 }
 
 .close-sidebar {
-  margin: 3rem 3rem 0 0;
+  margin: 1.6rem 3rem 0 0;
   align-self: flex-end;
   background-color: transparent;
   font-size: 2.5rem;
