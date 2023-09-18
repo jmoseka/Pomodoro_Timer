@@ -112,6 +112,9 @@ main {
   top: 0;
   left: 3%; }
 
+.sidebar-container {
+  padding-bottom: 1rem; }
+
 .sidebar {
   position: absolute;
   overflow-y: auto;
@@ -125,8 +128,7 @@ main {
   display: flex;
   flex-direction: column;
   z-index: 100;
-  transform: translate(-100%);
-  padding-bottom: 1rem; }
+  transform: translate(-100%); }
   .sidebar .pwa-install-container {
     display: flex;
     margin-top: auto;
@@ -134,8 +136,6 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%; }
-    .sidebar .pwa-install-container.hidden {
-      display: none; }
     .sidebar .pwa-install-container .btn {
       font-size: 1.8rem;
       display: flex;
@@ -149,7 +149,7 @@ main {
         color: #29313a; }
 
 .close-sidebar {
-  margin: 3rem 3rem 0 0;
+  margin: 2rem 3rem 0 0;
   align-self: flex-end;
   background-color: transparent;
   font-size: 2.5rem;
